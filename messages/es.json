@@ -1,0 +1,46 @@
+{
+  "Metadata": {
+    "title": "Equitty - Invierte en Activos Reales",
+    "description": "Plataforma revolucionaria para invertir en activos reales con transparencia y seguridad.",
+    "keywords": "inversión, activos reales, fintech, equitty, invertir, activos, finanzas"
+  },
+  "HomePage": {
+    "badge": "PRÓXIMAMENTE",
+    "hero_title": "La plataforma",
+    "hero_title_mid": "de inversión para",
+    "hero_title_highlight": "Activos",
+    "hero_title_end": "Reales",
+    "headline": "La plataforma global de inversión\nen activos reales",
+    "subhead": "Sé de los primeros en conocer la herramienta que convierte proyectos en inversiones simples, transparentes y accesibles.",
+    "Form": {
+      "emailPlaceholder": "Correo Electrónico",
+      "nationalityPlaceholder": "Nacionalidad",
+      "button": "Únete a la lista de espera",
+      "microcopy": "Recibe actualizaciones del lanzamiento. Puedes darte de baja cuando quieras.",
+      "Validation": {
+        "emailRequired": "La dirección de correo es obligatoria",
+        "emailInvalid": "Por favor, introduce una dirección de correo válida",
+        "nationalityRequired": "La nacionalidad es obligatoria"
+      },
+      "Errors": {
+        "waitlistError": "Hubo un error al unirte a la lista de espera. Por favor, inténtalo de nuevo más tarde.",
+        "emailAlreadyExists": {
+          "title": "¡Ya estás en la lista de espera!",
+          "message": "Gracias por unirte a la lista de espera de Equitty. Te mantendremos informado sobre nuestro lanzamiento y desarrollos emocionantes."
+        }
+      },
+      "SuccessDialog": {
+        "title": "¡Estás en la lista de espera!",
+        "message": "Gracias por unirte a la lista de espera de Equitty. Te mantendremos informado sobre nuestro lanzamiento y desarrollos emocionantes."
+      }
+    },
+    "Footer": {
+      "footerDisclaimer": "Unirte a la lista no es una oferta de inversión. Invertir implica riesgo, incluida la pérdida del capital.",
+      "privacy": "Privacidad",
+      "terms": "Términos"
+    },
+    "Dialog": {
+      "confirmButton": "Confirmar"
+    }
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "Metadata": {
+    "title": "Equitty - Invest in Real-World Assets",
+    "description": "Revolutionary platform for investing in real-world assets with transparency and security.",
+    "keywords": "investment, real-world assets, fintech, equitty, investing, assets, finance"
+  },
+  "HomePage": {
+    "badge": "COMING SOON",
+    "hero_title": "The investment",
+    "hero_title_mid": "platform for",
+    "hero_title_highlight": "Real-World",
+    "hero_title_end": "Assets",
+    "headline": "The investment platform\nfor real-world assets",
+    "subhead": "Be one of the first to see the tool that turns real assets into simple, transparent, accessible investments.",
+    "Form": {
+      "emailPlaceholder": "Email Address",
+      "nationalityPlaceholder": "Nationality",
+      "button": "Join the waitlist",
+      "microcopy": "Get launch updates. Unsubscribe anytime.",
+      "Validation": {
+        "emailRequired": "Email address is required",
+        "emailInvalid": "Please enter a valid email address",
+        "nationalityRequired": "Nationality is required"
+      },
+      "Errors": {
+        "waitlistError": "There was an error joining the waitlist. Please try again later.",
+        "emailAlreadyExists": {
+          "title": "You're already on the waitlist!",
+          "message": "Thank you for joining the Equitty waitlist. We'll keep you updated on our launch and exciting developments."
+        }
+      },
+      "SuccessDialog": {
+        "title": "You're on the waitlist!",
+        "message": "Thank you for joining the Equitty waitlist. We'll keep you updated on our launch and exciting developments."
+      }
+    },
+    "Footer": {
+      "footerDisclaimer": "Joining the waitlist is not an offer to sell or a solicitation to buy investments. Investing involves risk, including loss of principal.",
+      "privacy": "Privacy",
+      "terms": "Terms"
+    },
+    "Dialog": {
+      "confirmButton": "Confirm"
+    }
+  }
+}
