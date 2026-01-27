@@ -109,12 +109,12 @@ export default function WaitlistForm() {
                   <div className="relative">
                     <select
                       {...field}
-                      className={`${fieldBase} appearance-none pr-12`}
+                      className={`${fieldBase} appearance-none pr-12 font-light`}
                       aria-label="Nationality"
                       aria-describedby="nationality-error"
                       required
                     >
-                      <option value="" disabled className="text-white/60 bg-[#050A14]">
+                      <option value="" disabled className="text-white/60 bg-[#050A14] font-light">
                         {tForm('nationalityPlaceholder')}
                       </option>
 
@@ -122,7 +122,7 @@ export default function WaitlistForm() {
                         <option
                           key={country.code}
                           value={country.code}
-                          className="bg-[#050A14] text-white"
+                          className="bg-[#050A14] text-white font-light"
                         >
                           {locale === 'es' ? country.nameEs : country.name}
                         </option>
@@ -161,7 +161,7 @@ export default function WaitlistForm() {
                     {...field}
                     type="email"
                     placeholder={tForm('emailPlaceholder')}
-                    className={`${fieldBase} placeholder:text-white/45`}
+                    className={`${fieldBase} placeholder:text-white/45 font-light`}
                     aria-label="Email address"
                     aria-describedby="email-error"
                     autoComplete="email"
@@ -186,7 +186,7 @@ export default function WaitlistForm() {
           </Button>
 
           {/* DISCLAIMER */}
-          <div className="pt-2 text-center">
+          <div className="mt-4 border-t border-white/5 pt-4 text-center">
             <p className="text-[11px] leading-snug text-white/45">
               {locale === 'es'
                 ? 'Unirse a la lista no es una oferta de venta. Invertir implica riesgo. Revisa nuestra '

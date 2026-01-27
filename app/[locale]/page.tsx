@@ -51,7 +51,7 @@ export default function Home() {
               </span>
             </div>
 
-            <h1 className="font-display text-4xl md:text-6xl font-bold leading-[1.05]">
+            <h1 className="font-display text-4xl md:text-6xl leading-[1.05]">
               <span className="block text-white">{t('hero_title')}</span>
               <span className="block text-white">{t('hero_title_mid')}</span>
 
@@ -75,11 +75,6 @@ export default function Home() {
               {/* Mantienes el form existente (ya inserta en DB) */}
               <WaitlistForm />
 
-              <div className="mt-6 border-t border-white/5 pt-4 text-center">
-                <p className="text-[10px] leading-tight text-gray-500">
-                  Joining the waitlist is not an offer to sell. Investing involves risk, including loss of principal.
-                </p>
-              </div>
             </div>
           </div>
         </div>
