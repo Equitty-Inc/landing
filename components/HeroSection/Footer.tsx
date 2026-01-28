@@ -68,7 +68,7 @@ export default function Footer() {
           </svg>
         </a>
       </div>
-      <p>{t('footerDisclaimer')}</p>
+      <p className="text-white/45">{t('footerDisclaimer')}</p>
     </div>
   );
 }

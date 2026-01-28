@@ -186,7 +186,7 @@ export default function WaitlistForm() {
           </Button>
 
           {/* DISCLAIMER */}
-          <div className="mt-4 border-t border-white/5 pt-4 text-center">
+          {/* <div className="mt-4 border-t border-white/5 pt-4 text-center">
             <p className="text-[11px] leading-snug text-white/45">
               {locale === 'es'
                 ? 'Unirse a la lista no es una oferta de venta. Invertir implica riesgo. Revisa nuestra '
@@ -200,7 +200,7 @@ export default function WaitlistForm() {
               </button>
               .
             </p>
-          </div>
+          </div>*/}
         </form>
       </Form>
 
