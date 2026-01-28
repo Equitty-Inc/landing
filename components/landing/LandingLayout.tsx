@@ -25,7 +25,7 @@ export default function LandingLayout({ locale, onSubmitWaitlist }: Props) {
       badge: "● Early Access Open",
       h1a: "The investment platform for",
       h1b: "Real-World Assets",
-      desc: "Be among the first to learn how the future of digital investing is being built.",
+      desc: "Be among the first to discover how the future of digital investing is being built.",
       labelCountry: "Nationality",
       labelEmail: "Email Address",
       btn: "Reserve your spot",

@@ -296,3 +296,230 @@ body {
     background-color: rgba(0, 180, 196, 0.1) !important;
   }
 }
+
+/* ---------- HERO / TECH BACKGROUND ---------- */
+@keyframes heroFloat {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(-1deg) scale(1); }
+  50% { transform: translate3d(0, -22px, 0) rotate(1.5deg) scale(1.02); }
+}
+
+@keyframes heroDrift {
+  0% { transform: translate3d(-10px, 0, 0) scale(1); }
+  50% { transform: translate3d(10px, -10px, 0) scale(1.02); }
+  100% { transform: translate3d(-10px, 0, 0) scale(1); }
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes scanMove {
+  0% { transform: translateY(-40%); }
+  100% { transform: translateY(40%); }
+}
+
+.hero-backdrop {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.hero-backdrop::before {
+  content: "";
+  position: absolute;
+  inset: -30%;
+  background:
+          radial-gradient(closest-side, rgba(0,180,196,0.22), transparent 60%),
+          radial-gradient(closest-side, rgba(0,106,213,0.16), transparent 58%),
+          radial-gradient(closest-side, rgba(0,180,196,0.10), transparent 65%);
+  filter: blur(28px);
+  animation: heroDrift 10s ease-in-out infinite;
+  opacity: 0.85;
+}
+
+.hero-scanlines::after {
+  content: "";
+  position: absolute;
+  inset: -60% 0;
+  background: linear-gradient(
+          to bottom,
+          transparent 0%,
+          rgba(255,255,255,0.05) 50%,
+          transparent 100%
+  );
+  opacity: 0.12;
+  animation: scanMove 6s linear infinite;
+}
+
+.hero-triangle {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  opacity: 0.55;
+}
+
+.hero-triangle > div {
+  width: min(62vw, 520px);
+  aspect-ratio: 1 / 1;
+  background: rgba(0,180,196,0.16);
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 30px 120px rgba(0,0,0,0.35);
+  clip-path: polygon(50% 10%, 95% 90%, 5% 90%);
+  backdrop-filter: blur(8px);
+  animation: heroFloat 7.5s ease-in-out infinite;
+}
+
+@keyframes triangleSheen {
+  0% { transform: translateX(-60%) rotate(12deg); opacity: 0; }
+  20% { opacity: 0.7; }
+  50% { transform: translateX(60%) rotate(12deg); opacity: 0.35; }
+  100% { transform: translateX(60%) rotate(12deg); opacity: 0; }
+}
+
+.hero-triangle > div {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(
+          180deg,
+          rgba(0,180,196,0.20) 0%,
+          rgba(0,106,213,0.10) 100%
+  );
+  will-change: transform;
+}
+
+.hero-triangle > div::after {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  background: linear-gradient(
+          120deg,
+          transparent 35%,
+          rgba(255,255,255,0.18) 50%,
+          transparent 65%
+  );
+  filter: blur(2px);
+  animation: triangleSheen 6s ease-in-out infinite;
+  mix-blend-mode: screen;
+}
+
+/* ---------- HERO 3D SHAPE (X) ---------- */
+@keyframes spin3d{
+  0%   { transform: translate3d(16vw,-2vh,0) rotateX(16deg) rotateY(0deg)   rotateZ(-10deg); }
+  50%  { transform: translate3d(16vw,-2vh,0) rotateX(12deg) rotateY(180deg) rotateZ(10deg); }
+  100% { transform: translate3d(16vw,-2vh,0) rotateX(16deg) rotateY(360deg) rotateZ(-10deg); }
+}
+.hero-shape-wrap{
+  position:absolute;
+  inset:0;
+  display:grid;
+  place-items:center;
+  pointer-events:none;
+  z-index:0;
+}
+.hero-shape-3d{
+  perspective: 1200px;
+  transform-style: preserve-3d;
+
+  /* muévelo un poco a la derecha, como en tu layout */
+  transform: translate3d(16vw, -2vh, 0);
+
+  opacity: 0.22; /* clave: más bajo */
+  mix-blend-mode: screen;
+
+  animation: spin3d 24s ease-in-out infinite;
+  will-change: transform;
+  filter: drop-shadow(0 0 80px rgba(0,180,196,0.18));
+}
+
+.hero-tri {
+  position: absolute;
+  width: min(62vw, 560px);
+  aspect-ratio: 1 / 1;
+
+  clip-path: polygon(50% 8%, 96% 92%, 4% 92%);
+  transform-style: preserve-3d;
+
+  background: linear-gradient(
+          180deg,
+          rgba(0,180,196,0.20) 0%,
+          rgba(0,106,213,0.10) 100%
+  );
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 30px 120px rgba(0,0,0,0.35);
+  backdrop-filter: blur(10px);
+
+  will-change: transform;
+}
+
+/* dos caras cruzadas para formar la X */
+.hero-tri--a {
+  transform: translateZ(18px) rotateZ(0deg);
+}
+.hero-tri--b {
+  transform: translateZ(-18px) rotateZ(180deg);
+  opacity: 0.85;
+}
+
+/* brillo que recorre (holograma) */
+@keyframes triSheen {
+  0%   { transform: translateX(-70%) rotate(18deg); opacity: 0; }
+  18%  { opacity: 0.65; }
+  55%  { transform: translateX(70%) rotate(18deg); opacity: 0.25; }
+  100% { transform: translateX(70%) rotate(18deg); opacity: 0; }
+}
+
+.hero-tri::after {
+  content: "";
+  position: absolute;
+  inset: -45%;
+  background: linear-gradient(
+          120deg,
+          transparent 35%,
+          rgba(255,255,255,0.18) 50%,
+          transparent 65%
+  );
+  filter: blur(2px);
+  mix-blend-mode: screen;
+  animation: triSheen 6s ease-in-out infinite;
+}
+
+/* ---------- TEXT (TECH) ---------- */
+.text-gradient-animated {
+  background: linear-gradient(90deg, #00B4C4 0%, #006AD5 50%, #00B4C4 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientShift 6s ease-in-out infinite;
+}
+
+@keyframes caretBlink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+.type-caret {
+  display: inline-block;
+  width: 0.6ch;
+  margin-left: 4px;
+  border-right: 2px solid #00B4C4;
+  animation: caretBlink 1s steps(2, start) infinite;
+  transform: translateY(2px);
+}
+
+.type-glow {
+  filter: drop-shadow(0 0 18px rgba(0,180,196,0.25));
+}
+
+@keyframes revealUp {
+  0% { opacity: 0; transform: translateY(12px); filter: blur(6px); }
+  100% { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+
+.reveal-up {
+  opacity: 0;
+  animation: revealUp 700ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
