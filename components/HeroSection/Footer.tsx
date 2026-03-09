@@ -1,7 +1,7 @@
 'use client';
 import { useTranslations } from 'next-intl';
 
-const FACEBOOK_URL = process.env.NEXT_PUBLIC_FACEBOOK_URL || 'https://www.facebook.com/share/1MWeC9vEaw/?mibextid=wwXIfr';
+const FACEBOOK_URL = process.env.NEXT_PUBLIC_FACEBOOK_URL || 'https://www.facebook.com/profile.php?id=61588660531154';
 const INSTAGRAM_URL = process.env.NEXT_PUBLIC_INSTAGRAM_URL || 'https://www.instagram.com/equitty_/';
 const X_URL = process.env.NEXT_PUBLIC_X_URL || 'https://x.com/EQUITTY_';
 const TIKTOK_URL = process.env.NEXT_PUBLIC_TIKTOK_URL || 'https://www.tiktok.com/@equitty_';
