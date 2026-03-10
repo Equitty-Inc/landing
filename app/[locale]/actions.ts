@@ -1,14 +1,14 @@
 'use server';
 
-import prisma from '@/lib/prisma';
-import { createRegistrySchema, registryForm } from '@/schemas/registrySchema';
-import { getTranslations } from 'next-intl/server';
 import { revalidatePath } from 'next/cache';
-import { resend, buildWelcomeEmail } from '@/lib/mailer';
-
+import { getTranslations } from 'next-intl/server';
 import z from 'zod';
+import { resend, buildReferrerNotificationEmail, buildWelcomeEmail } from '@/lib/mailer';
+import prisma from '@/lib/prisma';
+import { generateUniqueReferralCode, normalizeReferralCode } from '@/lib/referrals';
+import { createRegistrySchema, registryForm } from '@/schemas/registrySchema';
 
-export type errorType = 'server' | 'email';
+export type errorType = 'server' | 'email' | 'referral';
 export type addEmailResult =
   | { success: true }
   | { success: false; error?: { type: errorType; message?: string } };
@@ -30,13 +30,14 @@ export async function addEmailToWaitlist(
     };
   }
 
-  const { email, nationality } = parsed.data;
-  const { subject, html } = buildWelcomeEmail(locale);
+  const { email, nationality, wasReferred } = parsed.data;
+  const referredByCode = wasReferred ? normalizeReferralCode(parsed.data.referralCode) : null;
 
   try {
     const existingSignup = await prisma.waitlistSignup.findUnique({
       where: { email },
     });
+
     if (existingSignup) {
       return {
         success: false,
@@ -46,11 +47,37 @@ export async function addEmailToWaitlist(
       };
     }
 
-    await prisma.waitlistSignup.create({
+    const referredBy = referredByCode
+      ? await prisma.waitlistSignup.findUnique({
+          where: { referralCode: referredByCode },
+        })
+      : null;
+
+    if (referredByCode && !referredBy) {
+      return {
+        success: false,
+        error: {
+          type: 'referral',
+        },
+      };
+    }
+
+    const referralCode = await generateUniqueReferralCode(async (candidate) => {
+      const match = await prisma.waitlistSignup.findUnique({
+        where: { referralCode: candidate },
+        select: { id: true },
+      });
+
+      return Boolean(match);
+    });
+
+    const signup = await prisma.waitlistSignup.create({
       data: {
         email,
         nationality,
         locale,
+        referralCode,
+        referredById: referredBy?.id ?? null,
         createdAt: new Date(),
         status: 'subscribed',
         utmSource: null,
@@ -70,19 +97,41 @@ export async function addEmailToWaitlist(
     if (!from) {
       console.warn('EMAIL_FROM is missing');
     } else {
-      const { subject, html } = buildWelcomeEmail(locale);
-
-      const { data, error } = await resend.emails.send({
-        from,
-        to: email,
-        subject,
-        html,
+      const welcomeEmail = buildWelcomeEmail({
+        locale,
+        referralCode: signup.referralCode,
+        referredByCode,
       });
 
-      if (error) {
-        console.error('RESEND ERROR:', error);
-      } else {
-        console.log('Email queued/sent:', data);
+      const welcomeResponse = await resend.emails.send({
+        from,
+        to: email,
+        subject: welcomeEmail.subject,
+        html: welcomeEmail.html,
+      });
+
+      if (welcomeResponse.error) {
+        console.error('RESEND WELCOME ERROR:', welcomeResponse.error);
+      }
+
+      if (referredBy) {
+        const referrerEmail = buildReferrerNotificationEmail({
+          locale: referredBy.locale,
+          referrerCode: referredBy.referralCode,
+          referredEmail: signup.email,
+          referredUserCode: signup.referralCode,
+        });
+
+        const referrerResponse = await resend.emails.send({
+          from,
+          to: referredBy.email,
+          subject: referrerEmail.subject,
+          html: referrerEmail.html,
+        });
+
+        if (referrerResponse.error) {
+          console.error('RESEND REFERRER ERROR:', referrerResponse.error);
+        }
       }
     }
 

@@ -1,28 +1,23 @@
 'use client';
 
+import { useEffect, useMemo, useState, useTransition } from 'react';
+import { useForm, useWatch } from 'react-hook-form';
+import { useLocale, useTranslations } from 'next-intl';
+import { toast } from 'sonner';
+import { addEmailToWaitlist } from '@/app/[locale]/actions';
+import CustomDialog from '@/components/CustomDialog';
+import { Button } from '@/components/ui/button';
 import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
 import { Spinner } from '@/components/ui/spinner';
-import CustomDialog from '@/components/CustomDialog';
-import { useEffect, useMemo, useState, useTransition } from 'react';
-import { useLocale, useTranslations } from 'next-intl';
-import { createRegistrySchema, registryForm } from '@/schemas/registrySchema';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { addEmailToWaitlist } from '@/app/[locale]/actions';
-import { toast } from 'sonner';
 import { countries } from '@/lib/countries';
+import { createRegistrySchema, registryForm } from '@/schemas/registrySchema';
 
 export default function WaitlistForm() {
   const [isPending, startTransition] = useTransition();
-
-  // dialog submit (success / errors)
   const [isOpen, setIsOpen] = useState(false);
   const [dialogTitle, setDialogTitle] = useState('');
   const [dialogMessage, setDialogMessage] = useState('');
-
-  // dialog privacy
   const [privacyOpen, setPrivacyOpen] = useState(false);
 
   const tForm = useTranslations('HomePage.Form');
@@ -33,39 +28,69 @@ export default function WaitlistForm() {
 
   const registrySchema = createRegistrySchema(tValidation);
 
-  // Intentar default El Salvador si existe
   const defaultNationality = useMemo(() => {
-    const sv =
-      countries.find((c) => c.name === 'El Salvador' || c.nameEs === 'El Salvador')?.code ?? '';
-    return sv;
+    return (
+      countries.find((country) => country.name === 'El Salvador' || country.nameEs === 'El Salvador')
+        ?.code ?? ''
+    );
   }, []);
 
   const form = useForm<registryForm>({
-    resolver: zodResolver(registrySchema),
     defaultValues: {
       email: '',
       nationality: defaultNationality || '',
+      wasReferred: false,
+      referralCode: '',
     },
     mode: 'onSubmit',
   });
 
-  // Si defaultNationality se calculó después, setearlo una vez
+  const wasReferred = useWatch({
+    control: form.control,
+    name: 'wasReferred',
+    defaultValue: false,
+  });
+
   useEffect(() => {
     if (defaultNationality && !form.getValues('nationality')) {
       form.setValue('nationality', defaultNationality);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [defaultNationality]);
+  }, [defaultNationality, form]);
+
+  useEffect(() => {
+    if (!wasReferred) {
+      form.setValue('referralCode', '');
+      form.clearErrors('referralCode');
+    }
+  }, [form, wasReferred]);
 
   function onSubmit(data: registryForm) {
     startTransition(async () => {
-      const result = await addEmailToWaitlist(data, locale);
+      form.clearErrors();
+      const parsed = registrySchema.safeParse(data);
+
+      if (!parsed.success) {
+        for (const issue of parsed.error.issues) {
+          const field = issue.path[0];
+          if (typeof field === 'string' && (field === 'email' || field === 'nationality' || field === 'referralCode')) {
+            form.setError(field, { message: issue.message });
+          }
+        }
+        return;
+      }
+
+      const result = await addEmailToWaitlist(parsed.data, locale);
 
       if (result.success) {
         setDialogTitle(tSuccessDialog('title'));
         setDialogMessage(tSuccessDialog('message'));
         setIsOpen(true);
-        form.reset({ email: '', nationality: defaultNationality || '' });
+        form.reset({
+          email: '',
+          nationality: defaultNationality || '',
+          wasReferred: false,
+          referralCode: '',
+        });
         return;
       }
 
@@ -76,13 +101,21 @@ export default function WaitlistForm() {
         return;
       }
 
+      if (result.error?.type === 'referral') {
+        setDialogTitle(tErrors('invalidReferralCode.title'));
+        setDialogMessage(tErrors('invalidReferralCode.message'));
+        setIsOpen(true);
+        return;
+      }
+
       toast.error(tErrors('waitlistError'));
     });
   }
 
   const labelNationality = locale === 'es' ? 'NACIONALIDAD' : 'NATIONALITY';
-  const labelEmail = locale === 'es' ? 'CORREO ELECTRÓNICO *' : 'EMAIL ADDRESS *';
-  const privacyText = locale === 'es' ? 'Política de Privacidad' : 'Privacy Policy';
+  const labelEmail = locale === 'es' ? 'CORREO ELECTRONICO *' : 'EMAIL ADDRESS *';
+  const labelReferral = locale === 'es' ? 'CODIGO DE REFERIDO' : 'REFERRAL CODE';
+  const privacyText = locale === 'es' ? 'Politica de Privacidad' : 'Privacy Policy';
 
   const fieldBase =
     'mt-2 w-full rounded-lg border border-white/10 bg-[#050A14]/60 px-4 py-3 text-sm text-white outline-none transition-colors focus:border-[#00B4C4]/70 focus:ring-0 disabled:opacity-50';
@@ -95,7 +128,6 @@ export default function WaitlistForm() {
           onSubmit={form.handleSubmit(onSubmit)}
           aria-label="Join waitlist form"
         >
-          {/* NATIONALITY */}
           <FormField
             control={form.control}
             name="nationality"
@@ -114,7 +146,7 @@ export default function WaitlistForm() {
                       aria-describedby="nationality-error"
                       required
                     >
-                      <option value="" disabled className="text-white/60 bg-[#050A14] font-light">
+                      <option value="" disabled className="bg-[#050A14] font-light text-white/60">
                         {tForm('nationalityPlaceholder')}
                       </option>
 
@@ -122,7 +154,7 @@ export default function WaitlistForm() {
                         <option
                           key={country.code}
                           value={country.code}
-                          className="bg-[#050A14] text-white font-light"
+                          className="bg-[#050A14] font-light text-white"
                         >
                           {locale === 'es' ? country.nameEs : country.name}
                         </option>
@@ -146,7 +178,6 @@ export default function WaitlistForm() {
             )}
           />
 
-          {/* EMAIL */}
           <FormField
             control={form.control}
             name="email"
@@ -161,7 +192,7 @@ export default function WaitlistForm() {
                     {...field}
                     type="email"
                     placeholder={tForm('emailPlaceholder')}
-                    className={`${fieldBase} placeholder:text-white/45 font-light`}
+                    className={`${fieldBase} font-light placeholder:text-white/45`}
                     aria-label="Email address"
                     aria-describedby="email-error"
                     autoComplete="email"
@@ -174,9 +205,55 @@ export default function WaitlistForm() {
             )}
           />
 
-          {/* BUTTON */}
+          <FormField
+            control={form.control}
+            name="wasReferred"
+            render={({ field }) => (
+              <FormItem>
+                <label className="flex cursor-pointer items-start gap-3 rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white/85">
+                  <input
+                    type="checkbox"
+                    checked={field.value}
+                    onChange={(event) => field.onChange(event.target.checked)}
+                    className="mt-0.5 h-4 w-4 rounded border-white/20 bg-[#050A14] accent-[#00B4C4]"
+                  />
+                  <span>{tForm('wasReferredLabel')}</span>
+                </label>
+              </FormItem>
+            )}
+          />
+
+          {wasReferred ? (
+            <FormField
+              control={form.control}
+              name="referralCode"
+              render={({ field }) => (
+                <FormItem>
+                  <div className="text-[11px] font-bold tracking-widest text-[#00B4C4] uppercase">
+                    {labelReferral}
+                  </div>
+
+                  <FormControl>
+                    <Input
+                      {...field}
+                      type="text"
+                      placeholder={tForm('referralCodePlaceholder')}
+                      className={`${fieldBase} font-light uppercase placeholder:text-white/45`}
+                      aria-label="Referral code"
+                      aria-describedby="referral-code-error"
+                      autoComplete="off"
+                      maxLength={12}
+                    />
+                  </FormControl>
+
+                  <FormMessage className="text-left text-xs text-white/80" id="referral-code-error" />
+                </FormItem>
+              )}
+            />
+          ) : null}
+
           <Button
-            className="w-full rounded-lg bg-gradient-to-r from-[#00B4C4] to-[#006AD5] cursor-pointer py-3.5 font-bold text-white shadow-lg hover:shadow-cyan-500/20 hover:scale-[1.01] transition disabled:hover:scale-100"
+            className="w-full cursor-pointer rounded-lg bg-gradient-to-r from-[#00B4C4] to-[#006AD5] py-3.5 font-bold text-white shadow-lg transition hover:scale-[1.01] hover:shadow-cyan-500/20 disabled:hover:scale-100"
             type="submit"
             disabled={isPending}
             aria-label={isPending ? 'Submitting...' : tForm('button')}
@@ -184,37 +261,18 @@ export default function WaitlistForm() {
             {isPending ? <Spinner className="mr-2 h-5 w-5" aria-hidden="true" /> : null}
             {tForm('button')}
           </Button>
-
-          {/* DISCLAIMER */}
-          {/* <div className="mt-4 border-t border-white/5 pt-4 text-center">
-            <p className="text-[11px] leading-snug text-white/45">
-              {locale === 'es'
-                ? 'Unirse a la lista no es una oferta de venta. Invertir implica riesgo. Revisa nuestra '
-                : 'Joining the waitlist is not an offer to sell. Investing involves risk. Please review our '}
-              <button
-                type="button"
-                onClick={() => setPrivacyOpen(true)}
-                className="font-bold text-[#00B4C4] hover:underline"
-              >
-                {privacyText}
-              </button>
-              .
-            </p>
-          </div>*/}
         </form>
       </Form>
 
-      {/* Dialog de success / errors */}
       <CustomDialog open={isOpen} setOpen={setIsOpen} title={dialogTitle} message={dialogMessage} />
 
-      {/* Dialog de privacy */}
       <CustomDialog
         open={privacyOpen}
         setOpen={setPrivacyOpen}
         title={privacyText}
         message={
           locale === 'es'
-            ? 'Usamos tu correo únicamente para administrar la lista de espera y notificarte del lanzamiento. No vendemos tu información. Puedes solicitar eliminación cuando quieras.'
+            ? 'Usamos tu correo unicamente para administrar la lista de espera y notificarte del lanzamiento. No vendemos tu informacion. Puedes solicitar eliminacion cuando quieras.'
             : 'We use your email only to manage the waitlist and notify you about the launch. We do not sell your information. You can request deletion anytime.'
         }
       />

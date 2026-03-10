@@ -2,42 +2,50 @@
   "Metadata": {
     "title": "Equitty - Invierte en Activos Reales",
     "description": "Plataforma revolucionaria para invertir en activos reales con transparencia y seguridad.",
-    "keywords": "inversión, activos reales, fintech, equitty, invertir, activos, finanzas"
+    "keywords": "inversion, activos reales, fintech, equitty, invertir, activos, finanzas"
   },
   "HomePage": {
-    "badge": "PRÓXIMAMENTE",
+    "badge": "PROXIMAMENTE",
     "hero_title": "La plataforma",
-    "hero_title_mid": "de inversión para",
+    "hero_title_mid": "de inversion para",
     "hero_title_highlight": "Activos Reales",
     "hero_title_end": "",
-    "headline": "La plataforma global de inversión\nen activos reales",
-    "subhead": "Sé de los primeros en conocer cómo se está construyendo el futuro de la inversión digital.",
+    "headline": "La plataforma global de inversion\nen activos reales",
+    "subhead": "Se de los primeros en conocer como se esta construyendo el futuro de la inversion digital.",
     "Form": {
-      "emailPlaceholder": "Correo Electrónico",
+      "emailPlaceholder": "Correo Electronico",
       "nationalityPlaceholder": "Nacionalidad",
-      "button": "Únete a la lista de espera",
+      "wasReferredLabel": "Fui referido por otro inversionista futuro",
+      "referralCodePlaceholder": "Ingresa el codigo de referido",
+      "button": "Unete a la lista de espera",
       "microcopy": "Recibe actualizaciones del lanzamiento. Puedes darte de baja cuando quieras.",
       "Validation": {
-        "emailRequired": "La dirección de correo es obligatoria",
-        "emailInvalid": "Por favor, introduce una dirección de correo válida",
-        "nationalityRequired": "La nacionalidad es obligatoria"
+        "emailRequired": "La direccion de correo es obligatoria",
+        "emailInvalid": "Por favor, introduce una direccion de correo valida",
+        "nationalityRequired": "La nacionalidad es obligatoria",
+        "referralCodeRequired": "El codigo de referido es obligatorio",
+        "referralCodeInvalid": "El codigo de referido debe tener entre 6 y 12 caracteres alfanumericos"
       },
       "Errors": {
-        "waitlistError": "Hubo un error al unirte a la lista de espera. Por favor, inténtalo de nuevo más tarde.",
+        "waitlistError": "Hubo un error al unirte a la lista de espera. Por favor, intentalo de nuevo mas tarde.",
         "emailAlreadyExists": {
-          "title": "¡Ya estás en la lista de espera!",
-          "message": "Gracias por unirte a la lista de espera de Equitty. Te mantendremos informado sobre nuestro lanzamiento y desarrollos emocionantes."
+          "title": "Ya estas en la lista de espera",
+          "message": "Gracias por unirte a la lista de espera de Equitty. Te mantendremos informado sobre nuestro lanzamiento y avances."
+        },
+        "invalidReferralCode": {
+          "title": "Codigo de referido no valido",
+          "message": "No encontramos ese codigo de referido. Verifica el codigo e intenta de nuevo."
         }
       },
       "SuccessDialog": {
-        "title": "¡Estás en la lista de espera!",
-        "message": "Gracias por unirte a la lista de espera de Equitty. Te mantendremos informado sobre nuestro lanzamiento y desarrollos emocionantes."
+        "title": "Estas en la lista de espera",
+        "message": "Gracias por unirte a la lista de espera de Equitty. Revisa tu correo para ver tu codigo de referido."
       }
     },
     "Footer": {
-      "footerDisclaimer": "Unirte a la lista no es una oferta de inversión. Invertir implica riesgo, incluida la pérdida del capital.",
+      "footerDisclaimer": "Unirte a la lista no es una oferta de inversion. Invertir implica riesgo, incluida la perdida del capital.",
       "privacy": "Privacidad",
-      "terms": "Términos"
+      "terms": "Terminos"
     },
     "Dialog": {
       "confirmButton": "Confirmar"

@@ -7,7 +7,11 @@
     "build": "next build",
     "start": "next start",
     "postinstall": "prisma generate",
-    "lint": "eslint"
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit",
+    "test:unit": "node --experimental-strip-types tests/run-unit.ts",
+    "referrals:backfill": "node --experimental-strip-types scripts/backfill-referral-codes.ts",
+    "qa": "pnpm lint && pnpm typecheck && pnpm test:unit"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",

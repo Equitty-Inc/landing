@@ -15,23 +15,31 @@
     "Form": {
       "emailPlaceholder": "Email Address",
       "nationalityPlaceholder": "Nationality",
+      "wasReferredLabel": "I was referred by another future investor",
+      "referralCodePlaceholder": "Enter the referral code",
       "button": "Join the waitlist",
       "microcopy": "Get launch updates. Unsubscribe anytime.",
       "Validation": {
         "emailRequired": "Email address is required",
         "emailInvalid": "Please enter a valid email address",
-        "nationalityRequired": "Nationality is required"
+        "nationalityRequired": "Nationality is required",
+        "referralCodeRequired": "Referral code is required",
+        "referralCodeInvalid": "Referral code must be 6 to 12 alphanumeric characters"
       },
       "Errors": {
         "waitlistError": "There was an error joining the waitlist. Please try again later.",
         "emailAlreadyExists": {
-          "title": "You're already on the waitlist!",
-          "message": "Thank you for joining the Equitty waitlist. We'll keep you updated on our launch and exciting developments."
+          "title": "You are already on the waitlist",
+          "message": "Thank you for joining the Equitty waitlist. We will keep you updated on our launch and progress."
+        },
+        "invalidReferralCode": {
+          "title": "Invalid referral code",
+          "message": "We could not find that referral code. Please check it and try again."
         }
       },
       "SuccessDialog": {
-        "title": "You're on the waitlist!",
-        "message": "Thank you for joining the Equitty waitlist. We'll keep you updated on our launch and exciting developments."
+        "title": "You are on the waitlist",
+        "message": "Thanks for joining the Equitty waitlist. Check your email to see your referral code."
       }
     },
     "Footer": {

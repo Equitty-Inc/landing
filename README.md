@@ -1,52 +1,167 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Equitty Landing
 
-## Environment Setup
+Landing de captura para la waitlist de Equitty, construida con Next.js, Prisma, PostgreSQL, `next-intl` y Resend.
 
-This project uses environment variables for configuration. Before running the application:
+## Configuracion
 
-1. Copy `.env.example` to `.env.local`:
-   ```bash
-   cp .env.example .env.local
-   ```
+1. Copia `.env.example` a `.env` o `.env.local`.
+2. Define al menos estas variables:
+   - `DATABASE_URL`
+   - `NEXT_PUBLIC_BASE_URL`
+   - `RESEND_API_KEY`
+   - `EMAIL_FROM`
 
-2. Update the values in `.env.local` with your configuration:
-   - `DATABASE_URL`: PostgreSQL connection string (required)
-   - `NEXT_PUBLIC_BASE_URL`: Your application's base URL
-   - Social media URLs (optional, defaults provided)
+## Desarrollo
 
-See `.env.example` for all available environment variables.
-
-## Getting Started
-
-First, run the development server:
+Comandos principales:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm.cmd dev
+pnpm.cmd lint
+pnpm.cmd typecheck
+pnpm.cmd test:unit
+pnpm.cmd qa
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Migraciones Prisma
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Si tu base ya existe y fue creada antes de usar Prisma Migrate en este proyecto, primero debes hacer baseline de las migraciones antiguas y luego aplicar las nuevas.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Baseline inicial para una base existente
 
-## Learn More
+Ejecuta estos comandos una sola vez sobre la base que ya contiene la tabla `waitlist_signups`:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+pnpm.cmd exec prisma migrate resolve --applied 20260113002438_init
+pnpm.cmd exec prisma migrate resolve --applied 20260122104423_add_nationality
+pnpm.cmd exec prisma migrate deploy
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Eso marca las migraciones historicas como ya aplicadas y despues ejecuta solo las nuevas, por ejemplo la de referidos.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Referidos
 
-## Deploy on Vercel
+El sistema de referidos agrega:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- `referral_code` unico por usuario
+- `referred_by_id` para guardar quien refirio al nuevo registro
+- correo al nuevo usuario con su codigo
+- correo al usuario dueño del codigo cuando alguien se registra con su referido
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Backfill de referral codes para usuarios existentes
+
+Si ya tienes usuarios registrados sin `referral_code`, no debes recrearlos ni borrar data. Usa el script de backfill, que solo procesa usuarios cuyo `referral_code` aun es `null`.
+
+### 1. Probar sin tocar datos
+
+```bash
+pnpm.cmd referrals:backfill -- --dry-run
+```
+
+Esto solo muestra que usuarios serian actualizados y que codigo se les asignaria.
+
+### 2. Ejecutar el backfill sin enviar correos
+
+```bash
+pnpm.cmd referrals:backfill -- --skip-email
+```
+
+Esto actualiza la base y genera el `referral_code`, pero no manda emails.
+
+### 3. Ejecutar el backfill con correos
+
+```bash
+pnpm.cmd referrals:backfill
+```
+
+Esto:
+
+- busca usuarios existentes sin `referral_code`
+- genera un codigo unico para cada uno
+- actualiza su registro
+- envia un correo con una plantilla HTML basada en la actual indicando su codigo de referido
+
+### Recomendacion de ejecucion
+
+Para una base local o productiva, el orden recomendado es:
+
+1. `pnpm.cmd referrals:backfill -- --dry-run`
+2. revisar cuantos usuarios impacta
+3. `pnpm.cmd referrals:backfill -- --skip-email` si quieres validar primero la data
+4. `pnpm.cmd referrals:backfill` cuando quieras enviar correos reales
+
+## Verificacion manual en SQL
+
+Despues de correr la migracion o el backfill, puedes validar el estado directamente en PostgreSQL.
+
+### Ver cuandos usuarios aun no tienen referral code
+
+```sql
+SELECT COUNT(*) AS users_without_referral_code
+FROM waitlist_signups
+WHERE referral_code IS NULL;
+```
+
+### Ver algunos usuarios con su referral code
+
+```sql
+SELECT id, email, referral_code, referred_by_id, created_at
+FROM waitlist_signups
+ORDER BY created_at DESC
+LIMIT 20;
+```
+
+### Ver la relacion de referidos
+
+```sql
+SELECT
+  child.email AS referred_user,
+  child.referral_code AS referred_user_code,
+  parent.email AS referrer_user,
+  parent.referral_code AS referrer_code
+FROM waitlist_signups child
+LEFT JOIN waitlist_signups parent
+  ON parent.id = child.referred_by_id
+ORDER BY child.created_at DESC
+LIMIT 50;
+```
+
+## Rollback operativo
+
+No hay un rollback automatico del backfill de correos, porque si ya se enviaron emails esos envios no pueden deshacerse. Si necesitas revertir solo la data en una base local o en una validacion controlada, hazlo manualmente y con mucho cuidado.
+
+### Revertir referral codes generados sin borrar usuarios
+
+```sql
+UPDATE waitlist_signups
+SET referral_code = NULL
+WHERE referred_by_id IS NULL
+  AND referral_code IS NOT NULL;
+```
+
+No uses ese query a ciegas en produccion si ya tienes usuarios nuevos registrados con el sistema de referidos activo, porque tambien podrias borrar codigos validos creados despues.
+
+### Revertir una tanda especifica de usuarios
+
+La forma segura es hacerlo por lista de correos o ids:
+
+```sql
+UPDATE waitlist_signups
+SET referral_code = NULL
+WHERE email IN (
+  'user1@example.com',
+  'user2@example.com'
+);
+```
+
+### Recomendacion
+
+- Antes de cualquier rollback, saca un backup de la tabla.
+- Si ya mandaste correos, trata el rollback como una correccion puntual y no masiva.
+- En produccion, revisa primero con `SELECT` y despues ejecuta el `UPDATE`.
+
+## Notas
+
+- El script de backfill es idempotente para este caso porque solo toma registros sin `referral_code`.
+- Si `EMAIL_FROM` no esta configurado, el backfill con envio de correo fallara.
+- Si solo quieres validar codigo y estructura del proyecto, usa `pnpm.cmd qa`.
