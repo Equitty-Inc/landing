@@ -121,6 +121,8 @@ export function runMailerLocaleTests() {
   });
   assert.match(englishReferrer.subject, /You have a new signup with your referral code/);
   assert.match(englishReferrer.html, /welcome-banner-en\.png/);
+  assert.match(englishReferrer.html, /Your referral code remains <strong>REF12345<\/strong>/);
+  assert.match(englishReferrer.html, /Code assigned to your referred user/);
 
   const spanishExistingUser = buildExistingUserReferralCodeEmail({
     locale: 'es-GT',
