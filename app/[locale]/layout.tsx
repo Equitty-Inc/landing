@@ -7,7 +7,6 @@ import { routing } from '@/i18n/routing';
 
 import { alexandria, newBlack } from '@/lib/fonts';
 import { Toaster } from '@/components/ui/sonner';
-import VideoBackground from '@/components/VideoBackground';
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -95,7 +94,6 @@ export default async function RootLayout({ children, params }: Readonly<Props>) 
         <link rel="dns-prefetch" href="//vercel.com" />
       </head>
       <body className={`${alexandria.variable} ${newBlack.variable} min-h-dvh bg-[#050A14] antialiased`}>
-      {/* <VideoBackground key="video-bg" /> */}
         <NextIntlClientProvider>{children}</NextIntlClientProvider>
         <Toaster
           position="top-center"
