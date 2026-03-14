@@ -1,4 +1,11 @@
 import assert from 'node:assert/strict';
+import {
+  buildExistingUserReferralCodeEmail,
+  buildReferrerNotificationEmail,
+  buildWelcomeEmail,
+  getEmailBannerFile,
+  normalizeEmailLocale,
+} from '../lib/mailer.ts';
 import { normalizeReferralCode } from '../lib/referrals.ts';
 import { createRegistrySchema } from '../schemas/registrySchema.ts';
 
@@ -73,4 +80,52 @@ export function runReferralUtilityTests() {
   assert.equal(normalizeReferralCode(' abc12345 '), 'ABC12345');
   assert.equal(normalizeReferralCode(''), null);
   assert.equal(normalizeReferralCode(undefined), null);
+}
+
+export function runMailerLocaleTests() {
+  assert.equal(normalizeEmailLocale('es'), 'es');
+  assert.equal(normalizeEmailLocale('es-SV'), 'es');
+  assert.equal(normalizeEmailLocale('es_SV'), 'es');
+  assert.equal(normalizeEmailLocale('en'), 'en');
+  assert.equal(normalizeEmailLocale('en-US'), 'en');
+  assert.equal(normalizeEmailLocale(undefined), 'en');
+
+  assert.equal(getEmailBannerFile('es'), 'welcome-banner.png');
+  assert.equal(getEmailBannerFile('es-SV'), 'welcome-banner.png');
+  assert.equal(getEmailBannerFile('en'), 'welcome-banner-en.png');
+  assert.equal(getEmailBannerFile('en-US'), 'welcome-banner-en.png');
+
+  const englishWelcome = buildWelcomeEmail({
+    locale: 'en-US',
+    referralCode: 'ABC12345',
+    referredByCode: 'ZXCV6789',
+  });
+  assert.match(englishWelcome.subject, /You are now on the Equitty waitlist/);
+  assert.match(englishWelcome.html, /welcome-banner-en\.png/);
+  assert.match(englishWelcome.html, /You were registered using referral code/);
+
+  const spanishWelcome = buildWelcomeEmail({
+    locale: 'es-SV',
+    referralCode: 'ABC12345',
+    referredByCode: 'ZXCV6789',
+  });
+  assert.match(spanishWelcome.subject, /Ya estas en la waitlist de Equitty/);
+  assert.match(spanishWelcome.html, /welcome-banner\.png/);
+  assert.match(spanishWelcome.html, /Fuiste registrado con el codigo referido/);
+
+  const englishReferrer = buildReferrerNotificationEmail({
+    locale: 'en-US',
+    referrerCode: 'REF12345',
+    referredEmail: 'newuser@example.com',
+    referredUserCode: 'NEW54321',
+  });
+  assert.match(englishReferrer.subject, /You have a new signup with your referral code/);
+  assert.match(englishReferrer.html, /welcome-banner-en\.png/);
+
+  const spanishExistingUser = buildExistingUserReferralCodeEmail({
+    locale: 'es-GT',
+    referralCode: 'LEGACY123',
+  });
+  assert.match(spanishExistingUser.subject, /Tu codigo de referido de Equitty ya esta listo/);
+  assert.match(spanishExistingUser.html, /welcome-banner\.png/);
 }

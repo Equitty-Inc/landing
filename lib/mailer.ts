@@ -1,6 +1,6 @@
 import { Resend } from 'resend';
 
-export const resend = new Resend(process.env.RESEND_API_KEY);
+export const resend = new Resend(process.env.RESEND_API_KEY || 're_test_key');
 
 type EmailTemplate = {
   subject: string;
@@ -25,6 +25,24 @@ type ExistingUserReferralCodeEmailOptions = {
   referralCode: string;
 };
 
+function normalizeEmailLocale(locale: string | null | undefined) {
+  const normalized = locale?.trim().toLowerCase();
+
+  if (!normalized) {
+    return 'en';
+  }
+
+  if (normalized === 'es' || normalized.startsWith('es-') || normalized.startsWith('es_')) {
+    return 'es';
+  }
+
+  return 'en';
+}
+
+function getEmailBannerFile(locale: string | null | undefined) {
+  return normalizeEmailLocale(locale) === 'es' ? 'welcome-banner.png' : 'welcome-banner-en.png';
+}
+
 function escapeHtml(value: string) {
   return value
     .replaceAll('&', '&amp;')
@@ -35,18 +53,20 @@ function escapeHtml(value: string) {
 }
 
 function buildBaseEmail({
+  locale,
   subject,
   preheader,
   bannerAlt,
   bodyHtml,
 }: {
+  locale: string;
   subject: string;
   preheader: string;
   bannerAlt: string;
   bodyHtml: string;
 }) {
   const appUrl = (process.env.NEXT_PUBLIC_BASE_URL || 'https://equitty.com').replace(/\/$/, '');
-  const bannerUrl = `${appUrl}/emails/welcome-banner.png`;
+  const bannerUrl = `${appUrl}/emails/${getEmailBannerFile(locale)}`;
 
   return `
   <!doctype html>
@@ -112,7 +132,8 @@ export function buildWelcomeEmail({
   referralCode,
   referredByCode,
 }: WelcomeEmailOptions): EmailTemplate {
-  const isEs = locale === 'es';
+  const normalizedLocale = normalizeEmailLocale(locale);
+  const isEs = normalizedLocale === 'es';
 
   const subject = isEs
     ? 'Ya estas en la waitlist de Equitty'
@@ -156,6 +177,7 @@ export function buildWelcomeEmail({
   return {
     subject,
     html: buildBaseEmail({
+      locale: normalizedLocale,
       subject,
       preheader,
       bannerAlt: isEs ? 'Equitty | Activos Reales' : 'Equitty | Real-World Assets',
@@ -170,7 +192,8 @@ export function buildReferrerNotificationEmail({
   referredEmail,
   referredUserCode,
 }: ReferrerNotificationOptions): EmailTemplate {
-  const isEs = locale === 'es';
+  const normalizedLocale = normalizeEmailLocale(locale);
+  const isEs = normalizedLocale === 'es';
 
   const subject = isEs
     ? 'Tienes un nuevo registro con tu codigo de referido'
@@ -205,6 +228,7 @@ export function buildReferrerNotificationEmail({
   return {
     subject,
     html: buildBaseEmail({
+      locale: normalizedLocale,
       subject,
       preheader,
       bannerAlt: isEs ? 'Equitty | Activos Reales' : 'Equitty | Real-World Assets',
@@ -217,7 +241,8 @@ export function buildExistingUserReferralCodeEmail({
   locale,
   referralCode,
 }: ExistingUserReferralCodeEmailOptions): EmailTemplate {
-  const isEs = locale === 'es';
+  const normalizedLocale = normalizeEmailLocale(locale);
+  const isEs = normalizedLocale === 'es';
 
   const subject = isEs
     ? 'Tu codigo de referido de Equitty ya esta listo'
@@ -252,6 +277,7 @@ export function buildExistingUserReferralCodeEmail({
   return {
     subject,
     html: buildBaseEmail({
+      locale: normalizedLocale,
       subject,
       preheader,
       bannerAlt: isEs ? 'Equitty | Activos Reales' : 'Equitty | Real-World Assets',
@@ -259,3 +285,5 @@ export function buildExistingUserReferralCodeEmail({
     }),
   };
 }
+
+export { getEmailBannerFile, normalizeEmailLocale };

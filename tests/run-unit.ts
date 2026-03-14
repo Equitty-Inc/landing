@@ -1,4 +1,8 @@
-import { runReferralUtilityTests, runRegistrySchemaTests } from './registrySchema.test.ts';
+import {
+  runMailerLocaleTests,
+  runReferralUtilityTests,
+  runRegistrySchemaTests,
+} from './registrySchema.test.ts';
 
 type Suite = {
   name: string;
@@ -13,6 +17,10 @@ const suites: Suite[] = [
   {
     name: 'referralUtils',
     run: runReferralUtilityTests,
+  },
+  {
+    name: 'mailerLocale',
+    run: runMailerLocaleTests,
   },
 ];
 
