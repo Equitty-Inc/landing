@@ -73,6 +73,13 @@ async function main() {
       continue;
     }
 
+    await prisma.waitlistSignup.update({
+      where: { id: user.id },
+      data: {
+        referralCodeNotifiedAt: new Date(),
+      },
+    });
+
     console.log(`Email sent to ${user.email}`);
   }
 }
