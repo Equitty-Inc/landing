@@ -215,12 +215,19 @@ export function buildReferrerNotificationEmail({
     <p style="margin:0 0 12px 0;">
       ${
         isEs
+          ? `Tu codigo de referido sigue siendo <strong>${escapeHtml(referrerCode)}</strong>.`
+          : `Your referral code remains <strong>${escapeHtml(referrerCode)}</strong>.`
+      }
+    </p>
+    <p style="margin:0 0 12px 0;">
+      ${
+        isEs
           ? 'La nueva persona ya tiene su propio codigo para seguir ampliando la cadena.'
           : 'The new signup already has their own code to continue growing the chain.'
       }
     </p>
     ${buildReferralCodeBlock(
-      isEs ? 'Codigo del nuevo referido' : 'New referred user code',
+      isEs ? 'Codigo asignado a tu referido' : 'Code assigned to your referred user',
       referredUserCode
     )}
   `;
