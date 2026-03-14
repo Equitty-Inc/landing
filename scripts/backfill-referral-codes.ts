@@ -1,4 +1,5 @@
 import 'dotenv/config';
+import { sendWithResendThrottle } from '../lib/email-rate-limit.ts';
 import { buildExistingUserReferralCodeEmail, resend } from '../lib/mailer.ts';
 import prisma from '../lib/prisma.ts';
 import { generateUniqueReferralCode } from '../lib/referrals.ts';
@@ -61,12 +62,14 @@ async function main() {
       referralCode,
     });
 
-    const response = await resend.emails.send({
-      from,
-      to: user.email,
-      subject: email.subject,
-      html: email.html,
-    });
+    const response = await sendWithResendThrottle(() =>
+      resend.emails.send({
+        from,
+        to: user.email,
+        subject: email.subject,
+        html: email.html,
+      })
+    );
 
     if (response.error) {
       console.error(`Failed sending referral code email to ${user.email}:`, response.error);
