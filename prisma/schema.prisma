@@ -14,26 +14,27 @@ enum WaitlistStatus {
 }
 
 model WaitlistSignup {
-  id             String           @id @default(uuid()) @db.Uuid
-  email          String           @unique
-  nationality    String?
-  locale         String           @default("es")
-  createdAt      DateTime         @default(now()) @map("created_at")
-  status         WaitlistStatus   @default(subscribed)
-  referralCode   String           @unique @map("referral_code")
-  referredById   String?          @db.Uuid @map("referred_by_id")
-  referredBy     WaitlistSignup?  @relation("WaitlistReferrals", fields: [referredById], references: [id])
-  referrals      WaitlistSignup[] @relation("WaitlistReferrals")
-  utmSource      String?          @map("utm_source")
-  utmMedium      String?          @map("utm_medium")
-  utmCampaign    String?          @map("utm_campaign")
-  utmContent     String?          @map("utm_content")
-  utmTerm        String?          @map("utm_term")
-  referrer       String?
-  landingPath    String?          @map("landing_path")
-  ipHash         String?          @map("ip_hash")
-  userAgent      String?          @map("user_agent")
-  consentVersion String?          @map("consent_version")
+  id                     String           @id @default(uuid()) @db.Uuid
+  email                  String           @unique
+  nationality            String?
+  locale                 String           @default("es")
+  createdAt              DateTime         @default(now()) @map("created_at")
+  status                 WaitlistStatus   @default(subscribed)
+  referralCode           String           @unique @map("referral_code")
+  referralCodeNotifiedAt DateTime?        @map("referral_code_notified_at")
+  referredById           String?          @db.Uuid @map("referred_by_id")
+  referredBy             WaitlistSignup?  @relation("WaitlistReferrals", fields: [referredById], references: [id])
+  referrals              WaitlistSignup[] @relation("WaitlistReferrals")
+  utmSource              String?          @map("utm_source")
+  utmMedium              String?          @map("utm_medium")
+  utmCampaign            String?          @map("utm_campaign")
+  utmContent             String?          @map("utm_content")
+  utmTerm                String?          @map("utm_term")
+  referrer               String?
+  landingPath            String?          @map("landing_path")
+  ipHash                 String?          @map("ip_hash")
+  userAgent              String?          @map("user_agent")
+  consentVersion         String?          @map("consent_version")
 
   @@index([referredById])
   @@map("waitlist_signups")
