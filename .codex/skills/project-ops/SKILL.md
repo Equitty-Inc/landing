@@ -1,3 +1,8 @@
+---
+name: project-ops
+description: Run the repository development, unit test, and QA workflows from Codex.
+---
+
 # project-ops
 
 ## Purpose
