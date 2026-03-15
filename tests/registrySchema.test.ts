@@ -99,6 +99,7 @@ export function runMailerLocaleTests() {
     locale: 'en-US',
     referralCode: 'ABC12345',
     referredByCode: 'ZXCV6789',
+    email: 'welcome@example.com',
   });
   assert.match(englishWelcome.subject, /You are now on the Equitty waitlist/);
   assert.match(englishWelcome.html, /welcome-banner-en\.png/);
@@ -108,6 +109,7 @@ export function runMailerLocaleTests() {
     locale: 'es-SV',
     referralCode: 'ABC12345',
     referredByCode: 'ZXCV6789',
+    email: 'hola@example.com',
   });
   assert.match(spanishWelcome.subject, /Ya estas en la waitlist de Equitty/);
   assert.match(spanishWelcome.html, /welcome-banner\.png/);
@@ -116,6 +118,7 @@ export function runMailerLocaleTests() {
   const englishReferrer = buildReferrerNotificationEmail({
     locale: 'en-US',
     referrerCode: 'REF12345',
+    referrerEmail: 'referrer@example.com',
     referredEmail: 'newuser@example.com',
     referredUserCode: 'NEW54321',
   });

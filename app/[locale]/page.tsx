@@ -1,153 +1,175 @@
 'use client';
 
-import Image from 'next/image';
-import Footer from '@/components/HeroSection/Footer';
 import WaitlistForm from '@/components/HeroSection/WaitlistForm';
-import LanguageSwitcher from '@/components/LanguageSwitcher';
-import { EquittyLogo } from '@/components/Logo';
+import LandingFooter from '@/components/landing/LandingFooter';
+import LandingHeader from '@/components/landing/LandingHeader';
+// import StatsSection from '@/components/landing/StatsSection';
+// import FeatureHighlight from '@/components/landing/FeatureHighlight';
+// import Benefits from '@/components/landing/Benefits';
+// import HowItWorks from '@/components/landing/HowItWorks';
+// import Testimonials from '@/components/landing/Testimonials';
+// import Faq from '@/components/landing/Faq';
+import { sileo } from 'sileo';
 import { useTranslations } from 'next-intl';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 export default function Home() {
   const t = useTranslations('HomePage');
-  const full = `${t('hero_title_highlight')} ${t('hero_title_end')}`;
-
-  const [typed, setTyped] = useState('');
+  const glowRef = useRef<HTMLDivElement>(null);
+  const [typedHighlight, setTypedHighlight] = useState('');
+  const [isTypingComplete, setIsTypingComplete] = useState(false);
+  const highlightText = t('hero_title_highlight');
 
   useEffect(() => {
-    let alive = true;
+    const timer = window.setTimeout(() => {
+      sileo.success({
+        title: t('Toast.welcomeTitle'),
+        description: t('Toast.welcomeDescription'),
+        position: 'top-right',
+        duration: 5000,
+        styles: {
+          title: 'text-white font-semibold!',
+          description: 'text-white/80!',
+          badge: 'bg-[#00B4C4]/20 border border-[#00B4C4]/40!',
+          button: 'bg-white/15 hover:bg-[#00B4C4]/30!',
+        },
+      });
+    }, 900);
+
+    return () => window.clearTimeout(timer);
+  }, [t]);
+
+  useEffect(() => {
+    const handleMouseMove = (event: MouseEvent) => {
+      if (!glowRef.current) return;
+      glowRef.current.style.left = `${event.clientX}px`;
+      glowRef.current.style.top = `${event.clientY}px`;
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
+
+  useEffect(() => {
+    let currentIndex = 0;
     let charTimer: number | undefined;
-    let cycleTimer: number | undefined;
+    let resetTimer: number | undefined;
+    let active = true;
 
-    const CYCLE_MS = 8000;
-    const TYPE_MIN = 110;
-    const TYPE_MAX = 190;
-    const PAUSE_NEWLINE = 450;
-    const PAUSE_AFTER_DASH = 220;
+    const type = () => {
+      if (!active) return;
+      setTypedHighlight(highlightText.slice(0, currentIndex));
+      if (currentIndex >= highlightText.length) {
+        setIsTypingComplete(true);
+        resetTimer = window.setTimeout(() => {
+          if (!active) return;
+          currentIndex = 0;
+          setTypedHighlight('');
+          setIsTypingComplete(false);
+          type();
+        }, 3000);
+        return;
+      }
 
-    const nextDelay = (ch: string) => {
-      if (ch === '\n') return PAUSE_NEWLINE;
-      if (ch === '-') return PAUSE_AFTER_DASH;
-      if (ch === ' ') return 90 + Math.random() * 60;
-      return TYPE_MIN + Math.random() * (TYPE_MAX - TYPE_MIN);
+      currentIndex += 1;
+      charTimer = window.setTimeout(type, 120);
     };
 
-    const run = () => {
-      const start = performance.now();
-      let i = 1;
-
-      const step = () => {
-        if (!alive) return;
-
-        setTyped(full.slice(0, i));
-
-        if (i >= full.length) {
-          const spent = performance.now() - start;
-          const rest = Math.max(1200, CYCLE_MS - spent);
-          cycleTimer = window.setTimeout(() => {
-            if (!alive) return;
-            setTyped('');
-            charTimer = window.setTimeout(run, 250);
-          }, rest);
-          return;
-        }
-
-        const ch = full[i - 1] ?? '';
-        i += 1;
-        charTimer = window.setTimeout(step, nextDelay(ch));
-      };
-
-      charTimer = window.setTimeout(step, 220);
-    };
-
-    run();
+    type();
 
     return () => {
-      alive = false;
+      active = false;
       if (charTimer) window.clearTimeout(charTimer);
-      if (cycleTimer) window.clearTimeout(cycleTimer);
+      if (resetTimer) window.clearTimeout(resetTimer);
     };
-  }, [full]);
+  }, [highlightText]);
 
   return (
-    <div className="relative flex min-h-dvh flex-col overflow-x-hidden bg-transparent text-white">
-      <nav className="fixed top-0 z-50 w-full border-b border-white/5 bg-[#050A14]/90 backdrop-blur-md">
-        <div className="mx-auto flex h-20 max-w-6xl items-center justify-between px-6">
-          <button
-            type="button"
-            onClick={() => window.location.reload()}
-            className="group transition-transform duration-300 hover:scale-105"
-          >
-            <EquittyLogo className="h-6 text-white group-hover:drop-shadow-[0_0_15px_rgba(0,180,196,0.6)]" />
-          </button>
+    <div className="bg-background dark:bg-background min-h-0 overflow-hidden flex flex-col text-white">
+      <div className="dark flex-1 min-h-0 flex flex-col">
+        <LandingHeader />
 
-          <LanguageSwitcher />
-        </div>
-      </nav>
-
-      <main className="relative flex flex-1 items-center justify-center px-6 pb-12 pt-24">
-        <div className="hero-backdrop hero-scanlines" />
-        <div className="pointer-events-none absolute inset-0 z-0 flex items-center justify-center">
-          <Image
-            src="/equitty_isotipo.png"
-            alt=""
-            width={700}
-            height={700}
-            className="w-[70vw] max-w-[500px] animate-pulse-glow opacity-60 md:w-[45vw]"
-            priority
-          />
+        <div
+          ref={glowRef}
+          className="fixed z-50 hidden h-8 w-8 rounded-full pointer-events-none lg:block"
+          style={{ transform: 'translate(-50%, -50%)', animation: 'glowPulse 2s ease-in-out infinite' }}
+        >
+          <div className="absolute inset-0 rounded-full bg-linear-to-r from-accent/0 via-accent/30 to-accent/0 blur-xl" />
         </div>
 
-        <div className="z-10 mx-auto grid w-full max-w-6xl grid-cols-1 items-center lg:grid-cols-2">
-          <div className="space-y-6 text-center lg:text-left">
-            <div
-              className="reveal-up inline-block rounded-full border border-[#00B4C4]/30 bg-[#00B4C4]/10 px-3 py-1 backdrop-blur-sm"
-              style={{ animationDelay: '60ms' }}
-            >
-              <span className="text-[10px] font-bold tracking-widest text-[#00B4C4] uppercase">
-                ● {t('badge')}
-              </span>
-            </div>
+        <section
+          className="relative flex h-full max-h-full min-h-0 items-center justify-center overflow-hidden px-6 pt-10 pb-8"
+          style={{ animation: 'heroEnter 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards' }}
+        >
+          <div className="absolute inset-0 -z-10">
+            <div className="absolute top-16 left-24 h-96 w-96 rounded-full bg-accent/10 blur-[120px]" />
+            <div className="absolute right-20 bottom-16 h-80 w-80 rounded-full bg-[#00B4C4]/15 blur-[110px]" />
+          </div>
 
-            <h1 className="font-display text-3xl leading-[1.05] md:text-6xl">
-              <span className="reveal-up block text-white" style={{ animationDelay: '120ms' }}>
-                {t('hero_title')}
-              </span>
+          <div className="relative mx-auto w-full max-w-7xl px-2 sm:px-0">
+            <div className="grid h-full min-h-[85vh] lg:min-h-0 gap-8 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] lg:gap-12">
+              <div className="order-2 lg:order-1 relative z-10 flex flex-col items-center justify-center text-center lg:items-start lg:text-left">
+                <div className="flex w-full flex-col items-center space-y-0.5 sm:space-y-1 lg:items-start">
+                  <h1 className="text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-7xl">
+                    {t('hero_title')}
+                  </h1>
+                  <div className="flex h-24 min-h-[5.5rem] w-full items-center justify-center lg:justify-start">
+                    <div className="inline-flex items-center gap-2 text-4xl font-bold text-accent sm:text-5xl lg:text-7xl">
+                      <span className="whitespace-nowrap block">{typedHighlight}</span>
+                      <span
+                        className="inline-flex items-center justify-center rounded-sm bg-accent"
+                        style={{
+                          width: 3,
+                          height: 80,
+                          animation: isTypingComplete ? 'none' : 'blink 0.7s infinite',
+                        }}
+                      >
+                        <span className="block h-full w-full" />
+                      </span>
+                    </div>
+                  </div>
+                </div>
 
-              <span className="reveal-up block text-white" style={{ animationDelay: '200ms' }}>
-                {t('hero_title_mid')}
-              </span>
+                <p className="mt-2 max-w-lg text-base leading-relaxed text-white/85 sm:mt-4 sm:text-lg lg:text-xl">
+                  {t('subhead')}
+                </p>
 
-              <div className="relative block">
-                <span className="invisible block whitespace-nowrap">{full}</span>
-
-                <span className="absolute inset-0 block whitespace-nowrap text-gradient-animated type-glow">
-                  {typed}
-                  <span className="type-caret" aria-hidden="true" />
-                </span>
+                <div className="mt-6 w-full max-w-md">
+                  <WaitlistForm />
+                </div>
               </div>
-            </h1>
 
-            <p
-              className="reveal-up mx-auto max-w-lg text-lg font-light leading-relaxed text-gray-400 lg:mx-0"
-              style={{ animationDelay: '420ms' }}
-            >
-              {t('subhead')}
-            </p>
-          </div>
-
-          <div
-            className="reveal-up mx-auto w-full max-w-[420px] lg:ml-auto"
-            style={{ animationDelay: '260ms' }}
-          >
-            <div className="glass-panel rounded-2xl border-t border-white/10 p-8">
-              <WaitlistForm />
+              <div className="order-1 lg:order-2 relative z-0 flex h-full min-h-[85vh] items-center justify-center pointer-events-none">
+                <div className="relative w-full max-w-sm opacity-75 lg:opacity-100">
+                  <div
+                    className="relative h-full min-h-[60vh] lg:min-h-0 flex items-center justify-center"
+                    style={{ animation: 'float 4s ease-in-out infinite' }}
+                  >
+                    <img
+                      src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/coin-sO3Ncez14Alp6pSHNMcEkTE8VRf9qU.png"
+                      alt="Digital assets visualization"
+                      className="w-full h-auto object-contain drop-shadow-[0_30px_80px_rgba(0,0,0,0.45)] max-h-[50vh] lg:max-h-none"
+                    />
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </main>
-
-      <Footer />
+        </section>
+        {/* Hidden sections temporarily */}
+        {/* <StatsSection /> */}
+        {/* <FeatureHighlight /> */}
+        {/* <Benefits /> */}
+        {/* <HowItWorks /> */}
+        {/* <Testimonials /> */}
+        {/* <Faq /> */}
+        <div
+          className="w-full h-px min-h-px bg-linear-to-r from-transparent via-accent to-transparent opacity-90"
+          style={{ boxShadow: '0 0 12px 1px rgba(0, 180, 196, 0.4), 0 0 24px 2px rgba(0, 180, 196, 0.2)' }}
+          aria-hidden
+        />
+        <LandingFooter />
+      </div>
     </div>
   );
 }
