@@ -2,6 +2,8 @@ import { Resend } from 'resend';
 
 export const resend = new Resend(process.env.RESEND_API_KEY || 're_test_key');
 
+const BASE_APP_URL = (process.env.NEXT_PUBLIC_BASE_URL || 'https://equitty.com').replace(/\/$/, '');
+
 type EmailTemplate = {
   subject: string;
   html: string;
@@ -11,11 +13,13 @@ type WelcomeEmailOptions = {
   locale: string;
   referralCode: string;
   referredByCode?: string | null;
+  email: string;
 };
 
 type ReferrerNotificationOptions = {
   locale: string;
   referrerCode: string;
+  referrerEmail: string;
   referredEmail: string;
   referredUserCode: string;
 };
@@ -114,6 +118,29 @@ function buildBaseEmail({
   `;
 }
 
+function buildUnsubscribeUrl(locale: string, email?: string) {
+  const normalized = normalizeEmailLocale(locale);
+  const emailParam = email ? `?email=${encodeURIComponent(email)}` : '';
+  return `${BASE_APP_URL}/${normalized}/unsubscribe${emailParam}`;
+}
+
+function buildUnsubscribeHtml(locale: string, unsubscribeUrl: string) {
+  const normalized = normalizeEmailLocale(locale);
+  const isEs = normalized === 'es';
+  const message = isEs
+    ? 'Si ya no quieres ser parte de la waitlist, cancela tu suscripción'
+    : 'If you no longer want to be part of the waitlist, unsubscribe';
+  const linkLabel = isEs ? 'aquí' : 'here';
+  return `
+    <p style="margin:24px 0 0 0;font-size:12px;line-height:1.6;color:#475569;">
+      ${message}
+      <a href="${escapeHtml(unsubscribeUrl)}" style="color:#2563EB;font-weight:700;text-decoration:none;">
+        ${linkLabel}
+      </a>.
+    </p>
+  `;
+}
+
 function buildReferralCodeBlock(label: string, code: string) {
   return `
     <div style="margin:20px 0;padding:16px;border-radius:12px;background:#EEF6FF;border:1px solid #BFDBFE;">
@@ -131,6 +158,7 @@ export function buildWelcomeEmail({
   locale,
   referralCode,
   referredByCode,
+  email,
 }: WelcomeEmailOptions): EmailTemplate {
   const normalizedLocale = normalizeEmailLocale(locale);
   const isEs = normalizedLocale === 'es';
@@ -174,6 +202,9 @@ export function buildWelcomeEmail({
     </p>
   `;
 
+  const unsubscribeUrl = buildUnsubscribeUrl(normalizedLocale, email);
+  const bodyWithUnsubscribe = `${bodyHtml}${buildUnsubscribeHtml(normalizedLocale, unsubscribeUrl)}`;
+
   return {
     subject,
     html: buildBaseEmail({
@@ -181,7 +212,7 @@ export function buildWelcomeEmail({
       subject,
       preheader,
       bannerAlt: isEs ? 'Equitty | Activos Reales' : 'Equitty | Real-World Assets',
-      bodyHtml,
+      bodyHtml: bodyWithUnsubscribe,
     }),
   };
 }
@@ -189,6 +220,7 @@ export function buildWelcomeEmail({
 export function buildReferrerNotificationEmail({
   locale,
   referrerCode,
+  referrerEmail,
   referredEmail,
   referredUserCode,
 }: ReferrerNotificationOptions): EmailTemplate {
@@ -232,6 +264,9 @@ export function buildReferrerNotificationEmail({
     )}
   `;
 
+  const unsubscribeUrl = buildUnsubscribeUrl(normalizedLocale, referrerEmail);
+  const bodyWithUnsubscribe = `${bodyHtml}${buildUnsubscribeHtml(normalizedLocale, unsubscribeUrl)}`;
+
   return {
     subject,
     html: buildBaseEmail({
@@ -239,7 +274,7 @@ export function buildReferrerNotificationEmail({
       subject,
       preheader,
       bannerAlt: isEs ? 'Equitty | Activos Reales' : 'Equitty | Real-World Assets',
-      bodyHtml,
+      bodyHtml: bodyWithUnsubscribe,
     }),
   };
 }
@@ -281,6 +316,9 @@ export function buildExistingUserReferralCodeEmail({
     </p>
   `;
 
+  const unsubscribeUrl = buildUnsubscribeUrl(normalizedLocale);
+  const bodyWithUnsubscribe = `${bodyHtml}${buildUnsubscribeHtml(normalizedLocale, unsubscribeUrl)}`;
+
   return {
     subject,
     html: buildBaseEmail({
@@ -288,7 +326,7 @@ export function buildExistingUserReferralCodeEmail({
       subject,
       preheader,
       bannerAlt: isEs ? 'Equitty | Activos Reales' : 'Equitty | Real-World Assets',
-      bodyHtml,
+      bodyHtml: bodyWithUnsubscribe,
     }),
   };
 }

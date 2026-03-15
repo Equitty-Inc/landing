@@ -52,8 +52,8 @@ export default function Home() {
 
   useEffect(() => {
     let currentIndex = 0;
-    let charTimer: ReturnType<typeof setTimeout>;
-    let resetTimer: ReturnType<typeof setTimeout>;
+    let charTimer: number | undefined;
+    let resetTimer: number | undefined;
     let active = true;
 
     const type = () => {
@@ -106,55 +106,52 @@ export default function Home() {
             <div className="absolute right-20 bottom-16 h-80 w-80 rounded-full bg-[#00B4C4]/15 blur-[110px]" />
           </div>
 
-          <div className="relative mx-auto grid h-full max-h-full min-h-[85vh] w-full max-w-7xl grid-cols-1 items-center gap-8 overflow-hidden px-2 sm:px-0 lg:min-h-0 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] lg:gap-12">
-            <div className="absolute inset-0 z-0 order-1 flex h-full min-h-[85vh] items-center justify-center pointer-events-none lg:relative lg:z-auto lg:order-2">
-              <div className="relative h-full w-full max-w-sm opacity-60 lg:opacity-100">
-                <div
-                  className="relative mt-12 flex h-full min-h-[60vh] items-center justify-center"
-                  style={{ animation: 'float 4s ease-in-out infinite' }}
-                >
-                  <img
-                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/coin-sO3Ncez14Alp6pSHNMcEkTE8VRf9qU.png"
-                    alt="Digital assets visualization"
-                    className="w-full h-auto object-contain drop-shadow-[0_30px_80px_rgba(0,0,0,0.45)] max-h-[50vh] lg:max-h-none"
-                  />
+          <div className="relative mx-auto w-full max-w-7xl px-2 sm:px-0">
+            <div className="grid h-full min-h-[85vh] lg:min-h-0 gap-8 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] lg:gap-12">
+              <div className="order-2 lg:order-1 relative z-10 flex flex-col items-center justify-center text-center lg:items-start lg:text-left">
+                <div className="flex w-full flex-col items-center space-y-0.5 sm:space-y-1 lg:items-start">
+                  <h1 className="text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-7xl">
+                    {t('hero_title')}
+                  </h1>
+                  <div className="flex h-24 min-h-[5.5rem] w-full items-center justify-center lg:justify-start">
+                    <div className="inline-flex items-center gap-2 text-4xl font-bold text-accent sm:text-5xl lg:text-7xl">
+                      <span className="whitespace-nowrap block">{typedHighlight}</span>
+                      <span
+                        className="inline-flex items-center justify-center rounded-sm bg-accent"
+                        style={{
+                          width: 3,
+                          height: 80,
+                          animation: isTypingComplete ? 'none' : 'blink 0.7s infinite',
+                        }}
+                      >
+                        <span className="block h-full w-full" />
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <p className="mt-2 max-w-lg text-base leading-relaxed text-white/85 sm:mt-4 sm:text-lg lg:text-xl">
+                  {t('subhead')}
+                </p>
+
+                <div className="mt-6 w-full max-w-md">
+                  <WaitlistForm />
                 </div>
               </div>
-            </div>
 
-            <div className="relative z-10 order-2 flex w-full min-w-0 min-h-0 flex-col items-center justify-center overflow-y-auto overflow-x-hidden py-8 text-center lg:order-1 lg:items-start lg:justify-start lg:py-0 lg:text-left">
-              <div className="flex w-full shrink-0 flex-col items-center space-y-1 lg:items-start">
-                {t('badge') ? (
+              <div className="order-1 lg:order-2 relative z-0 flex h-full min-h-[85vh] items-center justify-center pointer-events-none">
+                <div className="relative w-full max-w-sm opacity-75 lg:opacity-100">
                   <div
-                    className="reveal-up inline-flex rounded-full border border-[#00B4C4]/30 bg-[#00B4C4]/10 px-3 py-1 backdrop-blur-sm"
-                    style={{ animationDelay: '60ms' }}
+                    className="relative h-full min-h-[60vh] lg:min-h-0 flex items-center justify-center"
+                    style={{ animation: 'float 4s ease-in-out infinite' }}
                   >
-                    <span className="text-[10px] font-bold tracking-widest text-[#00B4C4] uppercase">{t('badge')}</span>
+                    <img
+                      src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/coin-sO3Ncez14Alp6pSHNMcEkTE8VRf9qU.png"
+                      alt="Digital assets visualization"
+                      className="w-full h-auto object-contain drop-shadow-[0_30px_80px_rgba(0,0,0,0.45)] max-h-[50vh] lg:max-h-none"
+                    />
                   </div>
-                ) : null}
-
-                <h1 className="mt-6 text-4xl leading-tight font-bold text-white sm:text-5xl lg:text-7xl">
-                  <span className="reveal-up block" style={{ animationDelay: '120ms' }}>
-                    {t('hero_title')}
-                  </span>
-                  <span className="reveal-up block text-accent" style={{ animationDelay: '200ms' }}>
-                    <span className="whitespace-nowrap">
-                      {typedHighlight}
-                      <span
-                        className="ml-1 inline-block h-12 w-1 bg-accent align-text-top"
-                        style={{ animation: isTypingComplete ? 'none' : 'blink 0.7s infinite' }}
-                      />
-                    </span>
-                  </span>
-                </h1>
-              </div>
-
-              <p className="mx-auto max-w-lg pt-2 text-base leading-relaxed text-white/85 sm:pt-4 sm:text-lg lg:mx-0 lg:text-xl">
-                {t('subhead')}
-              </p>
-
-              <div id="waitlist" className="mx-auto w-full max-w-md pt-6 lg:mx-0">
-                <WaitlistForm />
+                </div>
               </div>
             </div>
           </div>

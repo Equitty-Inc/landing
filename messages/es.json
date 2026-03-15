@@ -52,9 +52,21 @@
         "termsModalTitle": "Equitty waitlist terms & conditions",
         "termsModalDescription": "Consulta el acuerdo oficial de la lista de espera directamente desde el documento que compartimos con los nuevos inversionistas.",
         "termsModalFallback": "Si el visor no carga, puedes ",
-        "termsModalDownload": "descargar el PDF."
+        "termsModalDownload": "descargar el PDF.",
+        "unsubscribeText": "Si ya no quieres ser parte de la waitlist, cancela tu suscripción",
+        "unsubscribeLink": "aquí"
       },
-    "Navigation": {
+      "Unsubscribe": {
+        "eyebrow": "Administra tu espacio",
+        "title": "Cancelar suscripción",
+        "description": "Ingresa el correo con el que te registraste y actualizaremos tu estado inmediatamente.",
+        "emailPlaceholder": "Correo electrónico",
+        "button": "Cancelar suscripción",
+        "processing": "Procesando...",
+        "success": "Ya no estás en la lista de espera.",
+        "error": "No encontramos ese correo en la lista de espera."
+      },
+      "Navigation": {
       "cta": "Unete ahora"
     },
     "Stats": {

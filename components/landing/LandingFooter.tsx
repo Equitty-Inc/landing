@@ -12,7 +12,11 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog';
-import { waitlistTerms } from '@/data/termsText';
+import {
+  waitlistTermsFooter,
+  waitlistTermsHeader,
+  waitlistTermsSections,
+} from '@/data/termsContent';
 
 const FACEBOOK_URL = process.env.NEXT_PUBLIC_FACEBOOK_URL || 'https://www.facebook.com/profile.php?id=61588660531154';
 const INSTAGRAM_URL = process.env.NEXT_PUBLIC_INSTAGRAM_URL || 'https://www.instagram.com/equitty_/';
@@ -59,36 +63,54 @@ export default function LandingFooter() {
             <Image src="/logo-accent.png" alt="EQUITTY" width={200} height={200} />
           </div>
 
-          <div className="flex items-center gap-6 text-sm">
-            <Dialog open={isTermsOpen} onOpenChange={setIsTermsOpen}>
-              <DialogTrigger asChild>
-                <button type="button" className="text-white/70 transition hover:text-accent">
-                  {t('terms')}
-                </button>
-              </DialogTrigger>
-              <DialogContent className="max-w-[min(96vw,1400px)] w-[min(96vw,1400px)] bg-[#05060f]/90">
-                <DialogHeader>
-                  <DialogTitle className="text-white">{t('termsModalTitle')}</DialogTitle>
-                  <DialogDescription className="text-white/70">{t('termsModalDescription')}</DialogDescription>
-                </DialogHeader>
-                <div className="mt-4 max-h-[65vh] overflow-y-auto rounded-2xl border border-white/10 bg-black/75 p-6 text-sm leading-relaxed text-white/80">
-                  <pre className="whitespace-pre-line font-light">{waitlistTerms}</pre>
-                  <p className="mt-4 text-xs text-white/60">
-                    {t('termsModalFallback')}
-                    <a
-                      className="text-accent underline"
-                      href={encodeURI('/T&C EQUITTY WAITLIST.pdf')}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      {t('termsModalDownload')}
-                    </a>
-                  </p>
-                </div>
-              </DialogContent>
-            </Dialog>
-            <div className="h-4 w-px bg-white/20" />
-            <span className="text-white/70">{t('privacy')}</span>
+          <div className="flex flex-col gap-2 text-sm">
+            <div className="flex items-center gap-4">
+              <Dialog open={isTermsOpen} onOpenChange={setIsTermsOpen}>
+                <DialogTrigger asChild>
+                  <button type="button" className="text-white/70 transition hover:text-accent cursor-pointer">
+                    {t('terms')}
+                  </button>
+                </DialogTrigger>
+                <DialogContent className="max-w-[min(96vw,1600px)] w-[min(96vw,1600px)] bg-[#03040b]/90 border border-white/10 shadow-2xl">
+                  <DialogHeader>
+                    <DialogTitle className="text-white">{t('termsModalTitle')}</DialogTitle>
+                    <DialogDescription className="text-white/70">{t('termsModalDescription')}</DialogDescription>
+                  </DialogHeader>
+                  <div className="mt-4 max-h-[70vh] overflow-y-auto rounded-2xl border border-white/10 bg-black/80 p-6 text-sm leading-relaxed text-white/80">
+                    <div className="space-y-1 text-[13px] uppercase tracking-[0.3em] text-white/60">
+                      {waitlistTermsHeader.map((line, index) => (
+                        <p key={`${line}-${index}`}>{line}</p>
+                      ))}
+                    </div>
+                    <div className="mt-4 space-y-6">
+                      {waitlistTermsSections.map((section) => (
+                        <article
+                          key={section.title}
+                          className="space-y-2 border-t border-white/10 pt-4 first:border-t-0 first:pt-0"
+                        >
+                          <p className="text-xs uppercase tracking-[0.4em] text-accent">{section.title}</p>
+                          <p className="text-sm text-white/80 leading-relaxed whitespace-pre-line">{section.body}</p>
+                        </article>
+                      ))}
+                    </div>
+                    <p className="mt-4 text-xs text-white/60">{waitlistTermsFooter}</p>
+                    <p className="mt-4 text-xs text-white/60">
+                      {t('termsModalFallback')}
+                      <a
+                        className="text-accent underline"
+                        href={encodeURI('/T&C EQUITTY WAITLIST.pdf')}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        {t('termsModalDownload')}
+                      </a>
+                    </p>
+                  </div>
+                </DialogContent>
+              </Dialog>
+              <div className="h-4 w-px bg-white/20" />
+              <span className="text-white/70">{t('privacy')}</span>
+            </div>
           </div>
 
           <div className="flex items-center gap-4">

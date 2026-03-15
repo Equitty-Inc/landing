@@ -1,14 +1,16 @@
 'use server';
 
-import { revalidatePath } from 'next/cache';
+import { revalidatePath } from 'next/cache.js';
 import { getTranslations } from 'next-intl/server';
 import z from 'zod';
 import { resend, buildReferrerNotificationEmail, buildWelcomeEmail } from '@/lib/mailer';
 import prisma from '@/lib/prisma';
+import { processUnsubscribeWithClient, type errorType, type unsubscribeResult } from '@/lib/unsubscribe';
 import { generateUniqueReferralCode, normalizeReferralCode } from '@/lib/referrals';
 import { createRegistrySchema, registryForm } from '@/schemas/registrySchema';
 
-export type errorType = 'server' | 'email' | 'referral';
+export type { errorType } from '@/lib/unsubscribe';
+
 export type addEmailResult =
   | { success: true }
   | { success: false; error?: { type: errorType; message?: string } };
@@ -101,6 +103,7 @@ export async function addEmailToWaitlist(
         locale,
         referralCode: signup.referralCode,
         referredByCode,
+        email,
       });
 
       const welcomeResponse = await resend.emails.send({
@@ -118,6 +121,7 @@ export async function addEmailToWaitlist(
         const referrerEmail = buildReferrerNotificationEmail({
           locale: referredBy.locale,
           referrerCode: referredBy.referralCode,
+          referrerEmail: referredBy.email,
           referredEmail: signup.email,
           referredUserCode: signup.referralCode,
         });
@@ -146,4 +150,12 @@ export async function addEmailToWaitlist(
       },
     };
   }
+}
+
+export async function unsubscribeFromWaitlist(email: string, locale: string): Promise<unsubscribeResult> {
+  const result = await processUnsubscribeWithClient(email, prisma);
+  if (result.success) {
+    revalidatePath(`/${locale}`);
+  }
+  return result;
 }

@@ -45,16 +45,28 @@
         "message": "Thanks for joining the Equitty waitlist. Check your email to see your referral code."
       }
     },
-    "Footer": {
-    "footerDisclaimer": "Joining the waitlist is not an offer to sell or a solicitation to buy investments. Investing involves risk, including loss of principal.",
-    "privacy": "Privacy",
-    "terms": "Terms & Conditions",
-    "termsModalTitle": "Equitty waitlist terms & conditions",
-    "termsModalDescription": "Review the official waitlist agreement in full directly from the document we ship to new investors.",
-    "termsModalFallback": "If the PDF viewer does not display, you can ",
-    "termsModalDownload": "download the PDF."
-    },
-    "Navigation": {
+      "Footer": {
+        "footerDisclaimer": "Joining the waitlist is not an offer to sell or a solicitation to buy investments. Investing involves risk, including loss of principal.",
+        "privacy": "Privacy",
+        "terms": "Terms & Conditions",
+        "termsModalTitle": "Equitty waitlist terms & conditions",
+        "termsModalDescription": "Review the official waitlist agreement in full directly from the document we ship to new investors.",
+        "termsModalFallback": "If the PDF viewer does not display, you can ",
+        "termsModalDownload": "download the PDF.",
+        "unsubscribeText": "If you no longer want to be part of the waitlist, unsubscribe",
+        "unsubscribeLink": "here"
+      },
+      "Unsubscribe": {
+        "eyebrow": "Manage your spot",
+        "title": "Leave the waitlist",
+        "description": "Enter the email address you used to register and we will update your status right away.",
+        "emailPlaceholder": "Email Address",
+        "button": "Unsubscribe",
+        "processing": "Processing...",
+        "success": "You have been removed from the waitlist.",
+        "error": "We could not find that email on the waitlist."
+      },
+      "Navigation": {
       "cta": "Join now"
     },
     "Stats": {
