@@ -71,7 +71,9 @@ export default function LandingFooter() {
                     {t('terms')}
                   </button>
                 </DialogTrigger>
-                <DialogContent className="max-w-[min(96vw,1600px)] w-[min(96vw,1600px)] bg-[#03040b]/90 border border-white/10 shadow-2xl">
+                <DialogContent
+                  className="max-w-[min(96vw,1600px)] w-[min(96vw,1600px)] sm:max-w-[min(74vw,1200px)] sm:w-[min(74vw,1200px)] bg-[#03040b]/90 border border-white/10 shadow-2xl"
+                >
                   <DialogHeader>
                     <DialogTitle className="text-white">{t('termsModalTitle')}</DialogTitle>
                     <DialogDescription className="text-white/70">{t('termsModalDescription')}</DialogDescription>
