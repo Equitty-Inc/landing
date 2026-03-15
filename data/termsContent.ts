@@ -1,23 +1,15 @@
 export const waitlistTermsHeader = [
-  'ECIJA EL SALVADOR',
-  'INNOVACIÓN LEGAL | DERECHO DIGITAL Y TECNOLOGÍA',
-  'Calle Arturo Ambrogi #125, Colonia Escalón, San Salvador',
-  '+503 75756954 | ngarciaprieto@ecija.com',
-  'MEMORÁNDUM LEGAL',
-  'PARA: EQUITTY',
-  'DE: ECIJA | NATHANIA GARCÍA PRIETO',
-  'FECHA: 21 de enero 2025',
-  'ASUNTO: T&C WAITLIST EQUITTY',
+  '',
 ];
 
 export const waitlistTermsSections = [
   {
     title: 'INTRODUCCIÓN',
-    body: `El presente documento recoge el análisis legal necesario para elaborar los T&C bajo los cuales se procesará una waitlist para el proyecto EQUITTY. No son términos y condiciones para la plataforma, sino para una etapa inicial donde solo se está tratando de generar expectativa e impacto en el mercado objetivo. Los insumos para la presente opinión provienen de información compartida por el cliente, ningún documento.`,
+    body: ``,
   },
   {
-    title: 'OPINIÓN LEGAL',
-    body: `Entendiendo la etapa temprana del proyecto, sugerimos que, para una waitlist, el objetivo se centre en que el usuario se registre rápido sin sentirse abrumado por tanta terminología legal. Una versión simplificada se enfoca en la transparencia y en proteger al proyecto de falsas expectativas. Sugerimos para implementarlos un resumen visual, modo formulario y añadir este texto completo mediante un enlace que diga: "Al registrarte, aceptas nuestros Términos de Waitlist y Política de Privacidad".`,
+    title: '',
+    body: ``,
   },
   {
     title: '1. NATURALEZA DEL REGISTRO Y AUSENCIA DE OBLIGACIÓN',
@@ -50,4 +42,4 @@ export const waitlistTermsSections = [
 ];
 
 export const waitlistTermsFooter =
-  'www.ecija.com | La firma más innovadora en Iberoamérica y Europa, con oficinas en 18 jurisdicciones.';
+  '';
