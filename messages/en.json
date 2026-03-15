@@ -5,15 +5,18 @@
     "keywords": "investment, real-world assets, fintech, equitty, investing, assets, finance"
   },
   "HomePage": {
-    "badge": "COMING SOON",
-    "hero_title": "The investment",
-    "hero_title_mid": "platform for",
-    "hero_title_highlight": "Real-World Assets",
+    "badge": "",
+    "hero_title": "Investment for",
+    "hero_title_mid": "Real World Assets",
+    "hero_title_highlight": "Real World Assets",
     "hero_title_end": "",
     "headline": "The investment platform\nfor real-world assets",
     "subhead": "Be among the first to discover how the future of digital investing is being built.",
     "Form": {
-      "emailPlaceholder": "Email Address",
+      "cardEyebrow": "Early access",
+      "cardTitle": "Join the waitlist",
+      "cardDescription": "Register with your email and nationality. If you were invited, keep your referral code in the same flow.",
+      "emailPlaceholder": "Enter your email",
       "nationalityPlaceholder": "Nationality",
       "wasReferredLabel": "I was referred by another future investor",
       "referralCodePlaceholder": "Enter the referral code",
@@ -43,9 +46,104 @@
       }
     },
     "Footer": {
-      "footerDisclaimer": "Joining the waitlist is not an offer to sell or a solicitation to buy investments. Investing involves risk, including loss of principal.",
-      "privacy": "Privacy",
-      "terms": "Terms"
+    "footerDisclaimer": "Joining the waitlist is not an offer to sell or a solicitation to buy investments. Investing involves risk, including loss of principal.",
+    "privacy": "Privacy",
+    "terms": "Terms & Conditions",
+    "termsModalTitle": "Equitty waitlist terms & conditions",
+    "termsModalDescription": "Review the official waitlist agreement in full directly from the document we ship to new investors.",
+    "termsModalFallback": "If the PDF viewer does not display, you can ",
+    "termsModalDownload": "download the PDF."
+    },
+    "Navigation": {
+      "cta": "Join now"
+    },
+    "Stats": {
+      "waitlist": "Waitlist members",
+      "trading": "Trading available",
+      "yield": "Target yield",
+      "assetClass": "Tokenized real-world assets"
+    },
+    "FeatureHighlight": {
+      "eyebrow": "Spotlight",
+      "title": "Simple, transparent access to real assets",
+      "subtitle": "Blockchain-backed real-world asset opportunities with transparent pricing and instant settlement."
+    },
+    "Toast": {
+      "welcomeTitle": "Welcome new investor!",
+      "welcomeDescription": "Start your journey with real world assets."
+    },
+    "Benefits": {
+      "eyebrow": "Why Equitty",
+      "title": "A sharper way to enter real-world assets",
+      "subtitle": "The new landing keeps the focus on trust, speed, and access without changing how the product works underneath.",
+      "item1": {
+        "title": "Tokenization built for first movers",
+        "description": "A cleaner front door for investors exploring real-world asset participation."
+      },
+      "item2": {
+        "title": "Fast onboarding experience",
+        "description": "The interface now emphasizes clarity, hierarchy, and quicker decision-making."
+      },
+      "item3": {
+        "title": "Structured investor data capture",
+        "description": "Nationality, email, and referral flow remain intact while the UI becomes more polished."
+      },
+      "item4": {
+        "title": "Brand system with stronger recall",
+        "description": "The visual language is more distinct, more premium, and closer to the reference design."
+      }
+    },
+    "Testimonials": {
+      "eyebrow": "Trusted by +10K users",
+      "title": "Invest with confidence",
+      "subtitle": "Make Equitty your complete investment portfolio — one secure platform to manage, grow, and maximize your assets."
+    },
+    "HowItWorks": {
+      "eyebrow": "Process",
+      "title": "The same waitlist flow, presented better",
+      "subtitle": "Only the UI changes here. Validation, submission behavior, and referral handling stay connected to the existing implementation.",
+      "step1": {
+        "title": "Choose nationality",
+        "description": "The current country catalog remains connected to the real form and validation schema."
+      },
+      "step2": {
+        "title": "Enter your email",
+        "description": "The submission still goes through the existing server action without altering the backend contract."
+      },
+      "step3": {
+        "title": "Add referral if needed",
+        "description": "Referral validation stays available inside the same form instead of being removed by the redesign."
+      },
+      "step4": {
+        "title": "Join the list",
+        "description": "Success and error dialogs continue to use the current waitlist logic and translated messaging."
+      }
+    },
+    "FinalCta": {
+      "title": "Ready to take control of your future?",
+      "subtitle": "Choose Equitty as your unified investment portfolio — secure infrastructure, seamless access, and a platform designed for serious investors.",
+      "cta": "Get started now"
+    },
+    "Faq": {
+      "eyebrow": "FAQ",
+      "title": "What changes and what does not",
+      "subtitle": "The redesign improves the landing experience while keeping the operational behavior stable.",
+      "item1": {
+        "question": "Is the waitlist logic changing?",
+        "answer": "No. The same server action, validation rules, referral handling, and success or error flows are preserved."
+      },
+      "item2": {
+        "question": "Will locale switching still work?",
+        "answer": "Yes. The new layout still uses the current localized routing and translations for English and Spanish."
+      },
+      "item3": {
+        "question": "Did the referral field get removed?",
+        "answer": "No. It remains in the form and appears when the referred-investor option is enabled."
+      },
+      "item4": {
+        "question": "Is this based on the reference design in newDesign/EQ-main?",
+        "answer": "Yes. The new composition, hierarchy, card treatment, and visual effects were adapted from that design into the real project."
+      }
     },
     "Dialog": {
       "confirmButton": "Confirm"

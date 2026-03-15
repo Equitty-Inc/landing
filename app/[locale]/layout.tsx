@@ -1,11 +1,13 @@
 import type { Metadata, Viewport } from 'next';
 import '@/app/globals.css';
+import { Analytics } from '@vercel/analytics/next';
 import { hasLocale, NextIntlClientProvider } from 'next-intl';
 import { getTranslations } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 
 import { alexandria, newBlack } from '@/lib/fonts';
+import { SileoToaster } from '@/components/SileoToaster';
 import { Toaster } from '@/components/ui/sonner';
 
 export const viewport: Viewport = {
@@ -74,7 +76,7 @@ export default async function RootLayout({ children, params }: Readonly<Props>) 
     notFound();
   }
   return (
-    <html lang={locale} className="bg-[#050A14]">
+    <html lang={locale} className="dark bg-[#08070E]">
       <head>
         <link
           rel="preload"
@@ -93,14 +95,16 @@ export default async function RootLayout({ children, params }: Readonly<Props>) 
         <link rel="preload" href="/background.mp4" as="video" type="video/mp4" />
         <link rel="dns-prefetch" href="//vercel.com" />
       </head>
-      <body className={`${alexandria.variable} ${newBlack.variable} min-h-dvh bg-[#050A14] antialiased`}>
+      <body className={`${alexandria.variable} ${newBlack.variable} min-h-dvh bg-[#08070E] font-sans antialiased`}>
         <NextIntlClientProvider>{children}</NextIntlClientProvider>
+        <SileoToaster />
         <Toaster
           position="top-center"
           toastOptions={{
             className: 'w-[calc(100vw-1rem)] max-w-none mx-auto',
           }}
         />
+        <Analytics />
       </body>
     </html>
   );

@@ -12,13 +12,13 @@ import { Input } from '@/components/ui/input';
 import { Spinner } from '@/components/ui/spinner';
 import { countries } from '@/lib/countries';
 import { createRegistrySchema, registryForm } from '@/schemas/registrySchema';
+import { ArrowRight } from 'lucide-react';
 
 export default function WaitlistForm() {
   const [isPending, startTransition] = useTransition();
   const [isOpen, setIsOpen] = useState(false);
   const [dialogTitle, setDialogTitle] = useState('');
   const [dialogMessage, setDialogMessage] = useState('');
-  const [privacyOpen, setPrivacyOpen] = useState(false);
 
   const tForm = useTranslations('HomePage.Form');
   const tValidation = useTranslations('HomePage.Form.Validation');
@@ -115,54 +115,62 @@ export default function WaitlistForm() {
   const labelNationality = locale === 'es' ? 'NACIONALIDAD' : 'NATIONALITY';
   const labelEmail = locale === 'es' ? 'CORREO ELECTRONICO *' : 'EMAIL ADDRESS *';
   const labelReferral = locale === 'es' ? 'CODIGO DE REFERIDO' : 'REFERRAL CODE';
-  const privacyText = locale === 'es' ? 'Politica de Privacidad' : 'Privacy Policy';
-
   const fieldBase =
-    'mt-2 w-full rounded-lg border border-white/10 bg-[#050A14]/60 px-4 py-3 text-sm text-white outline-none transition-colors focus:border-[#00B4C4]/70 focus:ring-0 disabled:opacity-50';
+    'w-full h-12 px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white outline-none transition-all duration-300 placeholder:text-white/50 hover:bg-white/15 hover:border-[#00B4C4]/50 focus:border-[#00B4C4] focus:ring-2 focus:ring-[#00B4C4]/30';
 
   return (
     <>
       <Form {...form}>
-        <form
-          className="w-full space-y-5"
-          onSubmit={form.handleSubmit(onSubmit)}
-          aria-label="Join waitlist form"
-        >
+        <form className="w-full space-y-4" onSubmit={form.handleSubmit(onSubmit)} aria-label="Join waitlist form">
+          <FormField
+            control={form.control}
+            name="email"
+            render={({ field }) => (
+              <FormItem>
+                <FormControl>
+                  <div className="relative group">
+                    <Input
+                      {...field}
+                      type="email"
+                      placeholder={tForm('emailPlaceholder')}
+                      className={fieldBase}
+                      aria-label={labelEmail}
+                      aria-describedby="email-error"
+                      autoComplete="email"
+                      required
+                    />
+                  </div>
+                </FormControl>
+                <FormMessage className="text-left text-xs text-white/80" id="email-error" />
+              </FormItem>
+            )}
+          />
+
           <FormField
             control={form.control}
             name="nationality"
             render={({ field }) => (
               <FormItem>
-                <div className="text-[11px] font-bold tracking-widest text-[#00B4C4] uppercase">
-                  {labelNationality}
-                </div>
-
                 <FormControl>
-                  <div className="relative">
+                  <div className="relative group">
                     <select
                       {...field}
-                      className={`${fieldBase} appearance-none pr-12 font-light`}
-                      aria-label="Nationality"
+                      className={`${fieldBase} appearance-none pr-12`}
+                      aria-label={labelNationality}
                       aria-describedby="nationality-error"
                       required
                     >
-                      <option value="" disabled className="bg-[#050A14] font-light text-white/60">
+                      <option value="" disabled className="bg-[#08070E] text-white/60">
                         {tForm('nationalityPlaceholder')}
                       </option>
-
                       {countries.map((country) => (
-                        <option
-                          key={country.code}
-                          value={country.code}
-                          className="bg-[#050A14] font-light text-white"
-                        >
+                        <option key={country.code} value={country.code} className="bg-[#08070E] text-white">
                           {locale === 'es' ? country.nameEs : country.name}
                         </option>
                       ))}
                     </select>
-
                     <svg
-                      className="pointer-events-none absolute right-4 top-1/2 h-5 w-5 -translate-y-1/2 text-white/60"
+                      className="pointer-events-none absolute right-4 top-1/2 h-5 w-5 -translate-y-1/2 text-white/50"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -172,35 +180,7 @@ export default function WaitlistForm() {
                     </svg>
                   </div>
                 </FormControl>
-
                 <FormMessage className="text-left text-xs text-white/80" id="nationality-error" />
-              </FormItem>
-            )}
-          />
-
-          <FormField
-            control={form.control}
-            name="email"
-            render={({ field }) => (
-              <FormItem>
-                <div className="text-[11px] font-bold tracking-widest text-[#00B4C4] uppercase">
-                  {labelEmail}
-                </div>
-
-                <FormControl>
-                  <Input
-                    {...field}
-                    type="email"
-                    placeholder={tForm('emailPlaceholder')}
-                    className={`${fieldBase} font-light placeholder:text-white/45`}
-                    aria-label="Email address"
-                    aria-describedby="email-error"
-                    autoComplete="email"
-                    required
-                  />
-                </FormControl>
-
-                <FormMessage className="text-left text-xs text-white/80" id="email-error" />
               </FormItem>
             )}
           />
@@ -210,7 +190,7 @@ export default function WaitlistForm() {
             name="wasReferred"
             render={({ field }) => (
               <FormItem>
-                <label className="flex cursor-pointer items-start gap-3 rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white/85">
+                <label className="flex cursor-pointer items-start gap-3 rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-sm text-white/85">
                   <input
                     type="checkbox"
                     checked={field.value}
@@ -229,53 +209,44 @@ export default function WaitlistForm() {
               name="referralCode"
               render={({ field }) => (
                 <FormItem>
-                  <div className="text-[11px] font-bold tracking-widest text-[#00B4C4] uppercase">
-                    {labelReferral}
-                  </div>
-
                   <FormControl>
                     <Input
                       {...field}
                       type="text"
                       placeholder={tForm('referralCodePlaceholder')}
-                      className={`${fieldBase} font-light uppercase placeholder:text-white/45`}
-                      aria-label="Referral code"
+                      className={`${fieldBase} uppercase`}
+                      aria-label={labelReferral}
                       aria-describedby="referral-code-error"
                       autoComplete="off"
                       maxLength={12}
                     />
                   </FormControl>
-
                   <FormMessage className="text-left text-xs text-white/80" id="referral-code-error" />
                 </FormItem>
               )}
             />
           ) : null}
 
-          <Button
-            className="w-full cursor-pointer rounded-lg bg-gradient-to-r from-[#00B4C4] to-[#006AD5] py-3.5 font-bold text-white shadow-lg transition hover:scale-[1.01] hover:shadow-cyan-500/20 disabled:hover:scale-100"
-            type="submit"
-            disabled={isPending}
-            aria-label={isPending ? 'Submitting...' : tForm('button')}
-          >
-            {isPending ? <Spinner className="mr-2 h-5 w-5" aria-hidden="true" /> : null}
-            {tForm('button')}
-          </Button>
+            <Button
+              className="cursor-pointer w-full h-12 rounded-lg bg-accent text-primary font-semibold shadow-lg transition-all duration-300 hover:bg-accent/90 hover:scale-[1.02] hover:shadow-xl hover:shadow-accent/30 disabled:hover:scale-100 flex items-center justify-center gap-2"
+              type="submit"
+              disabled={isPending}
+              aria-label={isPending ? 'Submitting...' : tForm('button')}
+            >
+              {isPending ? <Spinner className="mr-2 h-5 w-5" aria-hidden="true" /> : null}
+              <span className="flex items-center gap-2">
+                <span>{tForm('button')}</span>
+                <ArrowRight className="h-4 w-4" />
+              </span>
+            </Button>
+
+          <div className="space-y-3 text-center">
+            <p className="text-xs text-white/50">{tForm('microcopy')}</p>
+          </div>
         </form>
       </Form>
 
       <CustomDialog open={isOpen} setOpen={setIsOpen} title={dialogTitle} message={dialogMessage} />
-
-      <CustomDialog
-        open={privacyOpen}
-        setOpen={setPrivacyOpen}
-        title={privacyText}
-        message={
-          locale === 'es'
-            ? 'Usamos tu correo unicamente para administrar la lista de espera y notificarte del lanzamiento. No vendemos tu informacion. Puedes solicitar eliminacion cuando quieras.'
-            : 'We use your email only to manage the waitlist and notify you about the launch. We do not sell your information. You can request deletion anytime.'
-        }
-      />
     </>
   );
 }
