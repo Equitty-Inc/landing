@@ -23,6 +23,10 @@ pnpm.cmd test:unit
 pnpm.cmd qa
 ```
 
+### Dependencias
+
+Este repo usa **solo `pnpm`** como gestor. Asegúrate de tener `pnpm` (por ejemplo activando `corepack enable pnpm`) y usa `pnpm install` para levantar el proyecto localmente; el lockfile vigente es `pnpm-lock.yaml` y ya no mantenemos `yarn.lock`. Después de instalar, puedes ejecutar los scripts anteriores (`pnpm.cmd ...`) y el entorno quedará listo para desarrollo, tests y QA.
+
 ## Migraciones Prisma
 
 Si tu base ya existe y fue creada antes de usar Prisma Migrate en este proyecto, primero debes hacer baseline de las migraciones antiguas y luego aplicar las nuevas.
