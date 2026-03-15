@@ -4,14 +4,6 @@ export const waitlistTermsHeader = [
 
 export const waitlistTermsSections = [
   {
-    title: 'INTRODUCCIÓN',
-    body: ``,
-  },
-  {
-    title: '',
-    body: ``,
-  },
-  {
     title: '1. NATURALEZA DEL REGISTRO Y AUSENCIA DE OBLIGACIÓN',
     body: `El registro en la lista de espera (en adelante, la "Waitlist") del proyecto EQUITTY (en adelante, la "Plataforma") constituye una mera expectativa de derecho para el usuario. Unirse a la Waitlist no garantiza la apertura de una cuenta, el acceso inmediato a los servicios, ni constituye una oferta vinculante de contrato por parte de la Plataforma. EQUITTY es una iniciativa en fase de lanzamiento; por tanto, el acceso será otorgado de manera gradual, discrecional y sujeto a la disponibilidad técnica del sistema.`,
   },

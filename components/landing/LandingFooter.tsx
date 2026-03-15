@@ -96,17 +96,6 @@ export default function LandingFooter() {
                       ))}
                     </div>
                     <p className="mt-4 text-xs text-white/60">{waitlistTermsFooter}</p>
-                    <p className="mt-4 text-xs text-white/60">
-                      {t('termsModalFallback')}
-                      <a
-                        className="text-accent underline"
-                        href={encodeURI('/T&C EQUITTY WAITLIST.pdf')}
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                        {t('termsModalDownload')}
-                      </a>
-                    </p>
                   </div>
                 </DialogContent>
               </Dialog>
