@@ -54,7 +54,43 @@
         "termsModalFallback": "If the PDF viewer does not display, you can ",
         "termsModalDownload": "download the PDF.",
         "unsubscribeText": "If you no longer want to be part of the waitlist, unsubscribe",
-        "unsubscribeLink": "here"
+        "unsubscribeLink": "here",
+        "termsContent": {
+          "header": [
+            "Waitlist Terms & Conditions"
+          ],
+          "sections": [
+            {
+              "title": "1. NATURE OF REGISTRATION AND NO OBLIGATION",
+              "body": "Registration in the waitlist (the \"Waitlist\") for the EQUITTY project (the \"Platform\") creates only an expectation of rights for the user. Joining the Waitlist does not guarantee account opening, immediate access to services, or a binding contractual offer from the Platform. EQUITTY is an initiative in launch phase; therefore, access will be granted gradually, at the Platform's discretion, and subject to technical availability."
+            },
+            {
+              "title": "2. CONSENT FOR COMMUNICATIONS",
+              "body": "By registering, the user grants express, prior, and informed consent to receive electronic communications regarding waitlist status, launch timeline updates, and EQUITTY corporate news. The user may withdraw this consent at any time using the unsubscribe (opt-out) mechanism included in each email."
+            },
+            {
+              "title": "3. PRIVACY AND DATA PROTECTION",
+              "body": "EQUITTY is committed to processing the user's personal data under strict confidentiality standards, in accordance with the principles of personal data protection regulations of the Republic of El Salvador. Collected data will be used exclusively to manage platform access and validate user identity. No data transfers to third parties will be made without prior consent, except when legally required by a competent authority."
+            },
+            {
+              "title": "4. DISCLAIMER OF ADVICE AND RISKS",
+              "body": "The information provided at this expectation stage is strictly informational and does not constitute financial, legal, tax advice, or an investment recommendation. The user acknowledges that investments carry inherent risks and understands that, before receiving any final product or service, the user must successfully complete legal verification, compliance (KYC/AML), and execution of definitive agreements."
+            },
+            {
+              "title": "5. INTELLECTUAL PROPERTY",
+              "body": "All intellectual property rights over content, trademarks, logos, and concepts presented at this stage are the exclusive property of EQUITTY. Joining the Waitlist does not grant any license of use or rights over such assets."
+            },
+            {
+              "title": "6. MODIFICATION AND TERMINATION",
+              "body": "EQUITTY reserves the right to modify, suspend, or terminate the Waitlist phase at any time and without prior notice, for technical, commercial, or legal reasons, without generating any right to compensation in favor of registered users."
+            },
+            {
+              "title": "7. JURISDICTION AND DISPUTE RESOLUTION",
+              "body": "Any dispute arising from interpretation or compliance with these Terms shall be resolved through Equity Arbitration, in accordance with the Rules of the Mediation and Arbitration Center of the Chamber of Commerce and Industry of El Salvador."
+            }
+          ],
+          "footer": ""
+        }
       },
       "Unsubscribe": {
         "eyebrow": "Manage your spot",
