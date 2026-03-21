@@ -2,21 +2,21 @@
   "Metadata": {
     "title": "Equitty - Invierte en Activos Reales",
     "description": "Plataforma revolucionaria para invertir en activos reales con transparencia y seguridad.",
-    "keywords": "inversion, activos reales, fintech, equitty, invertir, activos, finanzas"
+    "keywords": "inversión, activos reales, fintech, equitty, invertir, activos, finanzas"
   },
   "HomePage": {
-    "badge": "",
-    "hero_title": "Investment for",
-    "hero_title_mid": "Real World Assets",
+    "badge": "Muy pronto",
+    "hero_title": "Inversión en",
+    "hero_title_mid": "Activos del mundo real",
     "hero_title_highlight": "Activos Reales",
     "hero_title_end": "",
-    "headline": "La plataforma global de inversion\nen activos reales",
-    "subhead": "Se de los primeros en conocer como se esta construyendo el futuro de la inversion digital.",
+    "headline": "La plataforma global de inversión\nen activos reales",
+    "subhead": "Se de los primeros en conocer como se esta construyendo el futuro de la inversión digital.",
     "Form": {
       "cardEyebrow": "Acceso anticipado",
       "cardTitle": "Unete a la lista de espera",
       "cardDescription": "Registra tu correo y nacionalidad. Si llegaste por invitacion, el flujo de referido sigue disponible aqui mismo.",
-      "emailPlaceholder": "Enter your email",
+      "emailPlaceholder": "Ingresa tu correo",
       "nationalityPlaceholder": "Nacionalidad",
       "wasReferredLabel": "Fui referido por otro inversionista futuro",
       "referralCodePlaceholder": "Ingresa el codigo de referido",
@@ -48,12 +48,12 @@
       "Footer": {
         "footerDisclaimer": "Unirte a la lista no es una oferta de inversion. Invertir implica riesgo, incluida la perdida del capital.",
         "privacy": "Privacidad",
-        "terms": "Terms & Conditions",
-        "termsModalTitle": "Equitty waitlist terms & conditions",
+        "terms": "Terminos y condiciones",
+        "termsModalTitle": "Terminos y condiciones de la lista de espera de Equitty",
         "termsModalDescription": "Consulta el acuerdo oficial de la lista de espera directamente desde el documento que compartimos con los nuevos inversionistas.",
         "termsModalFallback": "Si el visor no carga, puedes ",
         "termsModalDownload": "descargar el PDF.",
-        "unsubscribeText": "Si ya no quieres ser parte de la waitlist, cancela tu suscripción",
+        "unsubscribeText": "Si ya no quieres ser parte de la lista de espera, cancela tu suscripcion",
         "unsubscribeLink": "aquí"
       },
       "Unsubscribe": {
@@ -76,12 +76,12 @@
       "assetClass": "Activos reales tokenizados"
     },
     "FeatureHighlight": {
-      "eyebrow": "Spotlight",
+      "eyebrow": "Destacado",
       "title": "Acceso simple y transparente a activos reales",
       "subtitle": "Oportunidades de activos reales respaldadas por blockchain con precios claros y liquidación instantánea."
     },
     "Testimonials": {
-      "eyebrow": "Confiado por +10K usuarios",
+      "eyebrow": "Con la confianza de +10K usuarios",
       "title": "Invierte con confianza",
       "subtitle": "Haz de Equitty tu portafolio completo: una plataforma segura para gestionar, crecer y maximizar tus activos."
     },
@@ -92,18 +92,18 @@
     "Benefits": {
       "eyebrow": "Por que Equitty",
       "title": "Una entrada mas clara a los activos reales",
-      "subtitle": "La nueva landing pone mas foco en confianza, velocidad y acceso sin cambiar como funciona el producto por debajo.",
+      "subtitle": "La nueva pagina pone mas foco en confianza, velocidad y acceso sin cambiar como funciona el producto por dentro.",
       "item1": {
         "title": "Tokenizacion con enfoque pionero",
         "description": "Una puerta de entrada mas clara para inversionistas interesados en participar en activos reales."
       },
       "item2": {
-        "title": "Experiencia de onboarding mas rapida",
+        "title": "Experiencia de incorporacion mas rapida",
         "description": "La interfaz ahora prioriza jerarquia visual, claridad y una mejor toma de decision."
       },
       "item3": {
         "title": "Captura de datos del inversionista intacta",
-        "description": "Nacionalidad, correo y flujo de referido se mantienen mientras la UI se vuelve mas solida."
+        "description": "Nacionalidad, correo y flujo de referido se mantienen mientras la interfaz se vuelve mas solida."
       },
       "item4": {
         "title": "Sistema visual con mayor recordacion",
@@ -117,15 +117,15 @@
     },
     "HowItWorks": {
       "eyebrow": "Proceso",
-      "title": "El mismo flujo de waitlist, mejor presentado",
-      "subtitle": "Aqui solo cambia la UI. La validacion, el envio y el manejo de referidos siguen conectados a la implementacion existente.",
+      "title": "El mismo flujo de lista de espera, mejor presentado",
+      "subtitle": "Aqui solo cambia la interfaz. La validacion, el envio y el manejo de referidos siguen conectados a la implementacion existente.",
       "step1": {
         "title": "Elige nacionalidad",
         "description": "El catalogo actual de paises sigue conectado al formulario real y a su esquema de validacion."
       },
       "step2": {
         "title": "Ingresa tu correo",
-        "description": "El envio sigue pasando por la server action actual sin alterar el contrato del backend."
+        "description": "El envio sigue pasando por la accion del servidor actual sin alterar el contrato del servidor."
       },
       "step3": {
         "title": "Agrega referido si aplica",
@@ -133,20 +133,20 @@
       },
       "step4": {
         "title": "Entra a la lista",
-        "description": "Los dialogs de exito y error siguen usando la logica actual del waitlist y sus textos traducidos."
+        "description": "Los dialogos de exito y error siguen usando la logica actual de la lista de espera y sus textos traducidos."
       }
     },
     "Faq": {
       "eyebrow": "FAQ",
-      "title": "Que cambia y que no",
+      "title": "Que cambia y que no cambia",
       "subtitle": "El rediseño mejora la experiencia de la landing manteniendo estable el comportamiento operativo.",
       "item1": {
-        "question": "Cambia la logica del waitlist?",
-        "answer": "No. Se conservan la misma server action, reglas de validacion, manejo de referidos y flujos de exito o error."
+        "question": "Cambia la logica de la lista de espera?",
+        "answer": "No. Se conservan la misma accion del servidor, reglas de validacion, manejo de referidos y flujos de exito o error."
       },
       "item2": {
         "question": "Seguira funcionando el cambio de idioma?",
-        "answer": "Si. El nuevo layout sigue usando el routing localizado actual y traducciones para espanol e ingles."
+        "answer": "Si. El nuevo diseno sigue usando el enrutamiento localizado actual y traducciones para espanol e ingles."
       },
       "item3": {
         "question": "Se elimino el campo de referido?",
@@ -154,7 +154,7 @@
       },
       "item4": {
         "question": "Esto esta basado en el diseno de newDesign/EQ-main?",
-        "answer": "Si. La nueva composicion, la jerarquia, el tratamiento de cards y los efectos visuales se adaptaron de esa referencia al proyecto real."
+        "answer": "Si. La nueva composicion, la jerarquia, el tratamiento de tarjetas y los efectos visuales se adaptaron de esa referencia al proyecto real."
       }
     },
     "Dialog": {
