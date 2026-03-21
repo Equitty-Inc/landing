@@ -1,6 +1,7 @@
 'use client';
 
 import WaitlistForm from '@/components/HeroSection/WaitlistForm';
+import ComingSoonBadge from '@/components/landing/ComingSoonBadge';
 import LandingFooter from '@/components/landing/LandingFooter';
 import LandingHeader from '@/components/landing/LandingHeader';
 // import StatsSection from '@/components/landing/StatsSection';
@@ -107,8 +108,9 @@ export default function Home() {
           </div>
 
           <div className="relative mx-auto w-full max-w-7xl px-2 sm:px-0">
-            <div className="grid h-full min-h-[85vh] lg:min-h-0 gap-8 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] lg:gap-12">
-              <div className="order-2 lg:order-1 relative z-10 flex flex-col items-center justify-center text-center lg:items-start lg:text-left">
+            <ComingSoonBadge label={t('badge')} />
+            <div className="grid h-full min-h-[85vh] items-center lg:min-h-0 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] lg:gap-12">
+              <div className="order-2 row-start-1 col-start-1 lg:order-1 lg:row-auto lg:col-auto relative z-20 flex flex-col items-center justify-center text-center lg:items-start lg:text-left">
                 <div className="flex w-full flex-col items-center space-y-0.5 sm:space-y-1 lg:items-start">
                   <h1 className="text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-7xl">
                     {t('hero_title')}
@@ -139,8 +141,8 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="order-1 lg:order-2 relative z-0 flex h-full min-h-[85vh] items-center justify-center pointer-events-none">
-                <div className="relative w-full max-w-sm opacity-75 lg:opacity-100">
+              <div className="order-1 row-start-1 col-start-1 lg:order-2 lg:row-auto lg:col-auto relative z-0 flex h-full min-h-[85vh] items-center justify-center pointer-events-none">
+                <div className="relative w-full max-w-sm opacity-25 lg:opacity-100">
                   <div
                     className="relative h-full min-h-[60vh] lg:min-h-0 flex items-center justify-center"
                     style={{ animation: 'float 4s ease-in-out infinite' }}
