@@ -12,6 +12,7 @@
     "hero_title_end": "",
     "headline": "The investment platform\nfor real-world assets",
     "subhead": "We are building a platform for tokenized assets. No investments are currently available.",
+    "applicationPendingBadge": "CNAD APPLICATION PENDING",
     "Form": {
       "cardEyebrow": "Early access",
       "cardTitle": "Join the waitlist",
