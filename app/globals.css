@@ -568,6 +568,28 @@ body {
   filter: drop-shadow(0 0 18px rgba(0,180,196,0.25));
 }
 
+.cnad-pending-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  border: 1px solid color-mix(in srgb, var(--turquoise) 60%, white 40%);
+  background:
+    linear-gradient(135deg, rgba(0, 180, 196, 0.14) 0%, rgba(48, 101, 152, 0.22) 100%),
+    rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  color: color-mix(in srgb, var(--secondary-cream) 80%, white 20%);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.05) inset,
+    0 0 18px rgba(0, 180, 196, 0.25),
+    0 8px 22px rgba(0, 0, 0, 0.25);
+}
+
 @keyframes revealUp {
   0% { opacity: 0; transform: translateY(12px); filter: blur(6px); }
   100% { opacity: 1; transform: translateY(0); filter: blur(0); }

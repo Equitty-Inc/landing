@@ -12,11 +12,11 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog';
-import {
-  waitlistTermsFooter,
-  waitlistTermsHeader,
-  waitlistTermsSections,
-} from '@/data/termsContent';
+
+type TermsSection = {
+  title: string;
+  body: string;
+};
 
 const FACEBOOK_URL = process.env.NEXT_PUBLIC_FACEBOOK_URL || 'https://www.facebook.com/profile.php?id=61588660531154';
 const INSTAGRAM_URL = process.env.NEXT_PUBLIC_INSTAGRAM_URL || 'https://www.instagram.com/equitty_/';
@@ -54,6 +54,9 @@ const socials = [
 export default function LandingFooter() {
   const t = useTranslations('HomePage.Footer');
   const [isTermsOpen, setIsTermsOpen] = useState(false);
+  const waitlistTermsHeader = t.raw('termsContent.header') as string[];
+  const waitlistTermsSections = t.raw('termsContent.sections') as TermsSection[];
+  const waitlistTermsFooter = t.raw('termsContent.footer') as string;
 
   return (
     <footer className="bg-background dark:bg-background border-t border-white/10">

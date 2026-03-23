@@ -135,6 +135,9 @@ export default function Home() {
                 <p className="mt-2 max-w-lg text-base leading-relaxed text-white/85 sm:mt-4 sm:text-lg lg:text-xl">
                   {t('subhead')}
                 </p>
+                <div className="mt-3 flex w-full justify-center lg:justify-start">
+                  <span className="cnad-pending-badge">{t('applicationPendingBadge')}</span>
+                </div>
 
                 <div className="mt-6 w-full max-w-md">
                   <WaitlistForm />
