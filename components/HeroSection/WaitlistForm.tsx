@@ -228,7 +228,8 @@ export default function WaitlistForm() {
           ) : null}
 
             <Button
-              className="cursor-pointer w-full h-12 rounded-lg bg-accent text-primary font-semibold shadow-lg transition-all duration-300 hover:bg-accent/90 hover:scale-[1.02] hover:shadow-xl hover:shadow-accent/30 disabled:hover:scale-100 flex items-center justify-center gap-2"
+              variant="brand"
+              className="cursor-pointer w-full h-12 rounded-lg disabled:hover:scale-100 flex items-center justify-center gap-2"
               type="submit"
               disabled={isPending}
               aria-label={isPending ? 'Submitting...' : tForm('button')}

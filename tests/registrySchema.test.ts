@@ -7,6 +7,7 @@ import {
   normalizeEmailLocale,
 } from '../lib/mailer.ts';
 import { normalizeReferralCode } from '../lib/referrals.ts';
+import { createNewsletterSchema } from '../schemas/newsletterSchema.ts';
 import { createRegistrySchema } from '../schemas/registrySchema.ts';
 
 const t = (key: string) =>
@@ -74,6 +75,42 @@ export function runRegistrySchemaTests() {
   });
   assert.equal(invalidReferralCode.success, false, 'rejects malformed referral codes');
   assert.equal(invalidReferralCode.error?.issues[0]?.message, 'Referral code format is invalid');
+}
+
+export function runNewsletterSchemaTests() {
+  const newsletterSchema = createNewsletterSchema((key) =>
+    (
+      {
+        firstNameRequired: 'First name is required.',
+        emailRequired: 'Email address is required.',
+        emailInvalid: 'Invalid email.',
+        interestRequired: 'Select at least one interest.',
+      } as const
+    )[key] ?? key
+  );
+
+  const validPayload = newsletterSchema.safeParse({
+    firstName: 'Alice',
+    email: 'alice@example.com',
+    interests: ['futureInvestor', 'industryObserver'],
+  });
+  assert.equal(validPayload.success, true, 'accepts valid newsletter payload');
+
+  const invalidEmail = newsletterSchema.safeParse({
+    firstName: 'Alice',
+    email: 'bad-email',
+    interests: ['futureInvestor'],
+  });
+  assert.equal(invalidEmail.success, false, 'rejects invalid newsletter email');
+  assert.equal(invalidEmail.error?.issues[0]?.message, 'Invalid email.');
+
+  const missingInterests = newsletterSchema.safeParse({
+    firstName: 'Alice',
+    email: 'alice@example.com',
+    interests: [],
+  });
+  assert.equal(missingInterests.success, false, 'requires at least one interest');
+  assert.equal(missingInterests.error?.issues[0]?.message, 'Select at least one interest.');
 }
 
 export function runReferralUtilityTests() {

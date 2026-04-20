@@ -1,5 +1,6 @@
 import {
   runMailerLocaleTests,
+  runNewsletterSchemaTests,
   runReferralUtilityTests,
   runRegistrySchemaTests,
 } from './registrySchema.test.ts';
@@ -14,6 +15,10 @@ const suites: Suite[] = [
   {
     name: 'registrySchema',
     run: runRegistrySchemaTests,
+  },
+  {
+    name: 'newsletterSchema',
+    run: runNewsletterSchemaTests,
   },
   {
     name: 'referralUtils',

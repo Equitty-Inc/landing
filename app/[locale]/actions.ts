@@ -7,6 +7,7 @@ import { resend, buildReferrerNotificationEmail, buildWelcomeEmail } from '@/lib
 import prisma from '@/lib/prisma';
 import { processUnsubscribeWithClient, type errorType, type unsubscribeResult } from '@/lib/unsubscribe';
 import { generateUniqueReferralCode, normalizeReferralCode } from '@/lib/referrals';
+import { createNewsletterSchema, newsletterForm } from '@/schemas/newsletterSchema';
 import { createRegistrySchema, registryForm } from '@/schemas/registrySchema';
 
 export type { errorType } from '@/lib/unsubscribe';
@@ -14,6 +15,77 @@ export type { errorType } from '@/lib/unsubscribe';
 export type addEmailResult =
   | { success: true }
   | { success: false; error?: { type: errorType; message?: string } };
+
+export type newsletterResult =
+  | { success: true }
+  | { success: false; error?: { type: 'email' | 'server'; message?: string } };
+
+export async function subscribeToNewsletter(
+  data: newsletterForm,
+  locale: string
+): Promise<newsletterResult> {
+  const t = await getTranslations('Newsletter.validation');
+  const parsed = createNewsletterSchema(t).safeParse(data);
+
+  if (!parsed.success) {
+    return {
+      success: false,
+      error: {
+        type: 'server',
+        message: z.prettifyError(parsed.error),
+      },
+    };
+  }
+
+  const { firstName, email, interests } = parsed.data;
+
+  try {
+    const existing = await prisma.newsletterSubscriber.findUnique({
+      where: { email },
+      select: { id: true, status: true },
+    });
+
+    if (existing?.status === 'subscribed') {
+      return {
+        success: false,
+        error: { type: 'email' },
+      };
+    }
+
+    if (existing) {
+      await prisma.newsletterSubscriber.update({
+        where: { email },
+        data: {
+          firstName,
+          locale,
+          interests,
+          status: 'subscribed',
+        },
+      });
+    } else {
+      await prisma.newsletterSubscriber.create({
+        data: {
+          firstName,
+          email,
+          locale,
+          interests,
+          status: 'subscribed',
+        },
+      });
+    }
+
+    revalidatePath(`/${locale}`);
+    return { success: true };
+  } catch {
+    return {
+      success: false,
+      error: {
+        type: 'server',
+        message: 'Something went wrong while saving your subscription. Please try again later.',
+      },
+    };
+  }
+}
 
 export async function addEmailToWaitlist(
   data: registryForm,

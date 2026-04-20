@@ -13,6 +13,11 @@ enum WaitlistStatus {
   bounced
 }
 
+enum NewsletterSubscriptionStatus {
+  subscribed
+  unsubscribed
+}
+
 model WaitlistSignup {
   id                     String           @id @default(uuid()) @db.Uuid
   email                  String           @unique
@@ -38,4 +43,18 @@ model WaitlistSignup {
 
   @@index([referredById])
   @@map("waitlist_signups")
+}
+
+model NewsletterSubscriber {
+  id         String                     @id @default(uuid()) @db.Uuid
+  firstName  String                     @map("first_name")
+  email      String                     @unique
+  locale     String                     @default("en")
+  interests  String[]
+  status     NewsletterSubscriptionStatus @default(subscribed)
+  createdAt  DateTime                   @default(now()) @map("created_at")
+  updatedAt  DateTime                   @updatedAt @map("updated_at")
+
+  @@index([status])
+  @@map("newsletter_subscribers")
 }

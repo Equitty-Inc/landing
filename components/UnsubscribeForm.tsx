@@ -46,8 +46,9 @@ export default function UnsubscribeForm() {
       />
       <Button
         type="submit"
+        variant="brand"
         disabled={isPending}
-        className="w-full bg-accent text-primary cursor-pointer font-semibold shadow-lg shadow-accent/30 transition hover:scale-[1.02] disabled:opacity-60"
+        className="w-full cursor-pointer disabled:opacity-60"
       >
         {isPending ? t('processing') : t('button')}
       </Button>
