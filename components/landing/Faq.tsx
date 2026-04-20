@@ -22,11 +22,11 @@ export default function Faq() {
           {faqKeys.map((key, index) => {
             const open = openIndex === index;
             return (
-              <article key={key} className="rounded-[1.8rem] border border-white/10 bg-white/[0.03]">
+              <article key={key} className="rounded-[1.8rem] border border-white/10 bg-white/3">
                 <button
                   type="button"
                   onClick={() => setOpenIndex(open ? -1 : index)}
-                  className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left"
+                  className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left transition hover:bg-white/5 active:scale-[0.995] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[rgba(var(--eq-page-accent-rgb,0,180,196),0.45)]"
                 >
                   <span className="text-lg font-semibold text-white">{t(`${key}.question`)}</span>
                   {open ? <Minus className="h-5 w-5 text-[#00B4C4]" /> : <Plus className="h-5 w-5 text-[#00B4C4]" />}

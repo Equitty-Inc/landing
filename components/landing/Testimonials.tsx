@@ -39,10 +39,18 @@ export default function Testimonials() {
             <p>{testimonial.title}</p>
           </div>
           <div className="mt-8 flex items-center justify-center gap-6">
-            <button onClick={prev} aria-label="Previous" className="text-white/70 hover:text-white">
+            <button
+              onClick={prev}
+              aria-label="Previous"
+              className="text-white/70 transition hover:text-white active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[rgba(var(--eq-page-accent-rgb,0,180,196),0.45)]"
+            >
               <ChevronLeft className="h-5 w-5" />
             </button>
-            <button onClick={next} aria-label="Next" className="text-white/70 hover:text-white">
+            <button
+              onClick={next}
+              aria-label="Next"
+              className="text-white/70 transition hover:text-white active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[rgba(var(--eq-page-accent-rgb,0,180,196),0.45)]"
+            >
               <ChevronRight className="h-5 w-5" />
             </button>
           </div>

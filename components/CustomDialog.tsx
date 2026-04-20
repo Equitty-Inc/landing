@@ -21,7 +21,8 @@ export default function CustomDialog({ open, setOpen, title, message }: Props) {
 
       <DialogFooter>
         <Button
-          className="cursor-pointer bg-white/20 text-white backdrop-blur hover:bg-white/30"
+          variant="brandGhost"
+          className="cursor-pointer"
           onClick={() => setOpen(false)}
         >
           {t('confirmButton')}

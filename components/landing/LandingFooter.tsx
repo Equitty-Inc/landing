@@ -2,8 +2,9 @@
 
 import { Facebook, Instagram, Linkedin } from 'lucide-react';
 import Image from 'next/image';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { useState } from 'react';
+import { Link, usePathname } from '@/i18n/navigation';
 import {
   Dialog,
   DialogContent,
@@ -52,17 +53,47 @@ const socials = [
 ];
 
 export default function LandingFooter() {
-  const t = useTranslations('HomePage.Footer');
+  const t = useTranslations('Footer');
+  const locale = useLocale();
+  const pathname = usePathname();
   const [isTermsOpen, setIsTermsOpen] = useState(false);
-  const waitlistTermsHeader = t.raw('termsContent.header') as string[];
-  const waitlistTermsSections = t.raw('termsContent.sections') as TermsSection[];
-  const waitlistTermsFooter = t.raw('termsContent.footer') as string;
+  const termsHeader = t.raw('termsContent.header') as string[];
+  const termsSections = t.raw('termsContent.sections') as TermsSection[];
+  const termsFooter = t.raw('termsContent.footer') as string;
+  const currentLocale = locale === 'es' ? 'es' : 'en';
+
+  const footerAccentLine = {
+    background:
+      'linear-gradient(90deg, transparent 0%, rgba(var(--eq-page-accent-rgb, 0, 180, 196), 0.55) 50%, transparent 100%)',
+    boxShadow:
+      '0 0 14px rgba(var(--eq-page-accent-rgb, 0, 180, 196), 0.42), 0 0 36px rgba(var(--eq-page-accent-rgb, 0, 180, 196), 0.16)',
+  };
+
+  const footerTopGlow = {
+    background:
+      'radial-gradient(ellipse 72% 85% at 50% 0%, rgba(var(--eq-page-accent-rgb, 0, 180, 196), 0.16) 0%, rgba(var(--eq-page-accent-rgb, 0, 180, 196), 0.05) 48%, transparent 72%)',
+  };
 
   return (
-    <footer className="bg-background dark:bg-background border-t border-white/10">
-      <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+    <footer className="relative overflow-hidden bg-background dark:bg-background">
+      <div
+        className="pointer-events-none absolute inset-x-0 top-8 h-28 sm:h-32"
+        style={footerTopGlow}
+        aria-hidden
+      />
+      <div
+        className="relative mx-auto mt-8 h-px w-full max-w-7xl opacity-90"
+        style={footerAccentLine}
+        aria-hidden
+      />
+      <div className="relative mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center justify-between gap-8 md:flex-row">
-          <div>
+          <div
+            className="inline-block"
+            style={{
+              filter: 'drop-shadow(0 0 16px rgba(var(--eq-page-accent-rgb, 0, 180, 196), 0.32))',
+            }}
+          >
             <Image src="/logo-accent.png" alt="EQUITTY" width={200} height={200} />
           </div>
 
@@ -70,7 +101,10 @@ export default function LandingFooter() {
             <div className="flex items-center gap-4">
               <Dialog open={isTermsOpen} onOpenChange={setIsTermsOpen}>
                 <DialogTrigger asChild>
-                  <button type="button" className="text-white/70 transition hover:text-accent cursor-pointer">
+                  <button
+                    type="button"
+                    className="cursor-pointer text-white/70 transition hover:text-[rgb(var(--eq-page-accent-rgb,0,180,196))] active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[rgba(var(--eq-page-accent-rgb,0,180,196),0.45)]"
+                  >
                     {t('terms')}
                   </button>
                 </DialogTrigger>
@@ -83,27 +117,60 @@ export default function LandingFooter() {
                   </DialogHeader>
                   <div className="mt-4 max-h-[70vh] overflow-y-auto rounded-2xl border border-white/10 bg-black/80 p-6 text-sm leading-relaxed text-white/80">
                     <div className="space-y-1 text-[13px] uppercase tracking-[0.3em] text-white/60">
-                      {waitlistTermsHeader.map((line, index) => (
+                      {termsHeader.map((line, index) => (
                         <p key={`${line}-${index}`}>{line}</p>
                       ))}
                     </div>
                     <div className="mt-4 space-y-6">
-                      {waitlistTermsSections.map((section) => (
+                      {termsSections.map((section) => (
                         <article
                           key={section.title}
                           className="space-y-2 border-t border-white/10 pt-4 first:border-t-0 first:pt-0"
                         >
-                          <p className="text-xs uppercase tracking-[0.4em] text-accent">{section.title}</p>
+                          <p className="text-xs uppercase tracking-[0.4em] text-[rgb(var(--eq-page-accent-rgb,0,180,196))]">
+                            {section.title}
+                          </p>
                           <p className="text-sm text-white/80 leading-relaxed whitespace-pre-line">{section.body}</p>
                         </article>
                       ))}
                     </div>
-                    <p className="mt-4 text-xs text-white/60">{waitlistTermsFooter}</p>
+                    <p className="mt-4 text-xs text-white/60">{termsFooter}</p>
                   </div>
                 </DialogContent>
               </Dialog>
               <div className="h-4 w-px bg-white/20" />
               <span className="text-white/70">{t('privacy')}</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="text-white/50">{t('languageLabel')}</span>
+              <div className="inline-flex items-center rounded-full bg-white/5 p-1">
+                <Link
+                  href={pathname}
+                  locale="es"
+                  className="rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-[0.15em] text-white/70 transition hover:text-white"
+                  style={
+                    currentLocale === 'es'
+                      ? { backgroundColor: 'rgba(var(--eq-page-accent-rgb, 0, 180, 196), 0.25)', color: '#FFFFFF' }
+                      : undefined
+                  }
+                  aria-current={currentLocale === 'es' ? 'page' : undefined}
+                >
+                  ES
+                </Link>
+                <Link
+                  href={pathname}
+                  locale="en"
+                  className="rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-[0.15em] text-white/70 transition hover:text-white"
+                  style={
+                    currentLocale === 'en'
+                      ? { backgroundColor: 'rgba(var(--eq-page-accent-rgb, 0, 180, 196), 0.25)', color: '#FFFFFF' }
+                      : undefined
+                  }
+                  aria-current={currentLocale === 'en' ? 'page' : undefined}
+                >
+                  EN
+                </Link>
+              </div>
             </div>
           </div>
 
@@ -114,7 +181,7 @@ export default function LandingFooter() {
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white/70 transition-colors hover:text-accent"
+                className="text-white/70 transition-colors hover:text-[rgb(var(--eq-page-accent-rgb,0,180,196))]"
                 aria-label={label}
               >
                 <Icon className="w-5 h-5" />
