@@ -1,201 +1,222 @@
 {
   "Metadata": {
-    "title": "Equitty - Invierte en Activos Reales",
-    "description": "Plataforma revolucionaria para invertir en activos reales con transparencia y seguridad.",
-    "keywords": "inversión, activos reales, fintech, equitty, invertir, activos, finanzas"
+    "title": "EQUITTY | Vista Corporativa",
+    "description": "EQUITTY esta construyendo infraestructura financiera regulada para activos reales tokenizados en America Latina.",
+    "keywords": "EQUITTY, activos tokenizados, activos reales, America Latina, DASP, CNAD, cumplimiento"
+  },
+  "SiteNav": {
+    "home": "Inicio",
+    "about": "Nosotros",
+    "platform": "Plataforma",
+    "regulatory": "Regulatorio y Confianza",
+    "updates": "Actualizaciones",
+    "primaryCta": "Sigue Nuestro Progreso",
+    "openMenu": "Abrir menu de navegacion",
+    "closeMenu": "Cerrar menu de navegacion"
+  },
+  "Common": {
+    "daspStatus": "Licencia DASP: Solicitud Pendiente - CNAD, El Salvador",
+    "platformStatus": "Plataforma: En Desarrollo",
+    "investmentsStatus": "Inversiones: No Abiertas - Solo Inversionistas Calificados al Lanzamiento",
+    "contactCta": "Contactanos",
+    "followProgress": "Sigue Nuestro Progreso",
+    "subscribeUpdates": "Suscribete a Actualizaciones",
+    "complianceDisclaimer": "Ninguna pagina, seccion, boton o formulario en equitty.com puede implicar que ya hay inversiones disponibles, que se estan incorporando inversionistas, o que EQUITTY ya cuenta con licencia para operar un mercado de activos digitales."
+  },
+  "Newsletter": {
+    "title": "Sigue la Construccion",
+    "description": "Compartimos hitos, actualizaciones regulatorias, insights del ecosistema y avances de la compania mientras construimos. Sin spam. Sin solicitud de inversion. Solo la historia real de construir EQUITTY.",
+    "firstNameLabel": "Nombre",
+    "firstNamePlaceholder": "Ingresa tu nombre",
+    "emailLabel": "Correo Electronico",
+    "emailPlaceholder": "Ingresa tu correo",
+    "interestLabel": "Me interesa como",
+    "interestInvestor": "Futuro inversionista",
+    "interestAssetPartner": "Socio de activos",
+    "interestIndustryObserver": "Observador de la industria",
+    "interestOther": "Otro",
+    "button": "Enviar Actualizaciones",
+    "microcopy": "Solo actualizaciones informativas. Puedes darte de baja cuando quieras.",
+    "successTitle": "Suscripcion confirmada",
+    "successMessage": "Gracias por seguir nuestro progreso. Te enviaremos hitos mientras construimos.",
+    "errors": {
+      "submit": "Hubo un error al suscribirte. Intentalo de nuevo mas tarde.",
+      "alreadyExists": "Este correo ya esta suscrito a las actualizaciones."
+    },
+    "validation": {
+      "firstNameRequired": "El nombre es obligatorio.",
+      "emailRequired": "El correo es obligatorio.",
+      "emailInvalid": "Ingresa un correo valido.",
+      "interestRequired": "Selecciona al menos un interes."
+    }
+  },
+  "Home": {
+    "heroTitle": "Construyendo la Infraestructura Financiera para Activos Reales en America Latina",
+    "heroSubtitle": "EQUITTY esta desarrollando un mercado de inversion regulado - construido dentro del marco de activos digitales de El Salvador - disenado para conectar capital global y de diaspora con bienes raices, infraestructura y activos privados en America Latina.",
+    "primaryCta": "Sigue Nuestro Progreso",
+    "secondaryCta": "Conoce al Equipo",
+    "statusStripLabel": "Estado Actual",
+    "opportunityTitle": "El Problema que Estamos Resolviendo",
+    "opportunityParagraphOne": "Se proyecta que $16 billones en activos reales se tokenicen para 2030. America Latina tiene una de las infraestructuras de inversion mas desatendidas del mundo. Ademas, 2.5 millones de salvadorenos en Estados Unidos envian mas de $10 mil millones al ano sin un canal regulado para convertir ese capital en propiedad de largo plazo.",
+    "opportunityParagraphTwo": "El Salvador aprobo la Ley DASP, establecio 0% de impuesto a ganancias de capital sobre activos digitales y creo el unico marco regulatorio integral de activos digitales en America Latina. La capa de infraestructura para aprovechar este momento aun no existe. EQUITTY la esta construyendo.",
+    "statsOne": "$2.5B+ en capital de diaspora salvadorena listo para invertir",
+    "statsTwo": "$200B+ de brecha de financiamiento en infraestructura LatAm",
+    "statsThree": "$16T mercado global proyectado de RWA tokenizados para 2030",
+    "buildingTitle": "Lo que Estamos Construyendo",
+    "buildingSubtitle": "EQUITTY sera un mercado de inversion regulado de dos lados - la capa de infraestructura que conecta inversionistas globales calificados con activos reales validados en America Latina.",
+    "investorsColumnTitle": "Para Inversionistas",
+    "investorsBulletOne": "Acceso a activos latinoamericanos de alta calidad",
+    "investorsBulletTwo": "Disenado para permitir participacion desde $100 (cuando este licenciado)",
+    "investorsBulletThree": "Onboarding totalmente en cumplimiento",
+    "investorsBulletFour": "Visibilidad de desempeno en tiempo real",
+    "partnersColumnTitle": "Para Socios de Activos",
+    "partnersBulletOne": "Desarrolladores inmobiliarios y duenos de infraestructura",
+    "partnersBulletTwo": "Originadores con respaldo gubernamental y credito privado",
+    "partnersBulletThree": "Estructuras SPV listas para oferta tokenizada",
+    "partnersBulletFour": "Acceso a capital de diaspora e institucional"
+  },
+  "About": {
+    "heroTitle": "Construido por Operadores. Gobernado por Lideres. Disenado para Largo Plazo.",
+    "heroSubtitle": "EQUITTY esta siendo construido por un equipo transfronterizo de fundadores fintech, estrategas de capital, arquitectos legales y lideres de tecnologia, con una estructura de junta y asesoria disenada para credibilidad institucional.",
+    "missionTitle": "Mision y Por Que Existimos",
+    "missionText": "Conectar capital de EE. UU. y global con activos reales en America Latina mediante una plataforma en cumplimiento, transparente y escalable que abre acceso a inversionistas calificados retail e institucionales.",
+    "whyText": "El capital existe. Los activos existen. La infraestructura regulada que los conecta no. EQUITTY esta cerrando esa brecha desde El Salvador y escalando por America Latina.",
+    "foundingTitle": "Equipo Fundador",
+    "boardTitle": "Junta Directiva",
+    "boardIntro": "EQUITTY se gobierna con estandares institucionales desde el dia uno. Nuestra junta aporta supervision estrategica, accountability y credibilidad para reguladores e inversionistas.",
+    "advisorsTitle": "Asesores",
+    "closingTitle": "Quieres saber mas o explorar una alianza?",
+    "closingPrimary": "Sigue Nuestro Progreso",
+    "closingSecondary": "Contactanos",
+    "team": {
+      "martin": {
+        "name": "Martin Cruz",
+        "role": "Fundador y CEO",
+        "bio": "Mas de 25 anos escalando negocios entre Texas y El Salvador. Defensor de Bitcoin y pionero en tokenizacion liderando vision, estrategia regulatoria y licenciamiento DASP de EQUITTY.",
+        "signal": "Desarrollo de mercado EE. UU.-LatAm, adopcion blockchain, ejecucion de fundador"
+      },
+      "josh": {
+        "name": "Josh Alballero",
+        "role": "Cofundador y CFO",
+        "bio": "Estratega financiero y emprendedor serial. Fundador de IOOGO, levanto $7.6M y logro salida de mas de $10M. Lidera estrategia de capital, relacion con inversionistas y fundraising.",
+        "signal": "Levantamiento de venture capital, planeacion financiera, operaciones de ingresos"
+      },
+      "mario": {
+        "name": "Mario Melendez",
+        "role": "Cofundador y COO",
+        "bio": "Mas de 15 anos en operaciones y performance marketing para mercados de EE. UU. Fundador de The Hub Lab. Lidera crecimiento, alianzas y expansion de mercado.",
+        "signal": "Escalamiento operativo, estrategia de crecimiento, ejecucion en mercado de EE. UU."
+      },
+      "rodrigo": {
+        "name": "Rodrigo Benitez",
+        "role": "Cofundador y CLO",
+        "bio": "Abogado corporativo especializado en PI, arbitraje y estructuras financieras. Arquitecto del marco legal y regulatorio de EQUITTY, incluida proteccion de activos tokenizados.",
+        "signal": "Estructuracion legal transfronteriza, ley de activos digitales, arquitectura de cumplimiento"
+      },
+      "oscar": {
+        "name": "Oscar Merino",
+        "role": "Cofundador y CTO",
+        "bio": "Mas de 12 anos construyendo infraestructura de mision critica. Lidero integraciones empresariales en Save the Children US. Dirige la arquitectura Web3 y estandares tecnicos institucionales de EQUITTY.",
+        "signal": "Sistemas de mision critica, integraciones empresariales, infraestructura blockchain"
+      }
+    },
+    "board": {
+      "sigfredo": "Fundador de LEXGLOBAL | Asesor legal de la Direccion de Energia de El Salvador | Creador del marco LEAD",
+      "joseLuis": "Fundador de TechyWe.com | Liderazgo en infraestructura tecnologica empresarial",
+      "erick": "Fundador de PaySea | Presidente de ASAFINTECH | Liderazgo fintech en El Salvador"
+    },
+    "advisors": {
+      "nicolas": "Fundador de SATS Capital, NexBridge, NexPlace | Relaciones institucionales en Europa",
+      "ricardo": "Mas de 30 anos escalando mercados en LatAm | TACA, Bayer, GSK, TIGO | Red institucional y acceso sectorial"
+    }
+  },
+  "Platform": {
+    "heroTitle": "La Plataforma",
+    "heroSubtitle": "Vision de producto en futuro. No es un demo. Es una vista previa creible.",
+    "problemTitle": "El capital existe. Los activos existen. El acceso no.",
+    "problemBody": "Hoy no existe infraestructura regulada que conecte capital global y de diaspora con bienes raices, infraestructura y activos privados de America Latina. Los canales tradicionales exigen minimos de $250,000 o mas. No hay punto de acceso retail. No hay gateway institucional. No hay mercado secundario.",
+    "problemBodyTwo": "EQUITTY esta disenada para resolver esto dentro de un marco en cumplimiento y regulado.",
+    "journeyTitle": "Como Funcionara la Plataforma",
+    "discoverTitle": "DESCUBRE",
+    "discoverText": "Explora activos reales curados y validados - bienes raices, infraestructura y credito privado en America Latina, cada uno con informacion financiera y documentacion regulatoria transparente.",
+    "investTitle": "INVIERTE",
+    "investText": "Participa mediante un proceso de onboarding en cumplimiento. La plataforma esta siendo disenada para permitir participacion desde $100 (cuando este licenciada), con estructuracion institucional a escala.",
+    "earnTitle": "GANA",
+    "earnText": "Recibe distribuciones y da seguimiento al desempeno en tiempo real desde el panel del inversionista, disenado para transparencia y reportes continuos.",
+    "exitTitle": "SALIDA",
+    "exitText": "Accede a liquidez de mercado secundario a traves de la infraestructura de trading de la plataforma, planificada para Fase 4 y sujeta a hitos regulatorios.",
+    "disclaimer": "Todas las funciones de plataforma descritas estan en desarrollo y sujetas a aprobacion regulatoria, licenciamiento y preparacion por fases.",
+    "listingCta": "Te interesa listar tu proyecto? Contactanos"
+  },
+  "Regulatory": {
+    "heroTitle": "Cumplimiento No Es un Checkbox. Es la Base.",
+    "heroSubtitle": "EQUITTY esta siendo disenada dentro del marco regulatorio de activos digitales de El Salvador desde el dia uno. No lanzamos primero y regularizamos despues. Primero tramitamos, luego construimos infraestructura y lanzamos cuando estemos listos.",
+    "architectureTitle": "Nuestra Arquitectura de Cumplimiento",
+    "pillarOneTitle": "1. Pioneros Regulatorios",
+    "pillarOneText": "EQUITTY esta aplicando a la licencia DASP bajo la Ley de Activos Digitales de El Salvador, la unica ley integral de activos digitales en America Latina. No operamos en zona gris legal. Operamos sobre la ley.",
+    "pillarTwoTitle": "2. Estructura de Doble Jurisdiccion",
+    "pillarTwoText": "EQUITTY Holdings Inc. (Delaware C-Corp) es propietaria de EQUITTY S.A.S. de C.V. (El Salvador). Esta estructura brinda gobernanza institucional bajo ley de EE. UU. mientras opera bajo el marco favorable de activos digitales en El Salvador.",
+    "pillarThreeTitle": "3. Proteccion al Inversionista por Diseno",
+    "pillarThreeText": "Los activos se estructuraran mediante SPVs dedicados en Delaware. El despliegue de capital seguira hitos de liberacion por etapas. KYC/AML estara integrado antes de cualquier movimiento de fondos. Cada oferta se presentara ante CNAD bajo el marco privado aplicable.",
+    "pillarFourTitle": "4. Transparencia como Politica",
+    "pillarFourText": "EQUITTY se compromete a divulgar su estado regulatorio de forma clara y publica en todo momento. Cuando se otorgue la licencia DASP lo comunicaremos. Cuando se cumplan hitos de fase tambien.",
+    "launchTitle": "Quien Puede Invertir al Lanzamiento",
+    "launchBody": "Cuando EQUITTY lance su primera oferta (objetivo Q3 2026, sujeto a aprobacion DASP), el acceso estara inicialmente restringido a inversionistas autorizados y calificados segun la ley aplicable bajo el marco CNAD. El acceso retail general vendra en una fase posterior. No estamos aceptando solicitudes de inversion, expresiones de interes ni compromisos de capital en este momento."
+  },
+  "Updates": {
+    "heroTitle": "Construyendo EQUITTY - En Publico",
+    "heroSubtitle": "Sigue nuestro progreso: hitos regulatorios, desarrollo de producto, insights del ecosistema y actualizaciones corporativas mientras construimos la infraestructura financiera para activos reales en America Latina.",
+    "primaryCta": "Suscribete a Actualizaciones",
+    "introTitle": "Ultimas Actualizaciones",
+    "introBody": "Este newsroom publicara hitos, senales del ecosistema y noticias corporativas conforme avancemos hacia el lanzamiento."
+  },
+  "Footer": {
+    "terms": "Terminos y Condiciones",
+    "privacy": "Privacidad",
+    "languageLabel": "Idioma",
+    "footerDisclaimer": "Este sitio web es solo informativo y no constituye una oferta de venta, solicitud de compra, ni invitacion a invertir en ningun valor o activo digital.",
+    "termsModalTitle": "Terminos y Condiciones de EQUITTY",
+    "termsModalDescription": "Consulta los terminos legales que regulan el uso informativo de este sitio y del boletin.",
+    "termsContent": {
+      "header": ["Terminos y Condiciones del Sitio"],
+      "sections": [
+        {
+          "title": "1. USO INFORMATIVO",
+          "body": "El contenido de este sitio se proporciona solo con fines informativos y no constituye asesoria de inversion, asesoria legal ni solicitud para invertir."
+        },
+        {
+          "title": "2. ESTATUS REGULATORIO",
+          "body": "EQUITTY se encuentra en fase pre-lanzamiento. El estatus de solicitud de licencia DASP esta pendiente ante CNAD, El Salvador."
+        },
+        {
+          "title": "3. SIN INCORPORACION DE INVERSIONISTAS",
+          "body": "La suscripcion al boletin esta destinada exclusivamente a actualizaciones de compania y producto. No es un proceso de aplicacion para inversion."
+        },
+        {
+          "title": "4. DATOS Y COMUNICACION",
+          "body": "Al suscribirse, el usuario autoriza recibir actualizaciones informativas. Se incluyen opciones de baja en cada correo."
+        }
+      ],
+      "footer": "Para consultas legales, contacta al equipo EQUITTY."
+    }
   },
   "HomePage": {
-    "badge": "Muy pronto",
-    "hero_title": "Inversión en",
-    "hero_title_mid": "Activos del mundo real",
-    "hero_title_highlight": "Activos Reales",
-    "hero_title_end": "",
-    "headline": "La plataforma global de inversión\nen activos reales",
-    "subhead": "Estamos construyendo una plataforma para activos tokenizados. Actualmente no hay inversiones disponibles.",
-    "applicationPendingBadge": "Aplicacion de CNAD Pendiente",
-    "Form": {
-      "cardEyebrow": "Acceso anticipado",
-      "cardTitle": "Unete a la lista de espera",
-      "cardDescription": "Registra tu correo y nacionalidad. Si llegaste por invitacion, el flujo de referido sigue disponible aqui mismo.",
-      "emailPlaceholder": "Ingresa tu correo",
-      "nationalityPlaceholder": "Nacionalidad",
-      "wasReferredLabel": "Fui referido por otro inversionista futuro",
-      "referralCodePlaceholder": "Ingresa el codigo de referido",
-      "button": "Unete a la lista de espera",
-      "microcopy": "Recibe actualizaciones del lanzamiento. Puedes darte de baja cuando quieras.",
-      "Validation": {
-        "emailRequired": "La direccion de correo es obligatoria",
-        "emailInvalid": "Por favor, introduce una direccion de correo valida",
-        "nationalityRequired": "La nacionalidad es obligatoria",
-        "referralCodeRequired": "El codigo de referido es obligatorio",
-        "referralCodeInvalid": "El codigo de referido debe tener entre 6 y 12 caracteres alfanumericos"
-      },
-      "Errors": {
-        "waitlistError": "Hubo un error al unirte a la lista de espera. Por favor, intentalo de nuevo mas tarde.",
-        "emailAlreadyExists": {
-          "title": "Ya estas en la lista de espera",
-          "message": "Gracias por unirte a la lista de espera de Equitty. Te mantendremos informado sobre nuestro lanzamiento y avances."
-        },
-        "invalidReferralCode": {
-          "title": "Codigo de referido no valido",
-          "message": "No encontramos ese codigo de referido. Verifica el codigo e intenta de nuevo."
-        }
-      },
-      "SuccessDialog": {
-        "title": "Estas en la lista de espera",
-        "message": "Gracias por unirte a la lista de espera de Equitty. Revisa tu correo para ver tu codigo de referido."
-      }
-    },
-      "Footer": {
-        "footerDisclaimer": "Unirte a la lista no es una oferta de inversion. Invertir implica riesgo, incluida la perdida del capital.",
-        "privacy": "Privacidad",
-        "terms": "Terminos y condiciones",
-        "termsModalTitle": "Terminos y condiciones de la lista de espera de Equitty",
-        "termsModalDescription": "Consulta el acuerdo oficial de la lista de espera directamente desde el documento que compartimos con los nuevos inversionistas.",
-        "termsModalFallback": "Si el visor no carga, puedes ",
-        "termsModalDownload": "descargar el PDF.",
-        "unsubscribeText": "Si ya no quieres ser parte de la lista de espera, cancela tu suscripcion",
-        "unsubscribeLink": "aquí",
-        "termsContent": {
-          "header": [
-            "Términos y condiciones de la lista de espera"
-          ],
-          "sections": [
-            {
-              "title": "1. NATURALEZA DEL REGISTRO Y AUSENCIA DE OBLIGACIÓN",
-              "body": "El registro en la lista de espera (en adelante, la \"Waitlist\") del proyecto EQUITTY (en adelante, la \"Plataforma\") constituye una mera expectativa de derecho para el usuario. Unirse a la Waitlist no garantiza la apertura de una cuenta, el acceso inmediato a los servicios, ni constituye una oferta vinculante de contrato por parte de la Plataforma. EQUITTY es una iniciativa en fase de lanzamiento; por tanto, el acceso será otorgado de manera gradual, discrecional y sujeto a la disponibilidad técnica del sistema."
-            },
-            {
-              "title": "2. CONSENTIMIENTO PARA COMUNICACIONES",
-              "body": "Al registrarse, el usuario otorga su consentimiento expreso, previo e informado para recibir comunicaciones electrónicas relativas a su estatus en la lista, actualizaciones sobre el cronograma de lanzamiento y noticias corporativas de EQUITTY. El usuario podrá revocar este consentimiento en cualquier momento utilizando el mecanismo de cancelación de suscripción (opt-out) incluido en cada correo electrónico."
-            },
-            {
-              "title": "3. PRIVACIDAD Y PROTECCIÓN DE DATOS",
-              "body": "EQUITTY se compromete a tratar los datos personales del usuario bajo estrictos estándares de confidencialidad, de conformidad con los principios de la normativa de protección de datos personales de la República de El Salvador. Los datos recolectados se utilizarán exclusivamente para gestionar el acceso a la plataforma y validar la identidad del usuario. No se realizarán transferencias de datos a terceros sin consentimiento previo, salvo requerimiento legal de autoridad competente."
-            },
-            {
-              "title": "4. EXENCIÓN DE ASESORÍA Y RIESGOS",
-              "body": "La información proporcionada en esta etapa de expectativa tiene carácter estrictamente informativo y no constituye asesoría financiera, legal, fiscal, ni una recomendación de inversión. El usuario reconoce que las inversiones conllevan riesgos inherentes y entiende que antes de recibir cualquier producto o servicio final, el usuario deberá completar satisfactoriamente un proceso de verificación legal, cumplimiento (KYC/AML) y firma de contratos definitivos."
-            },
-            {
-              "title": "5. PROPIEDAD INTELECTUAL",
-              "body": "Todos los derechos de propiedad intelectual sobre el contenido, marcas, logotipos y conceptos presentados en esta etapa son propiedad exclusiva de EQUITTY. El registro en la Waitlist no otorga licencia de uso ni derecho alguno sobre dichos activos."
-            },
-            {
-              "title": "6. MODIFICACIÓN Y TERMINACIÓN",
-              "body": "EQUITTY se reserva el derecho de modificar, suspender o cancelar la fase de Waitlist en cualquier momento y sin previo aviso, por razones técnicas, comerciales o legales, sin que ello genere derecho a indemnización alguna en favor de los usuarios inscritos."
-            },
-            {
-              "title": "7. JURISDICCIÓN Y RESOLUCIÓN DE DISPUTAS",
-              "body": "Cualquier controversia derivada de la interpretación o cumplimiento de estos Términos será resuelta mediante Arbitraje en Equidad, de conformidad con las Reglas del Centro de Mediación y Arbitraje de la Cámara de Comercio e Industria de El Salvador."
-            }
-          ],
-          "footer": ""
-        }
-      },
-      "Unsubscribe": {
-        "eyebrow": "Administra tu espacio",
-        "title": "Cancelar suscripción",
-        "description": "Ingresa el correo con el que te registraste y actualizaremos tu estado inmediatamente.",
-        "emailPlaceholder": "Correo electrónico",
-        "button": "Cancelar suscripción",
-        "processing": "Procesando...",
-        "success": "Ya no estás en la lista de espera.",
-        "error": "No encontramos ese correo en la lista de espera."
-      },
-      "Navigation": {
-      "cta": "Unete ahora"
-    },
-    "Stats": {
-      "waitlist": "Personas en lista de espera",
-      "trading": "Trading disponible",
-      "yield": "Rentabilidad objetivo",
-      "assetClass": "Activos reales tokenizados"
-    },
-    "FeatureHighlight": {
-      "eyebrow": "Destacado",
-      "title": "Acceso simple y transparente a activos reales",
-      "subtitle": "Oportunidades de activos reales respaldadas por blockchain con precios claros y liquidación instantánea."
-    },
-    "Testimonials": {
-      "eyebrow": "Con la confianza de +10K usuarios",
-      "title": "Invierte con confianza",
-      "subtitle": "Haz de Equitty tu portafolio completo: una plataforma segura para gestionar, crecer y maximizar tus activos."
-    },
-    "Toast": {
-      "welcomeTitle": "Bienvenido nuevo inversionista",
-      "welcomeDescription": "Comienza tu camino con activos reales."
-    },
-    "Benefits": {
-      "eyebrow": "Por que Equitty",
-      "title": "Una entrada mas clara a los activos reales",
-      "subtitle": "La nueva pagina pone mas foco en confianza, velocidad y acceso sin cambiar como funciona el producto por dentro.",
-      "item1": {
-        "title": "Tokenizacion con enfoque pionero",
-        "description": "Una puerta de entrada mas clara para inversionistas interesados en participar en activos reales."
-      },
-      "item2": {
-        "title": "Experiencia de incorporacion mas rapida",
-        "description": "La interfaz ahora prioriza jerarquia visual, claridad y una mejor toma de decision."
-      },
-      "item3": {
-        "title": "Captura de datos del inversionista intacta",
-        "description": "Nacionalidad, correo y flujo de referido se mantienen mientras la interfaz se vuelve mas solida."
-      },
-      "item4": {
-        "title": "Sistema visual con mayor recordacion",
-        "description": "El lenguaje visual se siente mas premium, mas intencional y mas cercano al diseno de referencia."
-      }
-    },
-    "FinalCta": {
-      "title": "¿Listo para tomar control de tu futuro?",
-      "subtitle": "Elige Equitty como tu portafolio unificado — infraestructura segura, acceso fluido y una plataforma diseñada para inversionistas serios.",
-      "cta": "Empieza ahora"
-    },
-    "HowItWorks": {
-      "eyebrow": "Proceso",
-      "title": "El mismo flujo de lista de espera, mejor presentado",
-      "subtitle": "Aqui solo cambia la interfaz. La validacion, el envio y el manejo de referidos siguen conectados a la implementacion existente.",
-      "step1": {
-        "title": "Elige nacionalidad",
-        "description": "El catalogo actual de paises sigue conectado al formulario real y a su esquema de validacion."
-      },
-      "step2": {
-        "title": "Ingresa tu correo",
-        "description": "El envio sigue pasando por la accion del servidor actual sin alterar el contrato del servidor."
-      },
-      "step3": {
-        "title": "Agrega referido si aplica",
-        "description": "La validacion del codigo de referido sigue disponible dentro del mismo formulario."
-      },
-      "step4": {
-        "title": "Entra a la lista",
-        "description": "Los dialogos de exito y error siguen usando la logica actual de la lista de espera y sus textos traducidos."
-      }
-    },
-    "Faq": {
-      "eyebrow": "FAQ",
-      "title": "Que cambia y que no cambia",
-      "subtitle": "El rediseño mejora la experiencia de la landing manteniendo estable el comportamiento operativo.",
-      "item1": {
-        "question": "Cambia la logica de la lista de espera?",
-        "answer": "No. Se conservan la misma accion del servidor, reglas de validacion, manejo de referidos y flujos de exito o error."
-      },
-      "item2": {
-        "question": "Seguira funcionando el cambio de idioma?",
-        "answer": "Si. El nuevo diseno sigue usando el enrutamiento localizado actual y traducciones para espanol e ingles."
-      },
-      "item3": {
-        "question": "Se elimino el campo de referido?",
-        "answer": "No. Sigue dentro del formulario y aparece cuando se activa la opcion de inversionista referido."
-      },
-      "item4": {
-        "question": "Esto esta basado en el diseno de newDesign/EQ-main?",
-        "answer": "Si. La nueva composicion, la jerarquia, el tratamiento de tarjetas y los efectos visuales se adaptaron de esa referencia al proyecto real."
-      }
+    "Unsubscribe": {
+      "eyebrow": "Administra tu suscripcion",
+      "title": "Cancelar suscripcion de actualizaciones",
+      "description": "Ingresa el correo con el que te suscribiste y actualizaremos tu estado de inmediato.",
+      "emailPlaceholder": "Correo electronico",
+      "button": "Cancelar suscripcion",
+      "processing": "Procesando...",
+      "success": "Tu correo fue dado de baja.",
+      "error": "No encontramos ese correo en nuestros registros."
     },
     "Dialog": {
       "confirmButton": "Confirmar"
+    },
+    "Footer": {
+      "unsubscribeText": "Si ya no deseas recibir actualizaciones, cancela tu suscripcion",
+      "unsubscribeLink": "aqui"
     }
   }
 }

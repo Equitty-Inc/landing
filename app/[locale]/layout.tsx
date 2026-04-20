@@ -7,6 +7,10 @@ import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 
 import { alexandria, newBlack } from '@/lib/fonts';
+import LandingFooter from '@/components/landing/LandingFooter';
+import LandingHeader from '@/components/landing/LandingHeader';
+import RouteAccentProvider from '@/components/RouteAccentProvider';
+import RouteContentTransition from '@/components/RouteContentTransition';
 import { SileoToaster } from '@/components/SileoToaster';
 import { Toaster } from '@/components/ui/sonner';
 
@@ -96,7 +100,14 @@ export default async function RootLayout({ children, params }: Readonly<Props>) 
         <link rel="dns-prefetch" href="//vercel.com" />
       </head>
       <body className={`${alexandria.variable} ${newBlack.variable} min-h-dvh bg-[#08070E] font-sans antialiased`}>
-        <NextIntlClientProvider>{children}</NextIntlClientProvider>
+        <RouteAccentProvider />
+        <NextIntlClientProvider>
+          <div className="flex min-h-dvh flex-col bg-background text-white">
+            <LandingHeader />
+            <RouteContentTransition>{children}</RouteContentTransition>
+            <LandingFooter />
+          </div>
+        </NextIntlClientProvider>
         <SileoToaster />
         <Toaster
           position="top-center"

@@ -61,7 +61,7 @@ export default function LandingLayout({ locale, onSubmitWaitlist }: Props) {
   }
 
   return (
-    <div className="min-h-screen flex flex-col relative overflow-x-hidden bg-[#050A14] text-white">
+    <div className="relative flex min-h-screen grow flex-col overflow-x-hidden bg-[#050A14] text-white">
       {/* NAV */}
       <nav className="fixed w-full z-50 top-0 bg-[#050A14]/90 backdrop-blur-md border-b border-white/5">
         <div className="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
@@ -99,7 +99,7 @@ export default function LandingLayout({ locale, onSubmitWaitlist }: Props) {
       </nav>
 
       {/* MAIN */}
-      <main className="flex-grow flex items-center justify-center relative pt-24 pb-12 px-6">
+      <main className="relative flex grow items-center justify-center px-6 pt-24 pb-12">
         {/* Isotipo glow */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
           <Image src="/equitty_isotipo.png" alt="" width={700} height={700} className="w-[70vw] md:w-[45vw] max-w-[500px] animate-pulse-glow" />
@@ -155,7 +155,7 @@ export default function LandingLayout({ locale, onSubmitWaitlist }: Props) {
                   <button
                     type="submit"
                     disabled={loading}
-                    className="w-full py-3.5 rounded-lg bg-gradient-to-r from-[#00B4C4] to-[#006AD5] font-bold text-white shadow-lg hover:shadow-cyan-500/30 hover:scale-[1.02] transition-all disabled:opacity-60 disabled:hover:scale-100"
+                    className="w-full rounded-lg bg-(--eq-page-accent) py-3.5 text-(--eq-page-accent-contrast,#050A14) font-bold shadow-[0_8px_24px_rgba(var(--eq-page-accent-rgb,0,180,196),0.28)] transition-all hover:brightness-110 hover:shadow-[0_12px_30px_rgba(var(--eq-page-accent-rgb,0,180,196),0.4)] active:scale-[0.98] disabled:opacity-60 disabled:hover:scale-100"
                   >
                     {loading ? "Processing..." : t.btn}
                   </button>
@@ -164,7 +164,11 @@ export default function LandingLayout({ locale, onSubmitWaitlist }: Props) {
                 <div className="mt-6 text-center border-t border-white/5 pt-4">
                   <p className="text-[10px] text-gray-500 leading-tight">
                     {t.disclaimer}{" "}
-                    <button type="button" onClick={() => setPrivacyOpen(true)} className="text-[#00B4C4] hover:underline font-bold">
+                    <button
+                      type="button"
+                      onClick={() => setPrivacyOpen(true)}
+                      className="font-bold text-(--eq-page-accent) transition hover:underline active:scale-95"
+                    >
                       {t.privacy}
                     </button>
                     .
@@ -198,9 +202,9 @@ export default function LandingLayout({ locale, onSubmitWaitlist }: Props) {
 
       {/* PRIVACY MODAL simple */}
       {privacyOpen && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+        <div className="fixed inset-0 z-100 flex items-center justify-center p-4">
           <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" onClick={() => setPrivacyOpen(false)} />
-          <div className="relative w-full max-w-lg bg-[#0F172A] border border-white/10 rounded-2xl shadow-2xl p-8 animate-fade-in z-[101]">
+          <div className="relative z-101 w-full max-w-lg animate-fade-in rounded-2xl border border-white/10 bg-[#0F172A] p-8 shadow-2xl">
             <h3 className="text-xl font-bold text-white mb-4">Privacy Policy</h3>
             <div className="text-sm text-gray-400 space-y-3 mb-6 leading-relaxed">
               <p><strong>1. Data Collection:</strong> We collect your email solely for managing the waitlist.</p>
@@ -208,7 +212,10 @@ export default function LandingLayout({ locale, onSubmitWaitlist }: Props) {
               <p><strong>3. Communications:</strong> By joining, you agree to receive transactional emails.</p>
             </div>
             <div className="flex justify-end">
-              <button onClick={() => setPrivacyOpen(false)} className="bg-[#00B4C4] text-[#050A14] font-bold px-5 py-2 rounded-lg hover:bg-white transition-colors">
+              <button
+                onClick={() => setPrivacyOpen(false)}
+                className="rounded-lg bg-(--eq-page-accent) px-5 py-2 font-bold text-(--eq-page-accent-contrast,#050A14) transition-all hover:brightness-110 active:scale-95"
+              >
                 Close
               </button>
             </div>
