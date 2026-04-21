@@ -64,16 +64,29 @@ export default async function HomePage({ params }: Props) {
             </div>
           </div>
 
-          <GlassCard className="mt-10 space-y-5 lg:mt-14">
-            <p className="eq-focus-cue text-xs uppercase text-[rgb(var(--eq-page-accent-rgb,0,180,196))]">
-              {tHome('statusStripLabel')}
-            </p>
-            <div className="grid gap-5 md:grid-cols-3 md:gap-8">
-              <p className="text-sm text-white/90">{tCommon('platformStatus')}</p>
-              <p className="text-sm text-white/90">{tCommon('daspStatus')}</p>
-              <p className="text-sm text-white/90">{tCommon('investmentsStatus')}</p>
+          <div
+            className="mt-10 border-t border-white/5 pt-5 lg:mt-14"
+            aria-label={tHome('statusStripLabel')}
+          >
+            <div className="flex flex-col gap-x-8 gap-y-2 text-[11px] uppercase tracking-[0.14em] text-white/45 md:flex-row md:flex-wrap md:items-center">
+              <span className="text-[10px] font-medium tracking-[0.22em] text-white/35">
+                {tHome('statusStripLabel')}
+              </span>
+              {[
+                tCommon('platformStatus'),
+                tCommon('daspStatus'),
+                tCommon('investmentsStatus'),
+              ].map((status) => (
+                <span key={status} className="flex items-center gap-2">
+                  <span
+                    className="h-1 w-1 rounded-full bg-white/30"
+                    aria-hidden
+                  />
+                  <span className="normal-case tracking-normal">{status}</span>
+                </span>
+              ))}
             </div>
-          </GlassCard>
+          </div>
         </Section>
 
         <Section title={tHome('opportunityTitle')}>
