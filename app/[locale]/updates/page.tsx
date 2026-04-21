@@ -26,7 +26,7 @@ export default async function UpdatesPage({ params }: Props) {
     <div className="bg-background text-white">
       <Section className="pt-14 sm:pt-20" title={t('heroTitle')} description={t('heroSubtitle')}>
         <Button asChild variant="brand" size="lg">
-          <Link href="/updates#newsletter">{t('primaryCta')}</Link>
+          <Link href="/#newsletter">{t('primaryCta')}</Link>
         </Button>
       </Section>
 

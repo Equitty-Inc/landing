@@ -8,8 +8,8 @@
     "home": "Inicio",
     "about": "Nosotros",
     "platform": "Plataforma",
-    "regulatory": "Regulatorio y Confianza",
-    "updates": "Actualizaciones",
+    "regulatory": "Cumplimiento",
+    "updates": "Blog",
     "primaryCta": "Sigue Nuestro Progreso",
     "openMenu": "Abrir menu de navegacion",
     "closeMenu": "Cerrar menu de navegacion"
@@ -52,7 +52,7 @@
   },
   "Home": {
     "heroTitle": "Construyendo la Infraestructura Financiera para Activos Reales en America Latina",
-    "heroSubtitle": "EQUITTY esta desarrollando un mercado de inversion regulado - construido dentro del marco de activos digitales de El Salvador - disenado para conectar capital global y de diaspora con bienes raices, infraestructura y activos privados en America Latina.",
+    "heroSubtitle": "Equitty esta desarrollando una infraestructura financiera para conectar a El Salvador con inversionistas globales.",
     "primaryCta": "Sigue Nuestro Progreso",
     "secondaryCta": "Conoce al Equipo",
     "statusStripLabel": "Estado Actual",
@@ -107,12 +107,6 @@
         "bio": "Mas de 15 anos en operaciones y performance marketing para mercados de EE. UU. Fundador de The Hub Lab. Lidera crecimiento, alianzas y expansion de mercado.",
         "signal": "Escalamiento operativo, estrategia de crecimiento, ejecucion en mercado de EE. UU."
       },
-      "rodrigo": {
-        "name": "Rodrigo Benitez",
-        "role": "Cofundador y CLO",
-        "bio": "Abogado corporativo especializado en PI, arbitraje y estructuras financieras. Arquitecto del marco legal y regulatorio de EQUITTY, incluida proteccion de activos tokenizados.",
-        "signal": "Estructuracion legal transfronteriza, ley de activos digitales, arquitectura de cumplimiento"
-      },
       "oscar": {
         "name": "Oscar Merino",
         "role": "Cofundador y CTO",
@@ -121,13 +115,33 @@
       }
     },
     "board": {
-      "sigfredo": "Fundador de LEXGLOBAL | Asesor legal de la Direccion de Energia de El Salvador | Creador del marco LEAD",
-      "joseLuis": "Fundador de TechyWe.com | Liderazgo en infraestructura tecnologica empresarial",
-      "erick": "Fundador de PaySea | Presidente de ASAFINTECH | Liderazgo fintech en El Salvador"
+      "sigfredo": {
+        "name": "Sigfredo Figueroa",
+        "role": "Director de Junta",
+        "bio": "Fundador de LEXGLOBAL | Asesor legal de la Direccion de Energia de El Salvador | Creador del marco LEAD"
+      },
+      "joseLuis": {
+        "name": "Jose Luis Ortiz",
+        "role": "Director de Junta",
+        "bio": "Fundador de TechyWe.com | Liderazgo en infraestructura tecnologica empresarial"
+      },
+      "erick": {
+        "name": "Erick Chacon",
+        "role": "Director de Junta",
+        "bio": "Fundador de PaySea | Presidente de ASAFINTECH | Liderazgo fintech en El Salvador"
+      }
     },
     "advisors": {
-      "nicolas": "Fundador de SATS Capital, NexBridge, NexPlace | Relaciones institucionales en Europa",
-      "ricardo": "Mas de 30 anos escalando mercados en LatAm | TACA, Bayer, GSK, TIGO | Red institucional y acceso sectorial"
+      "ricardo": {
+        "name": "Ricardo Granillo",
+        "role": "Asesor Estrategico",
+        "bio": "Mas de 30 anos escalando mercados en LatAm | TACA, Bayer, GSK, TIGO | Red institucional y acceso sectorial"
+      },
+      "joseLandaverde": {
+        "name": "Jose Landaverde",
+        "role": "Asesor Senior de Finanzas",
+        "bio": ""
+      }
     }
   },
   "Platform": {

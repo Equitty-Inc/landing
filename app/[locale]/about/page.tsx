@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import NewsletterForm from '@/components/landing/NewsletterForm';
 import { GlassCard, Section } from '@/components/landing/Section';
+import TeamAvatar from '@/components/landing/TeamAvatar';
 import { Button } from '@/components/ui/button';
 
 type Props = {
@@ -14,6 +15,37 @@ type TeamMember = {
   bio: string;
   signal: string;
 };
+
+type BoardMember = {
+  name: string;
+  role: string;
+  bio: string;
+};
+
+type Advisor = {
+  name: string;
+  role: string;
+  bio?: string;
+};
+
+const teamPhotos: Record<string, string> = {
+  martin: '/team/martin.png',
+  josh: '/team/josh.png',
+  mario: '/team/mario.png',
+  oscar: '/team/oscar.png',
+};
+
+const teamPhotoPositions: Record<string, string> = {
+  oscar: 'center 18%',
+};
+
+const boardPhotos: Record<string, string> = {
+  sigfredo: '/team/sigfredo.jpg',
+  joseLuis: '/team/joseLuis.png',
+  erick: '/team/erick.jpg',
+};
+
+const boardPhotoPositions: Record<string, string> = {};
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
@@ -28,14 +60,9 @@ export default async function AboutPage({ params }: Props) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'About' });
 
-  const teamEntries = t.raw('team') as Record<string, TeamMember>;
-  const team = Object.values(teamEntries);
-  const board = [
-    t('board.sigfredo'),
-    t('board.joseLuis'),
-    t('board.erick'),
-  ];
-  const advisors = [t('advisors.nicolas'), t('advisors.ricardo')];
+  const team = Object.entries(t.raw('team') as Record<string, TeamMember>);
+  const board = Object.entries(t.raw('board') as Record<string, BoardMember>);
+  const advisors = Object.entries(t.raw('advisors') as Record<string, Advisor>);
   const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL || 'info@equitty.com';
 
   return (
@@ -58,36 +85,63 @@ export default async function AboutPage({ params }: Props) {
       </Section>
 
       <Section title={t('foundingTitle')}>
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {team.map((member) => (
-            <GlassCard key={member.name} className="space-y-4">
-              <div className="h-36 rounded-xl border border-white/10 bg-linear-to-br from-white/5 to-white/0" />
-              <h3 className="eq-title-underline text-lg font-semibold">{member.name}</h3>
-              <p className="text-sm uppercase tracking-[0.2em] text-[rgb(var(--eq-page-accent-rgb,0,180,196))]">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {team.map(([slug, member]) => (
+            <GlassCard
+              key={slug}
+              className="group/card flex flex-col items-center gap-3 text-center"
+            >
+              <TeamAvatar
+                name={member.name}
+                src={teamPhotos[slug]}
+                size="md"
+                objectPosition={teamPhotoPositions[slug]}
+              />
+              <h3 className="mt-2 text-lg font-semibold text-white">{member.name}</h3>
+              <p className="text-[0.7rem] font-semibold uppercase tracking-[0.22em] text-[rgb(var(--eq-page-accent-rgb,0,180,196))]">
                 {member.role}
               </p>
-              <p className="text-sm text-white/80">{member.bio}</p>
-              <p className="text-xs text-white/60">{member.signal}</p>
+              <p className="text-sm leading-relaxed text-white/80">{member.bio}</p>
+              <p className="text-xs leading-relaxed text-white/55">{member.signal}</p>
             </GlassCard>
           ))}
         </div>
       </Section>
 
       <Section title={t('boardTitle')} description={t('boardIntro')}>
-        <div className="grid gap-5 md:grid-cols-3">
-          {board.map((member) => (
-            <GlassCard key={member}>
-              <p className="eq-keyword text-sm text-white/80">{member}</p>
+        <div className="grid gap-5 sm:grid-cols-2 md:grid-cols-3">
+          {board.map(([slug, member]) => (
+            <GlassCard
+              key={slug}
+              className="group/card flex flex-col items-center gap-3 text-center"
+            >
+              <TeamAvatar
+                name={member.name}
+                src={boardPhotos[slug]}
+                size="sm"
+                objectPosition={boardPhotoPositions[slug]}
+              />
+              <h3 className="mt-1 text-base font-semibold text-white">{member.name}</h3>
+              <p className="text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-[rgb(var(--eq-page-accent-rgb,0,180,196))]">
+                {member.role}
+              </p>
+              <p className="text-sm leading-relaxed text-white/75">{member.bio}</p>
             </GlassCard>
           ))}
         </div>
       </Section>
 
       <Section title={t('advisorsTitle')}>
-        <div className="grid gap-5 md:grid-cols-2">
-          {advisors.map((advisor) => (
-            <GlassCard key={advisor}>
-              <p className="eq-keyword text-sm text-white/80">{advisor}</p>
+        <div className="grid gap-5 sm:grid-cols-2">
+          {advisors.map(([slug, advisor]) => (
+            <GlassCard key={slug} className="flex flex-col gap-2">
+              <h3 className="text-base font-semibold text-white">{advisor.name}</h3>
+              <p className="text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-[rgb(var(--eq-page-accent-rgb,0,180,196))]">
+                {advisor.role}
+              </p>
+              {advisor.bio ? (
+                <p className="text-sm leading-relaxed text-white/75">{advisor.bio}</p>
+              ) : null}
             </GlassCard>
           ))}
         </div>
