@@ -1,7 +1,7 @@
 'use client';
 
 import { ArrowRight, Menu, TrendingUp, X } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { usePathname } from 'next/navigation';
@@ -26,6 +26,8 @@ export default function LandingHeader() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
   const lastScrollY = useRef(0);
+  const scrollDelta = useRef(0);
+  const prefersReducedMotion = useReducedMotion();
   const activeAccent = getRouteAccent(pathname);
   const activeTextColor = getContrastingTextColor(activeAccent);
 
@@ -40,26 +42,52 @@ export default function LandingHeader() {
   }, []);
 
   useEffect(() => {
-    const handleScroll = () => {
+    const TOP_ZONE = 56;
+    const HIDE_THRESHOLD = 24;
+    const SHOW_THRESHOLD = 12;
+
+    let ticking = false;
+
+    const update = () => {
+      ticking = false;
+
       if (mobileOpen) {
         lastScrollY.current = window.scrollY;
+        scrollDelta.current = 0;
         return;
       }
 
-      const currentScrollY = window.scrollY;
-      const isScrollingUp = currentScrollY < lastScrollY.current;
+      const currentScrollY = Math.max(0, window.scrollY);
+      const delta = currentScrollY - lastScrollY.current;
+      lastScrollY.current = currentScrollY;
 
-      if (currentScrollY <= 24) {
+      if (currentScrollY <= TOP_ZONE) {
+        scrollDelta.current = 0;
         setIsHeaderVisible(true);
-      } else if (isScrollingUp) {
-        setIsHeaderVisible(true);
-      } else {
-        setIsHeaderVisible(false);
+        return;
       }
 
-      lastScrollY.current = currentScrollY;
+      if (Math.sign(delta) !== Math.sign(scrollDelta.current)) {
+        scrollDelta.current = 0;
+      }
+      scrollDelta.current += delta;
+
+      if (scrollDelta.current > HIDE_THRESHOLD) {
+        setIsHeaderVisible(false);
+        scrollDelta.current = 0;
+      } else if (scrollDelta.current < -SHOW_THRESHOLD) {
+        setIsHeaderVisible(true);
+        scrollDelta.current = 0;
+      }
     };
 
+    const handleScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(update);
+    };
+
+    lastScrollY.current = window.scrollY;
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, [mobileOpen]);
@@ -69,12 +97,18 @@ export default function LandingHeader() {
       'radial-gradient(ellipse 80% 60% at 50% 100%, rgba(var(--eq-page-accent-rgb, 0, 180, 196), 0.28) 0%, rgba(var(--eq-page-accent-rgb, 0, 180, 196), 0.09) 42%, transparent 72%)',
   };
 
+  const shouldShowHeader = isHeaderVisible || mobileOpen;
+
   return (
-    <header
-      className={cn(
-        'sticky top-0 z-50 border-b border-[rgba(var(--eq-page-accent-rgb,0,180,196),0.12)] bg-[#08070E]/80 backdrop-blur-lg transition-[transform,border-color] duration-300',
-        isHeaderVisible || mobileOpen ? 'translate-y-0' : '-translate-y-full'
-      )}
+    <motion.header
+      initial={false}
+      animate={{ y: shouldShowHeader ? '0%' : '-100%' }}
+      transition={
+        prefersReducedMotion
+          ? { duration: 0 }
+          : { type: 'tween', ease: [0.22, 1, 0.36, 1], duration: 0.55 }
+      }
+      className="sticky top-0 z-50 border-b border-[rgba(var(--eq-page-accent-rgb,0,180,196),0.12)] bg-[#08070E]/80 backdrop-blur-lg transition-[border-color] duration-300 will-change-transform"
     >
       <div
         className="pointer-events-none absolute inset-x-0 top-0 h-16.5 lg:h-17"
@@ -117,7 +151,11 @@ export default function LandingHeader() {
                     <motion.span
                       layoutId="active-nav-pill"
                       className="absolute inset-0 rounded-full transition-colors duration-300"
-                      transition={{ type: 'spring', stiffness: 380, damping: 34, mass: 0.35 }}
+                      transition={
+                        prefersReducedMotion
+                          ? { duration: 0 }
+                          : { type: 'spring', stiffness: 260, damping: 30, mass: 0.6 }
+                      }
                       style={{
                         backgroundColor: 'rgb(var(--eq-page-accent-rgb, 0, 180, 196))',
                         boxShadow: '0 0 18px rgba(var(--eq-page-accent-rgb, 0, 180, 196), 0.35)',
@@ -194,6 +232,6 @@ export default function LandingHeader() {
         background:
           'radial-gradient(ellipse 80% 60% at 50% 100%, rgba(0, 180, 196, 0.25) 0%, rgba(0, 180, 196, 0.08) 40%, transparent 70%)',
       }} aria-hidden /> */}
-    </header>
+    </motion.header>
   );
 }
