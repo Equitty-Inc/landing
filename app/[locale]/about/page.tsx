@@ -148,9 +148,9 @@ export default async function AboutPage({ params }: Props) {
       </Section>
 
       <Section title={t('closingTitle')}>
-        <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
+        <div className="grid items-start gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
           <NewsletterForm />
-          <GlassCard className="flex flex-col justify-center gap-4">
+          <GlassCard className="flex w-full flex-col gap-4">
             <Button asChild variant="brandGhost">
               <a href={`mailto:${contactEmail}`}>{t('closingSecondary')}</a>
             </Button>
