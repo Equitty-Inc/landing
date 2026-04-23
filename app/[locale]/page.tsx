@@ -5,6 +5,7 @@ import HeroAsciiArt from '@/components/landing/HeroAsciiArt';
 import NewsletterForm from '@/components/landing/NewsletterForm';
 import { GlassCard, Section } from '@/components/landing/Section';
 import { Button } from '@/components/ui/button';
+import { Typewriter } from '@/components/ui/typewriter';
 import { Link } from '@/i18n/navigation';
 
 type Props = {
@@ -45,8 +46,16 @@ export default async function HomePage({ params }: Props) {
       <div className="relative z-10">
         <Section className="pt-14 sm:pt-20">
           <div className="grid grid-cols-1 gap-7 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,26rem)] lg:items-center lg:gap-x-16 lg:gap-y-7">
-            <h1 className="eq-title-underline order-1 text-3xl font-bold leading-tight sm:text-5xl lg:col-start-1 lg:row-start-1 lg:text-6xl">
-              {tHome('heroTitle')}
+            <h1 className="order-1 text-3xl font-bold leading-tight sm:text-5xl lg:col-start-1 lg:row-start-1 lg:text-6xl">
+              <span className="eq-title-underline">{tHome('heroTitlePrefix')}</span>{' '}
+              <span className="eq-typewriter-neon">
+                <Typewriter
+                  words={tHome.raw('heroTitleRotating') as string[]}
+                  speed={70}
+                  delayBetweenWords={2400}
+                  cursorChar="▌"
+                />
+              </span>
             </h1>
             <p className="order-2 max-w-3xl text-base leading-relaxed text-white/80 sm:text-lg lg:col-start-1 lg:row-start-2">
               {tHome('heroSubtitle')}
