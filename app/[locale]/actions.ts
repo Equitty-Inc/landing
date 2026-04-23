@@ -40,39 +40,49 @@ export async function subscribeToNewsletter(
   const { firstName, email, interests } = parsed.data;
 
   try {
-    const existing = await prisma.newsletterSubscriber.findUnique({
+    const existingSignup = await prisma.waitlistSignup.findUnique({
       where: { email },
-      select: { id: true, status: true },
+      select: { id: true },
     });
 
-    if (existing?.status === 'subscribed') {
+    if (existingSignup) {
       return {
         success: false,
         error: { type: 'email' },
       };
     }
 
-    if (existing) {
-      await prisma.newsletterSubscriber.update({
-        where: { email },
-        data: {
-          firstName,
-          locale,
-          interests,
-          status: 'subscribed',
-        },
+    const referralCode = await generateUniqueReferralCode(async (candidate) => {
+      const match = await prisma.waitlistSignup.findUnique({
+        where: { referralCode: candidate },
+        select: { id: true },
       });
-    } else {
-      await prisma.newsletterSubscriber.create({
-        data: {
-          firstName,
-          email,
-          locale,
-          interests,
-          status: 'subscribed',
-        },
-      });
-    }
+
+      return Boolean(match);
+    });
+
+    await prisma.waitlistSignup.create({
+      data: {
+        email,
+        firstName,
+        newsletterInterests: [...interests],
+        nationality: null,
+        locale,
+        referralCode,
+        referredById: null,
+        status: 'subscribed',
+        utmSource: 'newsletter',
+        utmMedium: null,
+        utmCampaign: null,
+        utmContent: null,
+        utmTerm: null,
+        referrer: null,
+        landingPath: null,
+        ipHash: null,
+        userAgent: null,
+        consentVersion: null,
+      },
+    });
 
     revalidatePath(`/${locale}`);
     return { success: true };

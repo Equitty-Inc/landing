@@ -8,8 +8,8 @@
     "home": "Home",
     "about": "About",
     "platform": "Platform",
-    "regulatory": "Regulatory & Trust",
-    "updates": "Updates",
+    "regulatory": "Compliance",
+    "updates": "Blog",
     "primaryCta": "Follow Our Progress",
     "openMenu": "Open navigation menu",
     "closeMenu": "Close navigation menu"
@@ -52,7 +52,7 @@
   },
   "Home": {
     "heroTitle": "Building the Financial Infrastructure for Real-World Assets in Latin America",
-    "heroSubtitle": "EQUITTY is developing a regulated investment marketplace - built within El Salvador's digital asset framework - designed to connect global and diaspora capital to real estate, infrastructure, and private assets across Latin America.",
+    "heroSubtitle": "Equitty is developing a financial infrastructure to connect El Salvador to global investors.",
     "primaryCta": "Follow Our Progress",
     "secondaryCta": "Meet the Team",
     "statusStripLabel": "Current Status",
@@ -107,12 +107,6 @@
         "bio": "15+ years in operations and performance marketing for U.S. markets. Founder of The Hub Lab. Leads EQUITTY's growth engine, partnerships, and market expansion.",
         "signal": "Operations scale-up, growth strategy, U.S. market execution"
       },
-      "rodrigo": {
-        "name": "Rodrigo Benitez",
-        "role": "Co-Founder & CLO",
-        "bio": "Corporate attorney specializing in IP, arbitration, and financial structures. Architect of EQUITTY's legal and regulatory framework, including tokenized asset protection.",
-        "signal": "Cross-border legal structuring, digital asset law, compliance architecture"
-      },
       "oscar": {
         "name": "Oscar Merino",
         "role": "Co-Founder & CTO",
@@ -121,13 +115,33 @@
       }
     },
     "board": {
-      "sigfredo": "Founder at LEXGLOBAL | Legal Advisor, El Salvador Energy Directorate | Structured LEAD framework",
-      "joseLuis": "Founder of TechyWe.com | Technology infrastructure and enterprise leadership",
-      "erick": "Founder of PaySea | President at ASAFINTECH | FinTech industry leadership in El Salvador"
+      "sigfredo": {
+        "name": "Sigfredo Figueroa",
+        "role": "Board Director",
+        "bio": "Founder at LEXGLOBAL | Legal Advisor, El Salvador Energy Directorate | Structured LEAD framework"
+      },
+      "joseLuis": {
+        "name": "Jose Luis Ortiz",
+        "role": "Board Director",
+        "bio": "Founder of TechyWe.com | Technology infrastructure and enterprise leadership"
+      },
+      "erick": {
+        "name": "Erick Chacon",
+        "role": "Board Director",
+        "bio": "Founder of PaySea | President at ASAFINTECH | FinTech industry leadership in El Salvador"
+      }
     },
     "advisors": {
-      "nicolas": "Founder at SATS Capital, NexBridge, NexPlace | Institutional relations in Europe",
-      "ricardo": "30+ years scaling markets across LatAm | TACA, Bayer, GSK, TIGO | Institutional network and sector access"
+      "ricardo": {
+        "name": "Ricardo Granillo",
+        "role": "Strategic Advisor",
+        "bio": "30+ years scaling markets across LatAm | TACA, Bayer, GSK, TIGO | Institutional network and sector access"
+      },
+      "joseLandaverde": {
+        "name": "Jose Landaverde",
+        "role": "Senior Finance Advisor",
+        "bio": ""
+      }
     }
   },
   "Platform": {

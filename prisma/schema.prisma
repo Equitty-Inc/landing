@@ -21,6 +21,8 @@ enum NewsletterSubscriptionStatus {
 model WaitlistSignup {
   id                     String           @id @default(uuid()) @db.Uuid
   email                  String           @unique
+  firstName              String?          @map("first_name")
+  newsletterInterests    String[]         @default([]) @map("newsletter_interests")
   nationality            String?
   locale                 String           @default("es")
   createdAt              DateTime         @default(now()) @map("created_at")
