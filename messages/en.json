@@ -52,6 +52,13 @@
   },
   "Home": {
     "heroTitle": "Building the financial infrastructure for real-world assets in Latin America",
+    "heroTitlePrefix": "Building the financial infrastructure for",
+    "heroTitleRotating": [
+      "real-world assets in Latin America",
+      "tokenized real estate",
+      "private infrastructure",
+      "private credit"
+    ],
     "heroSubtitle": "Equitty is developing financial infrastructure to connect El Salvador to global investors.",
     "primaryCta": "Follow our progress",
     "secondaryCta": "Meet the team",

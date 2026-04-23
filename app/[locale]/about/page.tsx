@@ -36,7 +36,9 @@ const teamPhotos: Record<string, string> = {
 };
 
 const teamPhotoPositions: Record<string, string> = {
-  oscar: 'center 18%',
+  oscar: 'center 10%',
+  josh: 'center 15%',
+  martin: 'center 15%',
 };
 
 const boardPhotos: Record<string, string> = {

@@ -381,6 +381,22 @@ body {
     box-shadow: 0 0 14px rgba(var(--eq-page-accent-rgb, 0, 180, 196), 0.3);
   }
 
+  .eq-typewriter-neon {
+    color: rgba(var(--eq-page-accent-rgb, 0, 180, 196), 1);
+    text-shadow:
+      0 0 2px rgba(var(--eq-page-accent-rgb, 0, 180, 196), 0.65),
+      0 0 14px rgba(var(--eq-page-accent-rgb, 0, 180, 196), 0.45),
+      0 0 32px rgba(var(--eq-page-accent-rgb, 0, 180, 196), 0.28),
+      0 0 52px rgba(var(--eq-card-accent-blue-rgb, 59, 130, 246), 0.18);
+    letter-spacing: 0.005em;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .eq-typewriter-neon {
+      text-shadow: 0 0 12px rgba(var(--eq-page-accent-rgb, 0, 180, 196), 0.45);
+    }
+  }
+
   .eq-keyword {
     position: relative;
     display: inline;
@@ -424,6 +440,10 @@ body {
 
     .eq-ascii-ring {
       animation: none !important;
+    }
+
+    .eq-ascii-ring-wrap {
+      transition: none !important;
     }
 
     .eq-hero-isotipo-wrapper {
@@ -514,6 +534,31 @@ body {
 
   .eq-hero-ascii-art:hover .eq-ascii-ring {
     filter: brightness(1.55) saturate(1.12);
+  }
+
+  /* Hover scale lives on an outer wrapper so it composes cleanly with the
+     continuously-animating rotation transform on .eq-ascii-ring. */
+  .eq-ascii-ring-wrap {
+    transform: scale(1);
+    transition: transform 650ms cubic-bezier(0.34, 1.56, 0.64, 1);
+    will-change: transform;
+  }
+
+  .eq-hero-ascii-art:hover .eq-ascii-ring-wrap {
+    transform: scale(var(--eq-ring-hover-scale, 1.04));
+  }
+
+  /* Token coin edges — subtle concentric borders around the rings */
+  .eq-token-edge {
+    transition: stroke-opacity 500ms ease, stroke-width 500ms ease;
+  }
+
+  .eq-hero-ascii-art:hover .eq-token-edge {
+    stroke: rgba(var(--eq-page-accent-rgb, 0, 180, 196), 0.42);
+  }
+
+  .eq-hero-ascii-art:hover .eq-token-edge-inner {
+    stroke: rgba(var(--eq-page-accent-rgb, 0, 180, 196), 0.55);
   }
 
   .eq-hero-isotipo-wrapper {
@@ -968,7 +1013,10 @@ body {
 }
 
 .dark {
-  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='5' fill='%2300B4C4' opacity='0.8'/%3E%3Ccircle cx='16' cy='16' r='8' fill='none' stroke='%2300B4C4' stroke-width='1' opacity='0.4'/%3E%3C/svg%3E") 16 16, auto;
+  /* Mouse-pointer-shaped cursor with the same turquoise fill + soft halo as
+     the previous dot cursor. The outer wide stroke provides the glow ring;
+     the inner filled arrow is the crisp pointer. Hotspot at the tip (2,2). */
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M2 2 L2 22 L7 18 L11 27 L14 26 L10 17 L17 17 Z' fill='none' stroke='%2300B4C4' stroke-opacity='0.35' stroke-width='3' stroke-linejoin='round'/%3E%3Cpath d='M2 2 L2 22 L7 18 L11 27 L14 26 L10 17 L17 17 Z' fill='%2300B4C4' fill-opacity='0.9' stroke='%23FFFFFF' stroke-opacity='0.55' stroke-width='0.7' stroke-linejoin='round'/%3E%3C/svg%3E") 2 2, auto;
 }
 
 [data-sileo-viewport] {
