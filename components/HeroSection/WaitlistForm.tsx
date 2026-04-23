@@ -113,8 +113,8 @@ export default function WaitlistForm() {
   }
 
   const labelNationality = locale === 'es' ? 'NACIONALIDAD' : 'NATIONALITY';
-  const labelEmail = locale === 'es' ? 'CORREO ELECTRONICO *' : 'EMAIL ADDRESS *';
-  const labelReferral = locale === 'es' ? 'CODIGO DE REFERIDO' : 'REFERRAL CODE';
+  const labelEmail = locale === 'es' ? 'CORREO ELECTRÓNICO *' : 'EMAIL ADDRESS *';
+  const labelReferral = locale === 'es' ? 'CÓDIGO DE REFERIDO' : 'REFERRAL CODE';
   const fieldBase =
     'w-full h-12 px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white outline-none transition-all duration-300 placeholder:text-white/50 hover:bg-white/15 hover:border-[#00B4C4]/50 focus:border-[#00B4C4] focus:ring-2 focus:ring-[#00B4C4]/30';
 

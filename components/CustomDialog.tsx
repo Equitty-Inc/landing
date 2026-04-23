@@ -14,14 +14,16 @@ export default function CustomDialog({ open, setOpen, title, message }: Props) {
   return (
     <GlassDialog open={open} onOpenChange={setOpen} variant="aurora" className="max-w-md">
       <DialogHeader>
-        <DialogTitle className="text-xl font-semibold">{title}</DialogTitle>
+        <DialogTitle className="text-xl font-semibold tracking-tight text-[rgb(var(--eq-page-accent-rgb,0,180,196))] drop-shadow-[0_0_18px_rgba(var(--eq-page-accent-rgb,0,180,196),0.35)]">
+          {title}
+        </DialogTitle>
       </DialogHeader>
 
-      <p className="text-white/80">{message}</p>
+      <p className="text-base leading-relaxed text-white/95">{message}</p>
 
       <DialogFooter>
         <Button
-          variant="brandGhost"
+          variant="brand"
           className="cursor-pointer"
           onClick={() => setOpen(false)}
         >

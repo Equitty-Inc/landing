@@ -148,9 +148,9 @@ export function runMailerLocaleTests() {
     referredByCode: 'ZXCV6789',
     email: 'hola@example.com',
   });
-  assert.match(spanishWelcome.subject, /Ya estas en la waitlist de Equitty/);
+  assert.match(spanishWelcome.subject, /Ya estás en la waitlist de Equitty/);
   assert.match(spanishWelcome.html, /welcome-banner\.png/);
-  assert.match(spanishWelcome.html, /Fuiste registrado con el codigo referido/);
+  assert.match(spanishWelcome.html, /Fuiste registrado con el código de referido/);
 
   const englishReferrer = buildReferrerNotificationEmail({
     locale: 'en-US',
@@ -168,6 +168,6 @@ export function runMailerLocaleTests() {
     locale: 'es-GT',
     referralCode: 'LEGACY123',
   });
-  assert.match(spanishExistingUser.subject, /Tu codigo de referido de Equitty ya esta listo/);
+  assert.match(spanishExistingUser.subject, /Tu código de referido de Equitty ya está listo/);
   assert.match(spanishExistingUser.html, /welcome-banner\.png/);
 }
