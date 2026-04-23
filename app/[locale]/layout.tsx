@@ -82,6 +82,7 @@ export default async function RootLayout({ children, params }: Readonly<Props>) 
   return (
     <html lang={locale} className="dark bg-[#08070E]">
       <head>
+        <meta charSet="utf-8" />
         <link
           rel="preload"
           href="/fonts/Alexandria/Alexandria-VariableFont_wght.ttf"

@@ -122,7 +122,7 @@ Why We Exist: Capital exists. Assets exist. The regulated infrastructure connect
 
 **Present each founder as a card with: Photo | Name | Title | 3-line bio | Credibility signal. Recommended copy:**
 
-**Martin Cruz -- Founder & CEO**
+**Martín Cruz -- Founder & CEO**
 
 25+ years scaling businesses across Texas and El Salvador. Bitcoin advocate and tokenization pioneer leading EQUITTY's vision, regulatory strategy, and DASP licensing.
 
@@ -134,7 +134,7 @@ Financial strategist and serial entrepreneur. Founded IOOGO, raised \$7.6M, achi
 
 Experience: Venture fundraising, financial planning, revenue operations
 
-**Mario Melendez -- Co-Founder & COO**
+**Mario Meléndez -- Co-Founder & COO**
 
 15+ years in operations and performance marketing for U.S. markets. Founder of The Hub Lab. Leads EQUITTY's growth engine, partnerships, and market expansion.
 
@@ -158,13 +158,13 @@ Intro copy: EQUITTY is governed with institutional standards from day one. Our B
 
 **Sigfredo Figueroa -- Board Director**
 
-Founder at LEXGLOBAL | Legal Advisor, El Salvador Energy Directorate | Structured LEAD framework
+Founder at LEXGLOBAL | Legal Advisor, El Salvador Energy Directorate | Key legal advisor in drafting the Law on the Issuance of Digital Assets (LEAD)
 
-**Jose Luis Ortiz -- Board Director**
+**José Luis Ortiz -- Board Director**
 
 Founder of TechyWe.com | Technology infrastructure and enterprise leadership
 
-**Erick Chacon -- Board Director**
+**Erick Chacón -- Board Director**
 
 Founder of PaySea | President at ASAFINTECH | FinTech industry leadership in El Salvador
 

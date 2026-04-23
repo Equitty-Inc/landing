@@ -10,34 +10,34 @@
     "platform": "Platform",
     "regulatory": "Compliance",
     "updates": "Blog",
-    "primaryCta": "Follow Our Progress",
+    "primaryCta": "Follow our progress",
     "openMenu": "Open navigation menu",
     "closeMenu": "Close navigation menu"
   },
   "Common": {
-    "daspStatus": "DASP License: Application Pending - CNAD, El Salvador",
-    "platformStatus": "Platform: Under Development",
-    "investmentsStatus": "Investments: Not Open - Qualified Investors Only at Launch",
-    "contactCta": "Contact Us",
-    "followProgress": "Follow Our Progress",
-    "subscribeUpdates": "Subscribe for Updates",
+    "daspStatus": "DASP license: application pending — CNAD, El Salvador",
+    "platformStatus": "Platform: under development",
+    "investmentsStatus": "Investments: not open — qualified investors only at launch",
+    "contactCta": "Contact us",
+    "followProgress": "Follow our progress",
+    "subscribeUpdates": "Subscribe for updates",
     "complianceDisclaimer": "No page, section, button, or form on equitty.com may imply that investments are currently available, that users are being enrolled as investors, or that EQUITTY holds any license to operate a digital asset marketplace."
   },
   "Newsletter": {
-    "title": "Follow the Build",
+    "title": "Follow the build",
     "description": "We share milestones, regulatory updates, ecosystem insights, and company progress as we build. No spam. No investment solicitation. Just the real story of building EQUITTY.",
-    "firstNameLabel": "First Name",
+    "firstNameLabel": "First name",
     "firstNamePlaceholder": "Enter your first name",
-    "emailLabel": "Email Address",
+    "emailLabel": "Email address",
     "emailPlaceholder": "Enter your email",
     "interestLabel": "I am interested as",
     "interestInvestor": "Future investor",
     "interestAssetPartner": "Asset partner",
     "interestIndustryObserver": "Industry observer",
     "interestOther": "Other",
-    "button": "Send Me Updates",
+    "button": "Send me updates",
     "microcopy": "Informational updates only. Unsubscribe anytime.",
-    "successTitle": "You are subscribed",
+    "successTitle": "Subscription confirmed",
     "successMessage": "Thanks for following our progress. We will send milestone updates as we build.",
     "errors": {
       "submit": "There was an error subscribing. Please try again later.",
@@ -51,58 +51,59 @@
     }
   },
   "Home": {
-    "heroTitle": "Building the Financial Infrastructure for Real-World Assets in Latin America",
-    "heroSubtitle": "Equitty is developing a financial infrastructure to connect El Salvador to global investors.",
-    "primaryCta": "Follow Our Progress",
-    "secondaryCta": "Meet the Team",
-    "statusStripLabel": "Current Status",
-    "opportunityTitle": "The Problem We Are Solving",
-    "opportunityParagraphOne": "$16 trillion in real-world assets are expected to be tokenized by 2030. Latin America holds some of the most underserved investment infrastructure on the planet. And 2.5 million Salvadorans living in the United States send over $10 billion home every year - with no regulated channel to convert that capital into long-term ownership.",
-    "opportunityParagraphTwo": "El Salvador has passed the DASP Law, established 0% capital gains on digital assets, and created the only end-to-end digital asset regulatory framework in Latin America. The infrastructure layer to take advantage of this moment does not exist yet. EQUITTY is building it.",
+    "heroTitle": "Building the financial infrastructure for real-world assets in Latin America",
+    "heroSubtitle": "Equitty is developing financial infrastructure to connect El Salvador to global investors.",
+    "primaryCta": "Follow our progress",
+    "secondaryCta": "Meet the team",
+    "statusStripLabel": "Current status",
+    "opportunityTitle": "The problem we are solving",
+    "opportunityParagraphOne": "$16 trillion in real-world assets are expected to be tokenized by 2030. Latin America has some of the most underserved investment infrastructure on the planet. And 2.5 million Salvadorans living in the United States send over $10 billion home every year—with no regulated channel to convert that capital into long-term ownership.",
+    "opportunityParagraphTwo": "El Salvador passed the DASP Law, established 0% capital gains tax on digital assets, and created the only end-to-end digital asset regulatory framework in Latin America. The infrastructure layer to take advantage of this moment does not exist yet. EQUITTY is building it.",
     "statsOne": "$2.5B+ in Salvadoran diaspora capital ready to invest",
     "statsTwo": "$200B+ LatAm infrastructure funding gap",
     "statsThree": "$16T projected global tokenized RWA market by 2030",
-    "buildingTitle": "What We Are Building",
-    "buildingSubtitle": "EQUITTY will be a two-sided, regulated investment marketplace - the infrastructure layer connecting qualified global investors to vetted real-world assets in Latin America.",
-    "investorsColumnTitle": "For Investors",
+    "buildingTitle": "What we are building",
+    "buildingSubtitle": "EQUITTY will be a two-sided, regulated investment marketplace—the infrastructure layer connecting qualified global investors to vetted real-world assets in Latin America.",
+    "investorsColumnTitle": "For investors",
     "investorsBulletOne": "Access to high-quality Latin American assets",
     "investorsBulletTwo": "Designed to allow participation from $100 (when licensed)",
     "investorsBulletThree": "Fully compliant onboarding",
     "investorsBulletFour": "Real-time performance visibility",
-    "partnersColumnTitle": "For Asset Partners",
+    "partnersColumnTitle": "For asset partners",
     "partnersBulletOne": "Real estate developers and infrastructure owners",
     "partnersBulletTwo": "Government-backed and private credit originators",
     "partnersBulletThree": "SPV-structured, token-offering-ready deals",
     "partnersBulletFour": "Access to diaspora and institutional capital pools"
   },
   "About": {
-    "heroTitle": "Built by Operators. Governed by Leaders. Built for the Long Term.",
-    "heroSubtitle": "EQUITTY is being built by a cross-border team of fintech founders, capital strategists, legal architects, and technology leaders - with a board and advisory structure designed for institutional credibility.",
-    "missionTitle": "Mission & Why We Exist",
-    "missionText": "To connect U.S. and global capital to real-world assets across Latin America - through a compliant, transparent, and scalable platform that opens access for both qualified retail and institutional investors.",
-    "whyText": "Capital exists. Assets exist. The regulated infrastructure connecting them does not. EQUITTY is closing that gap - starting in El Salvador, scaling across Latin America.",
-    "foundingTitle": "Founding Team",
-    "boardTitle": "Board of Directors",
-    "boardIntro": "EQUITTY is governed with institutional standards from day one. Our Board provides strategic oversight, accountability, and credibility to regulators and investors alike.",
+    "heroTitle": "Built by operators. Governed by leaders. Built for the long term.",
+    "heroSubtitle": "EQUITTY is being built by a cross-border team of fintech founders, capital strategists, legal architects, and technology leaders—with a board and advisory structure designed for institutional credibility.",
+    "missionTitle": "Mission",
+    "whyTitle": "Why we exist",
+    "missionText": "To connect U.S. and global capital to real-world assets across Latin America—through a compliant, transparent, and scalable platform that opens access for both qualified retail and institutional investors.",
+    "whyText": "Capital exists. Assets exist. The regulated infrastructure connecting them does not. EQUITTY is closing that gap—starting in El Salvador, scaling across Latin America.",
+    "foundingTitle": "Founding team",
+    "boardTitle": "Board of directors",
+    "boardIntro": "EQUITTY is governed with institutional standards from day one. Our board provides strategic oversight, accountability, and credibility to regulators and investors alike.",
     "advisorsTitle": "Advisors",
     "closingTitle": "Want to learn more or explore a partnership?",
-    "closingPrimary": "Follow Our Progress",
-    "closingSecondary": "Contact Us",
+    "closingPrimary": "Follow our progress",
+    "closingSecondary": "Contact us",
     "team": {
       "martin": {
-        "name": "Martin Cruz",
+        "name": "Martín Cruz",
         "role": "Founder & CEO",
         "bio": "25+ years scaling businesses across Texas and El Salvador. Bitcoin advocate and tokenization pioneer leading EQUITTY's vision, regulatory strategy, and DASP licensing.",
-        "signal": "U.S.-LatAm market development, blockchain adoption, founder-led execution"
+        "signal": "U.S.–LatAm market development, blockchain adoption, founder-led execution"
       },
       "josh": {
         "name": "Josh Alballero",
         "role": "Co-Founder & CFO",
-        "bio": "Financial strategist and serial entrepreneur. Founded IOOGO, raised $7.6M, achieved $10M+ exit. Leads EQUITTY's capital strategy, investor relations, and fundraising execution.",
+        "bio": "Financial strategist and serial entrepreneur. Founded IOOGO, raised $7.6M, achieved a $10M+ exit. Leads EQUITTY's capital strategy, investor relations, and fundraising execution.",
         "signal": "Venture fundraising, financial planning, revenue operations"
       },
       "mario": {
-        "name": "Mario Melendez",
+        "name": "Mario Meléndez",
         "role": "Co-Founder & COO",
         "bio": "15+ years in operations and performance marketing for U.S. markets. Founder of The Hub Lab. Leads EQUITTY's growth engine, partnerships, and market expansion.",
         "signal": "Operations scale-up, growth strategy, U.S. market execution"
@@ -117,82 +118,82 @@
     "board": {
       "sigfredo": {
         "name": "Sigfredo Figueroa",
-        "role": "Board Director",
-        "bio": "Founder at LEXGLOBAL | Legal Advisor, El Salvador Energy Directorate | Structured LEAD framework"
+        "role": "Board director",
+        "bio": "Founder of LEXGLOBAL | Legal advisor, El Salvador Energy Directorate | Key legal advisor in drafting the Law on the Issuance of Digital Assets (LEAD)"
       },
       "joseLuis": {
-        "name": "Jose Luis Ortiz",
-        "role": "Board Director",
+        "name": "José Luis Ortiz",
+        "role": "Board director",
         "bio": "Founder of TechyWe.com | Technology infrastructure and enterprise leadership"
       },
       "erick": {
-        "name": "Erick Chacon",
-        "role": "Board Director",
+        "name": "Erick Chacón",
+        "role": "Board director",
         "bio": "Founder of PaySea | President at ASAFINTECH | FinTech industry leadership in El Salvador"
       }
     },
     "advisors": {
       "ricardo": {
         "name": "Ricardo Granillo",
-        "role": "Strategic Advisor",
+        "role": "Strategic advisor",
         "bio": "30+ years scaling markets across LatAm | TACA, Bayer, GSK, TIGO | Institutional network and sector access"
       },
       "joseLandaverde": {
-        "name": "Jose Landaverde",
-        "role": "Senior Finance Advisor",
+        "name": "José Landaverde",
+        "role": "Senior finance advisor",
         "bio": ""
       }
     }
   },
   "Platform": {
-    "heroTitle": "The Platform",
-    "heroSubtitle": "Product vision in future tense. Not a demo. A credible preview.",
+    "heroTitle": "The platform",
+    "heroSubtitle": "A credible preview of how EQUITTY will connect capital to real-world assets within a regulated framework.",
     "problemTitle": "Capital exists. Assets exist. Access does not.",
     "problemBody": "Today, there is no regulated infrastructure connecting global and diaspora capital to Latin American real estate, infrastructure, and private assets. Traditional channels require minimums of $250,000 or more. There is no retail access point. There is no institutional gateway. There is no secondary market.",
     "problemBodyTwo": "EQUITTY is designed to solve this within a compliant, regulated framework.",
-    "journeyTitle": "How the Platform Will Work",
+    "journeyTitle": "How the platform will work",
     "discoverTitle": "DISCOVER",
-    "discoverText": "Browse curated, vetted real-world assets - real estate, infrastructure, and private credit opportunities across Latin America, each with transparent financial information and regulatory documentation.",
+    "discoverText": "Browse curated, vetted real-world assets—real estate, infrastructure, and private credit opportunities across Latin America, each with transparent financial information and regulatory documentation.",
     "investTitle": "INVEST",
     "investText": "Participate through a compliant onboarding process. The platform is being designed to allow participation from $100 (when licensed), with full institutional-grade structuring available at scale.",
     "earnTitle": "EARN",
-    "earnText": "Receive distributions and track real-time performance through the investor dashboard - built for transparency and ongoing reporting.",
+    "earnText": "Receive distributions and track real-time performance through the investor dashboard—built for transparency and ongoing reporting.",
     "exitTitle": "EXIT",
-    "exitText": "Access secondary market liquidity through the platform's trading infrastructure - planned for Phase 4, subject to regulatory milestones.",
+    "exitText": "Access secondary market liquidity through the platform's trading infrastructure—planned for Phase 4, subject to regulatory milestones.",
     "disclaimer": "All platform features described are in development and subject to regulatory approval, licensing, and phased launch readiness.",
-    "listingCta": "Interested in listing your project? Contact Us"
+    "listingCta": "Interested in listing your project? Contact us"
   },
   "Regulatory": {
-    "heroTitle": "Compliance Is Not a Checkbox. It Is the Foundation.",
+    "heroTitle": "Compliance is not a checkbox. It is the foundation.",
     "heroSubtitle": "EQUITTY is being designed within El Salvador's digital asset regulatory framework from day one. We are not launching first and filing later. We are filing first, building the infrastructure, and launching only when ready.",
-    "architectureTitle": "Our Compliance Architecture",
-    "pillarOneTitle": "1. Regulatory First-Mover",
-    "pillarOneText": "EQUITTY is applying for the DASP license under El Salvador's Ley de Activos Digitales - the only end-to-end digital asset law in Latin America. We are not operating on a legal gray area. We are operating on the law.",
-    "pillarTwoTitle": "2. Dual-Jurisdiction Structure",
+    "architectureTitle": "Our compliance architecture",
+    "pillarOneTitle": "1. Regulatory first-mover",
+    "pillarOneText": "EQUITTY is applying for the DASP license under El Salvador's Ley de Activos Digitales—the only end-to-end digital asset law in Latin America. We are not operating in a legal gray area. We are operating on the law.",
+    "pillarTwoTitle": "2. Dual-jurisdiction structure",
     "pillarTwoText": "EQUITTY Holdings Inc. (Delaware C-Corp) owns EQUITTY S.A.S. de C.V. (El Salvador). This dual structure provides institutional-grade governance through U.S. law while operating under El Salvador's favorable digital asset framework.",
-    "pillarThreeTitle": "3. Investor Protection by Design",
+    "pillarThreeTitle": "3. Investor protection by design",
     "pillarThreeText": "Assets will be structured through dedicated Delaware SPVs. Capital deployment will follow milestone-based release triggers. KYC/AML will be embedded before any funds move. Each offering will be filed with CNAD under the applicable private tokenization framework.",
-    "pillarFourTitle": "4. Transparency as Policy",
+    "pillarFourTitle": "4. Transparency as policy",
     "pillarFourText": "EQUITTY is committed to disclosing regulatory status clearly and publicly at all times. When the DASP license is granted, we will announce it. When phase milestones are reached, we will share them.",
-    "launchTitle": "Who Can Invest When We Launch",
+    "launchTitle": "Who can invest when we launch",
     "launchBody": "When EQUITTY launches its first offering (targeted Q3 2026, subject to DASP approval), access will initially be restricted to authorized and qualified investors as defined by applicable law under the CNAD framework. General public retail access will follow in a subsequent phase. We are not accepting investor applications, expressions of interest, or capital commitments at this time."
   },
   "Updates": {
-    "heroTitle": "Building EQUITTY - In Public",
+    "heroTitle": "Building EQUITTY—in public",
     "heroSubtitle": "Follow our progress: regulatory milestones, product development, ecosystem insights, and company updates as we build the financial infrastructure for real-world assets in Latin America.",
-    "primaryCta": "Subscribe for Updates",
-    "introTitle": "Latest Updates",
+    "primaryCta": "Subscribe for updates",
+    "introTitle": "Latest updates",
     "introBody": "This newsroom will publish milestone updates, ecosystem signals, and company news as we advance toward launch."
   },
   "Footer": {
-    "terms": "Terms & Conditions",
+    "terms": "Terms & conditions",
     "privacy": "Privacy",
     "languageLabel": "Language",
     "footerDisclaimer": "This website is for informational purposes only and does not constitute an offer to sell, a solicitation to buy, or an invitation to invest in any security or digital asset.",
-    "termsModalTitle": "EQUITTY Terms & Conditions",
+    "termsModalTitle": "EQUITTY terms & conditions",
     "termsModalDescription": "Review the legal terms that govern the informational use of this website and newsletter.",
     "termsContent": {
-      "header": ["Website Terms & Conditions"],
+      "header": ["Website terms & conditions"],
       "sections": [
         {
           "title": "1. INFORMATIONAL USE ONLY",
@@ -215,18 +216,47 @@
     }
   },
   "HomePage": {
+    "Form": {
+      "emailPlaceholder": "Your email address",
+      "nationalityPlaceholder": "Select your nationality",
+      "wasReferredLabel": "I was referred by someone (referral code)",
+      "referralCodePlaceholder": "Referral code",
+      "button": "Join the waitlist",
+      "microcopy": "Informational updates only. No spam.",
+      "Validation": {
+        "emailInvalid": "Please enter a valid email address.",
+        "nationalityRequired": "Nationality is required.",
+        "referralCodeRequired": "Referral code is required.",
+        "referralCodeInvalid": "Referral code format is invalid."
+      },
+      "Errors": {
+        "emailAlreadyExists": {
+          "title": "Email already registered",
+          "message": "This email is already on our waitlist. If you need help, contact us."
+        },
+        "invalidReferralCode": {
+          "title": "Invalid referral code",
+          "message": "We could not find that referral code. Please check and try again."
+        },
+        "waitlistError": "We could not complete your signup. Please try again later."
+      },
+      "SuccessDialog": {
+        "title": "You are in!",
+        "message": "Thanks for joining the EQUITTY waitlist. We will keep you posted."
+      }
+    },
     "Unsubscribe": {
       "eyebrow": "Manage your subscription",
       "title": "Unsubscribe from updates",
       "description": "Enter the email address you used to subscribe and we will update your status right away.",
-      "emailPlaceholder": "Email Address",
+      "emailPlaceholder": "Email address",
       "button": "Unsubscribe",
-      "processing": "Processing...",
+      "processing": "Processing…",
       "success": "Your email has been unsubscribed.",
       "error": "We could not find that email in our records."
     },
     "Dialog": {
-      "confirmButton": "Confirm"
+      "confirmButton": "Got it"
     },
     "Footer": {
       "unsubscribeText": "If you no longer want to receive updates, unsubscribe",

@@ -164,21 +164,21 @@ export function buildWelcomeEmail({
   const isEs = normalizedLocale === 'es';
 
   const subject = isEs
-    ? 'Ya estas en la waitlist de Equitty'
+    ? 'Ya estás en la waitlist de Equitty'
     : 'You are now on the Equitty waitlist';
 
   const preheader = isEs
-    ? 'Tu registro fue confirmado y tu codigo de referido ya esta activo.'
+    ? 'Tu registro fue confirmado y tu código de referido ya está activo.'
     : 'Your registration is confirmed and your referral code is now active.';
 
   const referralMessage = referredByCode
     ? isEs
-      ? `<p style="margin:0 0 12px 0;">Fuiste registrado con el codigo referido <strong>${escapeHtml(referredByCode)}</strong>.</p>`
+      ? `<p style="margin:0 0 12px 0;">Fuiste registrado con el código de referido <strong>${escapeHtml(referredByCode)}</strong>.</p>`
       : `<p style="margin:0 0 12px 0;">You were registered using referral code <strong>${escapeHtml(referredByCode)}</strong>.</p>`
     : '';
 
   const shareMessage = isEs
-    ? 'Ahora tu tambien puedes invitar a otros futuros inversionistas. Comparte tu codigo y construye tu propia cadena de referidos.'
+    ? 'Ahora tú también puedes invitar a otros futuros inversionistas. Comparte tu código y construye tu propia cadena de referidos.'
     : 'You can now invite other future investors. Share your code and build your own referral chain.';
 
   const bodyHtml = `
@@ -186,17 +186,17 @@ export function buildWelcomeEmail({
     <p style="margin:0 0 12px 0;">
       ${
         isEs
-          ? 'Tu registro en la lista de espera de Equitty fue completado con exito.'
+          ? 'Tu registro en la lista de espera de Equitty fue completado con éxito.'
           : 'Your registration on the Equitty waitlist has been completed successfully.'
       }
     </p>
     ${referralMessage}
     <p style="margin:0 0 12px 0;">${shareMessage}</p>
-    ${buildReferralCodeBlock(isEs ? 'Tu codigo de referido' : 'Your referral code', referralCode)}
+    ${buildReferralCodeBlock(isEs ? 'Tu código de referido' : 'Your referral code', referralCode)}
     <p style="margin:0;">
       ${
         isEs
-          ? 'Guardalo y usalo cuando invites a alguien a registrarse.'
+          ? 'Guárdalo y úsalo cuando invites a alguien a registrarse.'
           : 'Save it and use it whenever you invite someone to register.'
       }
     </p>
@@ -228,11 +228,11 @@ export function buildReferrerNotificationEmail({
   const isEs = normalizedLocale === 'es';
 
   const subject = isEs
-    ? 'Tienes un nuevo registro con tu codigo de referido'
+    ? 'Tienes un nuevo registro con tu código de referido'
     : 'You have a new signup with your referral code';
 
   const preheader = isEs
-    ? 'Una nueva persona se registro usando tu codigo.'
+    ? 'Una nueva persona se registró usando tu código.'
     : 'A new person signed up using your code.';
 
   const bodyHtml = `
@@ -240,26 +240,26 @@ export function buildReferrerNotificationEmail({
     <p style="margin:0 0 12px 0;">
       ${
         isEs
-          ? `Se registro <strong>${escapeHtml(referredEmail)}</strong> usando tu codigo de referido <strong>${escapeHtml(referrerCode)}</strong>.`
+          ? `Se registró <strong>${escapeHtml(referredEmail)}</strong> usando tu código de referido <strong>${escapeHtml(referrerCode)}</strong>.`
           : `<strong>${escapeHtml(referredEmail)}</strong> signed up using your referral code <strong>${escapeHtml(referrerCode)}</strong>.`
       }
     </p>
     <p style="margin:0 0 12px 0;">
       ${
         isEs
-          ? `Tu codigo de referido sigue siendo <strong>${escapeHtml(referrerCode)}</strong>.`
+          ? `Tu código de referido sigue siendo <strong>${escapeHtml(referrerCode)}</strong>.`
           : `Your referral code remains <strong>${escapeHtml(referrerCode)}</strong>.`
       }
     </p>
     <p style="margin:0 0 12px 0;">
       ${
         isEs
-          ? 'La nueva persona ya tiene su propio codigo para seguir ampliando la cadena.'
+          ? 'La nueva persona ya tiene su propio código para seguir ampliando la cadena.'
           : 'The new signup already has their own code to continue growing the chain.'
       }
     </p>
     ${buildReferralCodeBlock(
-      isEs ? 'Codigo asignado a tu referido' : 'Code assigned to your referred user',
+      isEs ? 'Código asignado a tu referido' : 'Code assigned to your referred user',
       referredUserCode
     )}
   `;
@@ -287,11 +287,11 @@ export function buildExistingUserReferralCodeEmail({
   const isEs = normalizedLocale === 'es';
 
   const subject = isEs
-    ? 'Tu codigo de referido de Equitty ya esta listo'
+    ? 'Tu código de referido de Equitty ya está listo'
     : 'Your Equitty referral code is ready';
 
   const preheader = isEs
-    ? 'Ya puedes compartir tu codigo de referido con otros futuros inversionistas.'
+    ? 'Ya puedes compartir tu código de referido con otros futuros inversionistas.'
     : 'You can now share your referral code with other future investors.';
 
   const bodyHtml = `
@@ -299,18 +299,18 @@ export function buildExistingUserReferralCodeEmail({
     <p style="margin:0 0 12px 0;">
       ${
         isEs
-          ? 'Ya activamos tu codigo de referido para tu registro existente en la waitlist de Equitty.'
+          ? 'Ya activamos tu código de referido para tu registro existente en la waitlist de Equitty.'
           : 'We have now activated a referral code for your existing Equitty waitlist registration.'
       }
     </p>
     <p style="margin:0 0 12px 0;">
-      ${isEs ? 'Tu codigo de referido es:' : 'Your referral code is:'}
+      ${isEs ? 'Tu código de referido es:' : 'Your referral code is:'}
     </p>
-    ${buildReferralCodeBlock(isEs ? 'Tu codigo de referido' : 'Your referral code', referralCode)}
+    ${buildReferralCodeBlock(isEs ? 'Tu código de referido' : 'Your referral code', referralCode)}
     <p style="margin:0;">
       ${
         isEs
-          ? 'Compartelo cuando invites a otra persona a registrarse.'
+          ? 'Compártelo cuando invites a otra persona a registrarse.'
           : 'Share it whenever you invite someone else to sign up.'
       }
     </p>

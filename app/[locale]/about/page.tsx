@@ -77,7 +77,7 @@ export default async function AboutPage({ params }: Props) {
           </GlassCard>
           <GlassCard>
             <h3 className="mb-4 text-lg font-semibold">
-              <span className="eq-title-underline">{t('missionTitle')}</span>
+              <span className="eq-title-underline">{t('whyTitle')}</span>
             </h3>
             <p className="text-white/80">{t('whyText')}</p>
           </GlassCard>
