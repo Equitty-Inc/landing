@@ -30,6 +30,7 @@ export default async function UpdatesPage({ params }: Props) {
           <Link href="/#newsletter">{t('primaryCta')}</Link>
         </Button>
         */}
+        <></>
       </Section>
 
       <Section title={t('introTitle')} description={t('introBody')}>
