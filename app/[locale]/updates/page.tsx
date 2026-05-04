@@ -25,9 +25,11 @@ export default async function UpdatesPage({ params }: Props) {
   return (
     <div className="bg-background text-white">
       <Section className="pt-14 sm:pt-20" title={t('heroTitle')} description={t('heroSubtitle')}>
+        {/* Subscribe button — hidden temporarily
         <Button asChild variant="brand" size="lg">
           <Link href="/#newsletter">{t('primaryCta')}</Link>
         </Button>
+        */}
       </Section>
 
       <Section title={t('introTitle')} description={t('introBody')}>

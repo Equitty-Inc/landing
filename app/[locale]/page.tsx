@@ -64,9 +64,9 @@ export default async function HomePage({ params }: Props) {
               <HeroAsciiArt />
             </div>
             <div className="order-4 flex flex-wrap gap-3 lg:col-start-1 lg:row-start-3">
-              <Button asChild variant="brand" size="lg">
+              {/*  <Button asChild variant="brand" size="lg">
                 <Link href="/#newsletter">{tHome('primaryCta')}</Link>
-              </Button>
+              </Button> */}
               <Button asChild variant="outline" size="lg" className="rounded-full border-white/25 bg-white/5 text-white/90 hover:bg-white/10 hover:text-white">
                 <Link href="/about">{tHome('secondaryCta')}</Link>
               </Button>
@@ -143,11 +143,13 @@ export default async function HomePage({ params }: Props) {
           </div>
         </Section>
 
+        {/* Newsletter section — hidden temporarily
         <Section id="newsletter" title={tNewsletter('title')} description={tNewsletter('description')}>
           <div className="mx-auto max-w-2xl">
             <NewsletterForm />
           </div>
         </Section>
+        */}
       </div>
     </div>
   );

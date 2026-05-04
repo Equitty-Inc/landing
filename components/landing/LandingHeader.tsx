@@ -172,7 +172,7 @@ export default function LandingHeader() {
         </div>
         <div className="flex items-center gap-2">
 
-          {/* OPTION_C: Neon outline + TrendingUp icon */}
+          {/* 
           <Button
             asChild
             className="hidden sm:inline-flex rounded-full border border-[rgba(var(--eq-page-accent-rgb,0,180,196),0.65)] bg-[rgba(var(--eq-page-accent-rgb,0,180,196),0.06)] text-white shadow-[0_0_0px_rgba(var(--eq-page-accent-rgb,0,180,196),0.2)] hover:bg-[rgba(var(--eq-page-accent-rgb,0,180,196),0.18)] hover:shadow-[0_0_24px_rgba(var(--eq-page-accent-rgb,0,180,196),0.45)]"
@@ -181,7 +181,7 @@ export default function LandingHeader() {
               {t('primaryCta')}
               <TrendingUp className="h-4 w-4" />
             </Link>
-          </Button>
+          </Button> */}
 
           <button
             type="button"
