@@ -148,7 +148,7 @@
       "joseLandaverde": {
         "name": "José Landaverde",
         "role": "Senior finance advisor",
-        "bio": ""
+        "bio": "CPA with more than 20 years of experience in accounting, auditing, tax, and financial consulting. He is currently Managing Partner at DMA Business Group in El Salvador and the U.S., leading strategic services. He previously led systems implementation at Grupo Roble, with experience in real estate and investor relations."
       }
     }
   },
@@ -190,7 +190,21 @@
     "heroSubtitle": "Follow our progress: regulatory milestones, product development, ecosystem insights, and company updates as we build the financial infrastructure for real-world assets in Latin America.",
     "primaryCta": "Subscribe for updates",
     "introTitle": "Latest updates",
-    "introBody": "This newsroom will publish milestone updates, ecosystem signals, and company news as we advance toward launch."
+    "introBody": "This newsroom will publish milestone updates, ecosystem signals, and company news as we advance toward launch.",
+    "cards": {
+      "regulatory": {
+        "title": "Regulatory",
+        "body": "Upcoming CNAD process updates and compliance milestones."
+      },
+      "product": {
+        "title": "Product",
+        "body": "Platform architecture, security, and onboarding development progress."
+      },
+      "ecosystem": {
+        "title": "Ecosystem",
+        "body": "Partnerships, market signals, and regional tokenization insights."
+      }
+    }
   },
   "Footer": {
     "terms": "Terms & conditions",
