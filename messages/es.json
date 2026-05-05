@@ -148,7 +148,7 @@
       "joseLandaverde": {
         "name": "José Landaverde",
         "role": "Asesor senior de finanzas",
-        "bio": ""
+        "bio": "CPA, con más de 20 años de experiencia en contabilidad, auditoría, impuestos y consultoría financiera. Actualmente es Socio Director de DMA Business Group en El Salvador y USA, liderando servicios estratégicos. Previamente lideró la implementación de sistemas en Grupo Roble, con experiencia en el sector inmobiliario y atención a inversionistas."
       }
     }
   },
@@ -190,7 +190,21 @@
     "heroSubtitle": "Sigue nuestro progreso: hitos regulatorios, desarrollo de producto, perspectivas del ecosistema y actualizaciones corporativas mientras construimos la infraestructura financiera para activos reales en América Latina.",
     "primaryCta": "Suscríbete a actualizaciones",
     "introTitle": "Últimas actualizaciones",
-    "introBody": "Este newsroom publicará hitos, señales del ecosistema y noticias corporativas conforme avancemos hacia el lanzamiento."
+    "introBody": "Este newsroom publicará hitos, señales del ecosistema y noticias corporativas conforme avancemos hacia el lanzamiento.",
+    "cards": {
+      "regulatory": {
+        "title": "Regulatorio",
+        "body": "Próximas novedades del proceso CNAD e hitos de cumplimiento."
+      },
+      "product": {
+        "title": "Producto",
+        "body": "Arquitectura de la plataforma, seguridad y avance del desarrollo de incorporación de usuarios."
+      },
+      "ecosystem": {
+        "title": "Ecosistema",
+        "body": "Alianzas, señales de mercado y perspectivas sobre tokenización regional."
+      }
+    }
   },
   "Footer": {
     "terms": "Términos y condiciones",

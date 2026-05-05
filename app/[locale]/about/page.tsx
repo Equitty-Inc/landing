@@ -1,9 +1,7 @@
 import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
-import NewsletterForm from '@/components/landing/NewsletterForm';
 import { GlassCard, Section } from '@/components/landing/Section';
 import TeamAvatar from '@/components/landing/TeamAvatar';
-import { Button } from '@/components/ui/button';
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -65,7 +63,6 @@ export default async function AboutPage({ params }: Props) {
   const team = Object.entries(t.raw('team') as Record<string, TeamMember>);
   const board = Object.entries(t.raw('board') as Record<string, BoardMember>);
   const advisors = Object.entries(t.raw('advisors') as Record<string, Advisor>);
-  const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL || 'info@equitty.com';
 
   return (
     <div className="bg-background text-white">
@@ -149,16 +146,7 @@ export default async function AboutPage({ params }: Props) {
         </div>
       </Section>
 
-      <Section title={t('closingTitle')}>
-        <div className="grid items-start gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
-          <NewsletterForm />
-          <GlassCard className="flex w-full flex-col gap-4">
-            <Button asChild variant="brandGhost">
-              <a href={`mailto:${contactEmail}`}>{t('closingSecondary')}</a>
-            </Button>
-          </GlassCard>
-        </div>
-      </Section>
+      {/* Contact CTA (closingTitle + mailto) removed until contact flow is verified */}
     </div>
   );
 }
