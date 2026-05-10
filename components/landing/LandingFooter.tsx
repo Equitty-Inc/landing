@@ -3,21 +3,7 @@
 import { Facebook, Instagram, Linkedin } from 'lucide-react';
 import Image from 'next/image';
 import { useLocale, useTranslations } from 'next-intl';
-import { useState } from 'react';
 import { Link, usePathname } from '@/i18n/navigation';
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from '@/components/ui/dialog';
-
-type TermsSection = {
-  title: string;
-  body: string;
-};
 
 const FACEBOOK_URL = process.env.NEXT_PUBLIC_FACEBOOK_URL || 'https://www.facebook.com/profile.php?id=61588660531154';
 const INSTAGRAM_URL = process.env.NEXT_PUBLIC_INSTAGRAM_URL || 'https://www.instagram.com/equitty_/';
@@ -56,10 +42,6 @@ export default function LandingFooter() {
   const t = useTranslations('Footer');
   const locale = useLocale();
   const pathname = usePathname();
-  const [isTermsOpen, setIsTermsOpen] = useState(false);
-  const termsHeader = t.raw('termsContent.header') as string[];
-  const termsSections = t.raw('termsContent.sections') as TermsSection[];
-  const termsFooter = t.raw('termsContent.footer') as string;
   const currentLocale = locale === 'es' ? 'es' : 'en';
 
   const footerAccentLine = {
@@ -98,49 +80,6 @@ export default function LandingFooter() {
           </div>
 
           <div className="flex flex-col gap-2 text-sm">
-            <div className="flex items-center gap-4">
-              <Dialog open={isTermsOpen} onOpenChange={setIsTermsOpen}>
-                <DialogTrigger asChild>
-                  <button
-                    type="button"
-                    className="cursor-pointer text-white/70 transition hover:text-[rgb(var(--eq-page-accent-rgb,0,180,196))] active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[rgba(var(--eq-page-accent-rgb,0,180,196),0.45)]"
-                  >
-                    {t('terms')}
-                  </button>
-                </DialogTrigger>
-                <DialogContent
-                  className="max-w-[min(96vw,1600px)] w-[min(96vw,1600px)] sm:max-w-[min(74vw,1200px)] sm:w-[min(74vw,1200px)] bg-[#03040b]/90 border border-white/10 shadow-2xl"
-                >
-                  <DialogHeader>
-                    <DialogTitle className="text-white">{t('termsModalTitle')}</DialogTitle>
-                    <DialogDescription className="text-white/70">{t('termsModalDescription')}</DialogDescription>
-                  </DialogHeader>
-                  <div className="mt-4 max-h-[70vh] overflow-y-auto rounded-2xl border border-white/10 bg-black/80 p-6 text-sm leading-relaxed text-white/80">
-                    <div className="space-y-1 text-[13px] uppercase tracking-[0.3em] text-white/60">
-                      {termsHeader.map((line, index) => (
-                        <p key={`${line}-${index}`}>{line}</p>
-                      ))}
-                    </div>
-                    <div className="mt-4 space-y-6">
-                      {termsSections.map((section) => (
-                        <article
-                          key={section.title}
-                          className="space-y-2 border-t border-white/10 pt-4 first:border-t-0 first:pt-0"
-                        >
-                          <p className="text-xs uppercase tracking-[0.4em] text-[rgb(var(--eq-page-accent-rgb,0,180,196))]">
-                            {section.title}
-                          </p>
-                          <p className="text-sm text-white/80 leading-relaxed whitespace-pre-line">{section.body}</p>
-                        </article>
-                      ))}
-                    </div>
-                    <p className="mt-4 text-xs text-white/60">{termsFooter}</p>
-                  </div>
-                </DialogContent>
-              </Dialog>
-              <div className="h-4 w-px bg-white/20" />
-              <span className="text-white/70">{t('privacy')}</span>
-            </div>
             <div className="flex items-center gap-2">
               <span className="text-white/50">{t('languageLabel')}</span>
               <div className="inline-flex items-center rounded-full bg-white/5 p-1">
