@@ -20,22 +20,15 @@ type BoardMember = {
   bio: string;
 };
 
-type Advisor = {
-  name: string;
-  role: string;
-  bio?: string;
-};
-
 const teamPhotos: Record<string, string> = {
   martin: '/team/martin.png',
-  josh: '/team/josh.png',
   mario: '/team/mario.png',
   oscar: '/team/oscar.png',
 };
 
 const teamPhotoPositions: Record<string, string> = {
   oscar: 'center 10%',
-  josh: 'center 15%',
+  jose: 'center 18%',
   martin: 'center 15%',
 };
 
@@ -62,7 +55,6 @@ export default async function AboutPage({ params }: Props) {
 
   const team = Object.entries(t.raw('team') as Record<string, TeamMember>);
   const board = Object.entries(t.raw('board') as Record<string, BoardMember>);
-  const advisors = Object.entries(t.raw('advisors') as Record<string, Advisor>);
 
   return (
     <div className="bg-background text-white">
@@ -108,7 +100,7 @@ export default async function AboutPage({ params }: Props) {
       </Section>
 
       <Section title={t('boardTitle')} description={t('boardIntro')}>
-        <div className="grid gap-5 sm:grid-cols-2 md:grid-cols-3">
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {board.map(([slug, member]) => (
             <GlassCard
               key={slug}
@@ -125,22 +117,6 @@ export default async function AboutPage({ params }: Props) {
                 {member.role}
               </p>
               <p className="text-sm leading-relaxed text-white/75">{member.bio}</p>
-            </GlassCard>
-          ))}
-        </div>
-      </Section>
-
-      <Section title={t('advisorsTitle')}>
-        <div className="grid gap-5 sm:grid-cols-2">
-          {advisors.map(([slug, advisor]) => (
-            <GlassCard key={slug} className="flex flex-col gap-2">
-              <h3 className="text-base font-semibold text-white">{advisor.name}</h3>
-              <p className="text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-[rgb(var(--eq-page-accent-rgb,0,180,196))]">
-                {advisor.role}
-              </p>
-              {advisor.bio ? (
-                <p className="text-sm leading-relaxed text-white/75">{advisor.bio}</p>
-              ) : null}
             </GlassCard>
           ))}
         </div>
