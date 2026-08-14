@@ -84,15 +84,14 @@
   },
   "About": {
     "heroTitle": "Construido por operadores. Gobernado por líderes. Diseñado a largo plazo.",
-    "heroSubtitle": "EQUITTY está siendo construido por un equipo transfronterizo de fundadores fintech, estrategas de capital, arquitectos legales y líderes de tecnología, con una estructura de junta y asesoría diseñada para credibilidad institucional.",
+    "heroSubtitle": "EQUITTY está siendo construido por un equipo transfronterizo de fundadores fintech, estrategas de capital, arquitectos legales y líderes de tecnología, con una mesa de asesores diseñada para credibilidad institucional.",
     "missionTitle": "Misión",
     "whyTitle": "Por qué existimos",
     "missionText": "Conectar capital de EE. UU. y global con activos reales en América Latina mediante una plataforma en cumplimiento, transparente y escalable que abre el acceso a inversionistas calificados retail e institucionales.",
     "whyText": "El capital existe. Los activos existen. La infraestructura regulada que los conecta, no. EQUITTY está cerrando esa brecha desde El Salvador y escalando por América Latina.",
     "foundingTitle": "Equipo fundador",
-    "boardTitle": "Junta directiva",
-    "boardIntro": "EQUITTY se gobierna con estándares institucionales desde el día uno. Nuestra junta aporta supervisión estratégica, rendición de cuentas y credibilidad ante reguladores e inversionistas.",
-    "advisorsTitle": "Asesores",
+    "boardTitle": "Mesa de asesores",
+    "boardIntro": "EQUITTY se apoya en una mesa de asesores con estándares institucionales desde el día uno. Aporta supervisión estratégica, experiencia sectorial y credibilidad ante reguladores e inversionistas.",
     "closingTitle": "¿Quieres saber más o explorar una alianza?",
     "closingPrimary": "Sigue nuestro progreso",
     "closingSecondary": "Contáctanos",
@@ -103,11 +102,11 @@
         "bio": "Más de 25 años escalando negocios entre Texas y El Salvador. Defensor de Bitcoin y pionero en tokenización; lidera la visión, la estrategia regulatoria y el licenciamiento DASP de EQUITTY.",
         "signal": "Desarrollo de mercado EE. UU.–LatAm, adopción blockchain, ejecución de fundador"
       },
-      "josh": {
-        "name": "Josh Alballero",
+      "jose": {
+        "name": "José Landaverde",
         "role": "Cofundador y CFO",
-        "bio": "Estratega financiero y emprendedor en serie. Fundador de IOOGO; levantó 7,6M USD y logró una salida de más de 10M USD. Lidera estrategia de capital, relación con inversionistas y captación.",
-        "signal": "Levantamiento de capital de riesgo, planeación financiera, operaciones de ingresos"
+        "bio": "CPA, con más de 20 años de experiencia en auditoría y consultoría financiera en organizaciones de EE.UU. y El Salvador. Con experiencia en el sector inmobiliario y atención a inversionistas, actualmente lidera la estrategia de inversión y planeación financiera.",
+        "signal": "Auditoría y consultoría financiera, estrategia de inversión, planeación financiera"
       },
       "mario": {
         "name": "Mario Meléndez",
@@ -125,30 +124,23 @@
     "board": {
       "sigfredo": {
         "name": "Sigfredo Figueroa",
-        "role": "Director de junta",
+        "role": "Asesor",
         "bio": "Fundador de LEXGLOBAL | Asesor legal de la Dirección de Energía de El Salvador | Asesor legal clave en la redacción de la Ley de Emisión de Activos Digitales (LEAD)"
       },
       "joseLuis": {
         "name": "José Luis Ortiz",
-        "role": "Director de junta",
+        "role": "Asesor",
         "bio": "Fundador de TechyWe.com | Liderazgo en infraestructura tecnológica empresarial"
       },
       "erick": {
         "name": "Erick Chacón",
-        "role": "Director de junta",
+        "role": "Asesor",
         "bio": "Fundador de PaySea | Presidente de ASAFINTECH | Liderazgo fintech en El Salvador"
-      }
-    },
-    "advisors": {
+      },
       "ricardo": {
         "name": "Ricardo Granillo",
         "role": "Asesor estratégico",
         "bio": "Más de 30 años escalando mercados en LatAm | TACA, Bayer, GSK, TIGO | Red institucional y acceso sectorial"
-      },
-      "joseLandaverde": {
-        "name": "José Landaverde",
-        "role": "Asesor senior de finanzas",
-        "bio": "CPA, con más de 20 años de experiencia en contabilidad, auditoría, impuestos y consultoría financiera. Actualmente es Socio Director de DMA Business Group en El Salvador y USA, liderando servicios estratégicos. Previamente lideró la implementación de sistemas en Grupo Roble, con experiencia en el sector inmobiliario y atención a inversionistas."
       }
     }
   },

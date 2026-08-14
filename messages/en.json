@@ -84,15 +84,14 @@
   },
   "About": {
     "heroTitle": "Built by operators. Governed by leaders. Built for the long term.",
-    "heroSubtitle": "EQUITTY is being built by a cross-border team of fintech founders, capital strategists, legal architects, and technology leaders—with a board and advisory structure designed for institutional credibility.",
+    "heroSubtitle": "EQUITTY is being built by a cross-border team of fintech founders, capital strategists, legal architects, and technology leaders—with an advisory panel designed for institutional credibility.",
     "missionTitle": "Mission",
     "whyTitle": "Why we exist",
     "missionText": "To connect U.S. and global capital to real-world assets across Latin America—through a compliant, transparent, and scalable platform that opens access for both qualified retail and institutional investors.",
     "whyText": "Capital exists. Assets exist. The regulated infrastructure connecting them does not. EQUITTY is closing that gap—starting in El Salvador, scaling across Latin America.",
     "foundingTitle": "Founding team",
-    "boardTitle": "Board of directors",
-    "boardIntro": "EQUITTY is governed with institutional standards from day one. Our board provides strategic oversight, accountability, and credibility to regulators and investors alike.",
-    "advisorsTitle": "Advisors",
+    "boardTitle": "Advisory panel",
+    "boardIntro": "EQUITTY is supported by an advisory panel with institutional standards from day one. It provides strategic oversight, sector expertise, and credibility with regulators and investors alike.",
     "closingTitle": "Want to learn more or explore a partnership?",
     "closingPrimary": "Follow our progress",
     "closingSecondary": "Contact us",
@@ -103,11 +102,11 @@
         "bio": "25+ years scaling businesses across Texas and El Salvador. Bitcoin advocate and tokenization pioneer leading EQUITTY's vision, regulatory strategy, and DASP licensing.",
         "signal": "U.S.–LatAm market development, blockchain adoption, founder-led execution"
       },
-      "josh": {
-        "name": "Josh Alballero",
+      "jose": {
+        "name": "José Landaverde",
         "role": "Co-Founder & CFO",
-        "bio": "Financial strategist and serial entrepreneur. Founded IOOGO, raised $7.6M, achieved a $10M+ exit. Leads EQUITTY's capital strategy, investor relations, and fundraising execution.",
-        "signal": "Venture fundraising, financial planning, revenue operations"
+        "bio": "CPA with more than 20 years of experience in auditing and financial consulting at organizations in the U.S. and El Salvador. With experience in real estate and investor relations, he currently leads investment strategy and financial planning.",
+        "signal": "Financial audit and consulting, investment strategy, financial planning"
       },
       "mario": {
         "name": "Mario Meléndez",
@@ -125,30 +124,23 @@
     "board": {
       "sigfredo": {
         "name": "Sigfredo Figueroa",
-        "role": "Board director",
+        "role": "Advisor",
         "bio": "Founder of LEXGLOBAL | Legal advisor, El Salvador Energy Directorate | Key legal advisor in drafting the Law on the Issuance of Digital Assets (LEAD)"
       },
       "joseLuis": {
         "name": "José Luis Ortiz",
-        "role": "Board director",
+        "role": "Advisor",
         "bio": "Founder of TechyWe.com | Technology infrastructure and enterprise leadership"
       },
       "erick": {
         "name": "Erick Chacón",
-        "role": "Board director",
+        "role": "Advisor",
         "bio": "Founder of PaySea | President at ASAFINTECH | FinTech industry leadership in El Salvador"
-      }
-    },
-    "advisors": {
+      },
       "ricardo": {
         "name": "Ricardo Granillo",
         "role": "Strategic advisor",
         "bio": "30+ years scaling markets across LatAm | TACA, Bayer, GSK, TIGO | Institutional network and sector access"
-      },
-      "joseLandaverde": {
-        "name": "José Landaverde",
-        "role": "Senior finance advisor",
-        "bio": "CPA with more than 20 years of experience in accounting, auditing, tax, and financial consulting. He is currently Managing Partner at DMA Business Group in El Salvador and the U.S., leading strategic services. He previously led systems implementation at Grupo Roble, with experience in real estate and investor relations."
       }
     }
   },
