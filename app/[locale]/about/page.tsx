@@ -22,6 +22,7 @@ type BoardMember = {
 
 const teamPhotos: Record<string, string> = {
   martin: '/team/martin.png',
+  jose: '/team/jose.jpg',
   mario: '/team/mario.png',
   oscar: '/team/oscar.png',
 };
@@ -33,12 +34,16 @@ const teamPhotoPositions: Record<string, string> = {
 };
 
 const boardPhotos: Record<string, string> = {
-  sigfredo: '/team/sigfredo.jpg',
+  ricardo: '/team/ricardo.jpg',
   joseLuis: '/team/joseLuis.png',
   erick: '/team/erick.jpg',
+  mike: '/team/mike.jpeg',
 };
 
-const boardPhotoPositions: Record<string, string> = {};
+const boardPhotoPositions: Record<string, string> = {
+  ricardo: 'center 18%',
+  mike: 'center 18%',
+};
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
