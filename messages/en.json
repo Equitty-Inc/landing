@@ -122,10 +122,10 @@
       }
     },
     "board": {
-      "sigfredo": {
-        "name": "Sigfredo Figueroa",
-        "role": "Advisor",
-        "bio": "Founder of LEXGLOBAL | Legal advisor, El Salvador Energy Directorate | Key legal advisor in drafting the Law on the Issuance of Digital Assets (LEAD)"
+      "ricardo": {
+        "name": "Ricardo Granillo",
+        "role": "Advisory Board Member",
+        "bio": "Regional Investor Relations & Strategic Partnerships"
       },
       "joseLuis": {
         "name": "José Luis Ortiz",
@@ -137,10 +137,10 @@
         "role": "Advisor",
         "bio": "Founder of PaySea | President at ASAFINTECH | FinTech industry leadership in El Salvador"
       },
-      "ricardo": {
-        "name": "Ricardo Granillo",
-        "role": "Strategic advisor",
-        "bio": "30+ years scaling markets across LatAm | TACA, Bayer, GSK, TIGO | Institutional network and sector access"
+      "mike": {
+        "name": "Mike Angel",
+        "role": "Advisory Board Member",
+        "bio": "Global Investor Relations & Strategic Partnerships"
       }
     }
   },
