@@ -45,9 +45,9 @@ export async function generateMetadata({
       locale: locale,
       siteName: 'Equitty',
       url: `${BASE_URL}/${locale}`,
-      images: [
-        {
-          url: '/product/marketplace-home.webp',
+          images: [
+            {
+              url: '/equitty_isotipo.png',
           width: 1200,
           height: 630,
           alt: t('title'),
@@ -59,7 +59,7 @@ export async function generateMetadata({
       title: t('title'),
       description: t('description'),
       creator: '@equitty',
-      images: ['/product/marketplace-home.webp'],
+      images: ['/equitty_isotipo.png'],
     },
     alternates: {
       languages: {

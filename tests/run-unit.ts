@@ -1,3 +1,4 @@
+import { runEquittyMarkTests } from './equittyMark.test.ts';
 import {
   runMailerLocaleTests,
   runNewsletterSchemaTests,
@@ -12,6 +13,10 @@ type Suite = {
 };
 
 const suites: Suite[] = [
+  {
+    name: 'equittyMark',
+    run: runEquittyMarkTests,
+  },
   {
     name: 'registrySchema',
     run: runRegistrySchemaTests,

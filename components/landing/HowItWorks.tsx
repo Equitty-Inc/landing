@@ -2,16 +2,16 @@
 
 import { useRef } from 'react';
 import { motion, useReducedMotion, useScroll, useSpring, useTransform } from 'framer-motion';
-import { Gift, Globe2, LayoutGrid, Mail } from 'lucide-react';
+import { Landmark, Layers3, ShieldCheck, Users } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import NeonIcon from '@/components/landing/NeonIcon';
 import SectionHeading from '@/components/landing/SectionHeading';
 
 const STEPS = [
-  { key: 'step1', icon: Globe2, accent: 'cyan' },
-  { key: 'step2', icon: Mail, accent: 'violet' },
-  { key: 'step3', icon: Gift, accent: 'amber' },
-  { key: 'step4', icon: LayoutGrid, accent: 'emerald' },
+  { key: 'step1', icon: Landmark, accent: 'cyan' },
+  { key: 'step2', icon: Users, accent: 'violet' },
+  { key: 'step3', icon: Layers3, accent: 'amber' },
+  { key: 'step4', icon: ShieldCheck, accent: 'emerald' },
 ] as const;
 
 export default function HowItWorks() {

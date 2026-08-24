@@ -5,6 +5,7 @@ import { useTranslations } from 'next-intl';
 import NeonIcon from '@/components/landing/NeonIcon';
 import ProductFrame from '@/components/landing/ProductFrame';
 import SectionHeading from '@/components/landing/SectionHeading';
+import { SHOW_PLATFORM_SHOTS } from '@/lib/landingFlags';
 
 const POINTS = [
   { key: 'point1', icon: Building2, accent: 'cyan' },
@@ -31,9 +32,11 @@ export default function ProductPreview() {
             </article>
           ))}
         </div>
-        <div className="mt-8 sm:mt-12">
-          <ProductFrame src="/product/property-cards.webp" alt={t('cardsAlt')} url="equitty.app/marketplace" />
-        </div>
+        {SHOW_PLATFORM_SHOTS ? (
+          <div className="mt-8 sm:mt-12">
+            <ProductFrame src="/product/property-cards.webp" alt={t('cardsAlt')} url="equitty.app/marketplace" />
+          </div>
+        ) : null}
       </div>
     </section>
   );

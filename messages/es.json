@@ -11,7 +11,10 @@
     "hero_title_highlight": "activos reales",
     "hero_title_end": "",
     "headline": "El marketplace de activos reales tokenizados",
-    "subhead": "La misma plataforma Equitty que ya opera el marketplace: inventario tokenizado, métricas de TIR, fondeo y liquidez en un flujo diseñado para inversionistas calificados. Hoy puedes reservar tu lugar. Las inversiones aún no están abiertas.",
+    "subhead": "Equitty construye un marketplace de activos reales tokenizados en El Salvador, bajo el marco CNAD. Inventario, métricas y un flujo para inversionistas calificados. Las inversiones aún no están abiertas.",
+    "heroArtAlt": "Isotipo de Equitty de dos triángulos con animación de encendido",
+    "heroSecondaryCta": "Ver cumplimiento",
+    "heroTertiaryCta": "Conocer al equipo",
     "productShotAlt": "Marketplace de Equitty con propiedades tokenizadas, filtros de categoría y métricas de inversión",
     "applicationPendingBadge": "CNAD · en revisión",
     "Form": {
@@ -58,7 +61,7 @@
     "Footer": {
       "tagline": "Infraestructura financiera para activos reales en El Salvador y Latinoamérica.",
       "regulated": "Equitty — plataforma diseñada bajo el marco CNAD de El Salvador. Emisión privada para inversionistas calificados.",
-      "footerDisclaimer": "Unirte a la lista no es una oferta de inversión. Invertir implica riesgo, incluida la pérdida del capital.",
+      "footerDisclaimer": "Esta página no es una oferta de inversión. Invertir implica riesgo, incluida la pérdida del capital.",
       "privacy": "Privacidad",
       "terms": "Términos y condiciones",
       "termsModalTitle": "Términos y condiciones de la lista de espera de Equitty",
@@ -146,8 +149,8 @@
     },
     "Product": {
       "eyebrow": "La plataforma",
-      "title": "El marketplace que ya ves en Equitty",
-      "subtitle": "Cards de propiedad, TIR, plazo, liquidez, barras de construcción y fondeo, y un CTA de invertir. La landing ahora usa el mismo lenguaje visual que el producto.",
+      "title": "Infraestructura para activos reales tokenizados",
+      "subtitle": "Inventario, métricas y un flujo pensado para inversionistas calificados. El producto se construye bajo el marco CNAD; las inversiones aún no están abiertas.",
       "cardsAlt": "Detalle de tarjetas de propiedad en el marketplace de Equitty",
       "point1": {
         "label": "Inventario",
@@ -257,54 +260,56 @@
         "description": "Barras duales para ver cuánto está construido y cuánto está fondeado, sin narrativa opaca."
       },
       "item4": {
-        "title": "Hoy reservas tu lugar. Invertir viene después",
-        "description": "Unirte a la lista no es una oferta. Cuando haya oferta, será para inversionistas calificados, en un flujo regulado."
+        "title": "Las inversiones aún no están abiertas",
+        "description": "Cuando haya oferta, será para inversionistas calificados, en un flujo regulado. Hoy no hay captación de capital."
       }
     },
     "FinalCta": {
       "eyebrow": "Siguiente paso",
-      "title": "Reserva tu lugar en el marketplace",
-      "subtitle": "Cuando las inversiones abran, vas a entrar a la misma Equitty que ya ves aquí: inventario, métricas y un flujo regulado.",
+      "title": "El marketplace se está construyendo con el marco primero",
+      "subtitle": "Cuando las inversiones abran, el acceso será para inversionistas calificados, con inventario, métricas y un flujo regulado.",
       "cta": "Unirme a la lista",
+      "secondaryCta": "Ver cumplimiento",
+      "closedNote": "Hoy no hay oferta, lista de espera pública ni captación de capital. El siguiente hito es el proceso DASP y el equipo que lo ejecuta.",
       "shotAlt": "Vista completa del marketplace de Equitty",
       "caption": "Activos tokenizados · El Salvador"
     },
     "HowItWorks": {
       "eyebrow": "Proceso",
-      "title": "De la lista de espera al marketplace",
-      "subtitle": "El formulario no cambia por dentro. Cambia cómo se presenta el camino hacia invertir en activos reales.",
+      "title": "Del marco regulado al marketplace",
+      "subtitle": "Así se construye el acceso a activos reales tokenizados, sin adelantar una oferta.",
       "step1": {
-        "title": "Únete con tu nacionalidad",
-        "description": "El catálogo de países y la validación actuales siguen conectados al formulario real."
+        "title": "Marco CNAD primero",
+        "description": "La plataforma se diseña dentro del marco de activos digitales de El Salvador. El trámite va antes que la captación."
       },
       "step2": {
-        "title": "Deja tu correo",
-        "description": "El envío pasa por la misma acción de servidor. Recibirás actualizaciones del lanzamiento."
+        "title": "Equipo y gobernanza",
+        "description": "Operadores, finanzas, tecnología y una mesa de asesores con estándar institucional desde el día uno."
       },
       "step3": {
-        "title": "Código de referido, si aplica",
-        "description": "Si llegaste por invitación, el código es opcional y se valida en el mismo envío. No es un paso extra."
+        "title": "Producto con métricas claras",
+        "description": "Inventario, TIR, fondeo y liquidez se presentan con la misma jerarquía que tendrá el marketplace."
       },
       "step4": {
-        "title": "Espera el marketplace",
-        "description": "Cuando haya oferta, el producto que verás es el marketplace: propiedades, métricas e Invertir ahora."
+        "title": "Acceso calificado al lanzamiento",
+        "description": "Cuando haya oferta, será privada y para inversionistas calificados. Hoy no hay captación de capital."
       }
     },
     "Faq": {
       "eyebrow": "FAQ",
       "title": "Preguntas de inversionistas",
-      "subtitle": "Transparencia de producto y de lista de espera, con el mismo tono del marketplace.",
+      "subtitle": "Transparencia de producto y de cumplimiento, con el mismo tono institucional.",
       "item1": {
         "question": "¿Ya puedo invertir?",
-        "answer": "Todavía no. Equitty está en lista de espera. Unirte no es una oferta ni una solicitud de inversión. Las oportunidades se abrirán para inversionistas calificados."
+        "answer": "Todavía no. Equitty no está ofreciendo inversiones ni captando capital. Las oportunidades se abrirán para inversionistas calificados cuando el marco lo permita."
       },
       "item2": {
-        "question": "¿Esto es la misma plataforma Equitty?",
-        "answer": "Sí. El lenguaje visual y las capturas vienen del marketplace en producción: header, fichas de propiedad, métricas y CTAs de Invertir ahora."
+        "question": "¿Qué está construyendo Equitty?",
+        "answer": "Un marketplace de activos reales tokenizados en El Salvador: inventario, métricas y un flujo regulado. El producto está en construcción y no mostramos capturas de la plataforma en esta etapa."
       },
       "item3": {
-        "question": "¿Sigue existiendo el código de referido?",
-        "answer": "Sí, pero es opcional. Si te invitaron, puedes pegarlo debajo del botón. Si llegas con un enlace de referido, el código se aplica solo."
+        "question": "¿Quién podrá invertir al lanzamiento?",
+        "answer": "Inversionistas autorizados y calificados bajo el marco CNAD. El acceso retail general está pensado para una fase posterior."
       },
       "item4": {
         "question": "¿Bajo qué regulación opera?",
@@ -482,7 +487,8 @@
       }
     },
     "launchNote": "No aceptamos solicitudes de inversión, expresiones de interés ni compromisos de capital en este momento.",
-    "cta": "Únete a la lista de espera"
+    "cta": "Únete a la lista de espera",
+    "secondaryCta": "Conoce al equipo"
   },
   "Updates": {
     "heroTitle": "Construyendo EQUITTY — en público",

@@ -11,7 +11,10 @@
     "hero_title_highlight": "real-world assets",
     "hero_title_end": "",
     "headline": "The marketplace for tokenized real-world assets",
-    "subhead": "The same Equitty platform that already runs the marketplace: tokenized inventory with clear IRR, funding, and liquidity data in a flow designed for qualified investors. You can reserve your seat today. Investments are not open yet.",
+    "subhead": "Equitty is building a marketplace for tokenized real-world assets in El Salvador, under the CNAD framework. Inventory, metrics, and a flow designed for qualified investors. Investments are not open yet.",
+    "heroArtAlt": "Equitty two-triangle mark with a gentle ignition animation",
+    "heroSecondaryCta": "See compliance",
+    "heroTertiaryCta": "Meet the team",
     "productShotAlt": "Equitty marketplace with tokenized properties, category filters, and investment metrics",
     "applicationPendingBadge": "CNAD · under review",
     "Form": {
@@ -58,7 +61,7 @@
     "Footer": {
       "tagline": "Financial infrastructure for real-world assets in El Salvador and Latin America.",
       "regulated": "Equitty — a platform designed under El Salvador’s CNAD framework. Private issuance for qualified investors.",
-      "footerDisclaimer": "Joining the waitlist is not an offer to sell or a solicitation to buy investments. Investing involves risk, including loss of principal.",
+      "footerDisclaimer": "This page is not an offer to sell or a solicitation to buy investments. Investing involves risk, including loss of principal.",
       "privacy": "Privacy",
       "terms": "Terms & Conditions",
       "termsModalTitle": "Equitty waitlist terms & conditions",
@@ -146,8 +149,8 @@
     },
     "Product": {
       "eyebrow": "The platform",
-      "title": "The marketplace you already see in Equitty",
-      "subtitle": "Property cards, IRR, term, liquidity, construction and funding bars, and an Invest now CTA. The landing now speaks the same visual language as the product.",
+      "title": "Infrastructure for tokenized real-world assets",
+      "subtitle": "Inventory, metrics, and a flow designed for qualified investors. The product is being built under the CNAD framework; investments are not open yet.",
       "cardsAlt": "Close-up of Equitty marketplace property cards",
       "point1": {
         "label": "Inventory",
@@ -252,8 +255,8 @@
         "description": "Dual bars show how much is built and how much is funded, without opaque narrative."
       },
       "item4": {
-        "title": "Reserve your seat today. Investing comes later",
-        "description": "Joining the waitlist is not an offer. When offerings open, they will be for qualified investors, in a regulated flow."
+        "title": "Investments are not open yet",
+        "description": "When offerings open, they will be for qualified investors, in a regulated flow. Nothing is being raised today."
       }
     },
     "Testimonials": {
@@ -263,48 +266,50 @@
     },
     "HowItWorks": {
       "eyebrow": "Process",
-      "title": "From waitlist to marketplace",
-      "subtitle": "The form does not change underneath. What changes is how the path into real-world assets is presented.",
+      "title": "From the regulatory frame to the marketplace",
+      "subtitle": "How access to tokenized real-world assets is being built, without bringing an offering forward.",
       "step1": {
-        "title": "Join with your nationality",
-        "description": "The current country catalog and validation stay connected to the real form."
+        "title": "CNAD framework first",
+        "description": "The platform is designed inside El Salvador’s digital-asset framework. Filings come before capital raising."
       },
       "step2": {
-        "title": "Leave your email",
-        "description": "Submission still goes through the same server action. You will get launch updates."
+        "title": "Team and governance",
+        "description": "Operators, finance, technology, and an advisory panel with institutional standards from day one."
       },
       "step3": {
-        "title": "Referral code, if you have one",
-        "description": "If you were invited, the code is optional and validated in the same submission. It is not an extra step."
+        "title": "A product with clear metrics",
+        "description": "Inventory, IRR, funding, and liquidity will use the same hierarchy the marketplace is being built around."
       },
       "step4": {
-        "title": "Wait for the marketplace",
-        "description": "When offerings open, the product you will see is the marketplace: properties, metrics, and Invest now."
+        "title": "Qualified access at launch",
+        "description": "When an offering exists, it will be private and for qualified investors. Nothing is being raised today."
       }
     },
     "FinalCta": {
       "eyebrow": "Next step",
-      "title": "Reserve your seat in the marketplace",
-      "subtitle": "When investments open, you will enter the same Equitty you see here: inventory, metrics, and a regulated flow.",
+      "title": "The marketplace is being built with the framework first",
+      "subtitle": "When investments open, access will be for qualified investors, with inventory, metrics, and a regulated flow.",
       "cta": "Join the waitlist",
+      "secondaryCta": "See compliance",
+      "closedNote": "There is no public waitlist, offering, or capital raise today. The next milestone is the DASP process and the team executing it.",
       "shotAlt": "Full Equitty marketplace view",
       "caption": "Tokenized assets · El Salvador"
     },
     "Faq": {
       "eyebrow": "FAQ",
       "title": "Investor questions",
-      "subtitle": "Product and waitlist transparency, in the same tone as the marketplace.",
+      "subtitle": "Product and compliance transparency, in the same institutional tone.",
       "item1": {
         "question": "Can I invest today?",
-        "answer": "Not yet. Equitty is on a waitlist. Joining is not an offer or a solicitation. Opportunities will open for qualified investors."
+        "answer": "Not yet. Equitty is not offering investments or raising capital. Opportunities will open for qualified investors when the framework allows it."
       },
       "item2": {
-        "question": "Is this the same Equitty platform?",
-        "answer": "Yes. The visual language and screenshots come from the production marketplace: header, property cards, metrics, and Invest now CTAs."
+        "question": "What is Equitty building?",
+        "answer": "A marketplace for tokenized real-world assets in El Salvador: inventory, metrics, and a regulated flow. The product is under construction, and we are not showing platform screenshots at this stage."
       },
       "item3": {
-        "question": "Is the referral code still there?",
-        "answer": "Yes, but it is optional. If you were invited, you can paste it below the button. If you arrive with a referral link, the code is applied for you."
+        "question": "Who will be able to invest at launch?",
+        "answer": "Authorized and qualified investors under the CNAD framework. Broader retail access is planned for a later phase."
       },
       "item4": {
         "question": "What regulation does this sit under?",
@@ -482,7 +487,8 @@
       }
     },
     "launchNote": "We are not accepting investor applications, expressions of interest, or capital commitments at this time.",
-    "cta": "Join the waitlist"
+    "cta": "Join the waitlist",
+    "secondaryCta": "Meet the team"
   },
   "Updates": {
     "heroTitle": "Building EQUITTY—in public",
