@@ -3,7 +3,7 @@ import { getTranslations } from 'next-intl/server';
 import { ContentCard, ContentSection } from '@/components/landing/ContentSection';
 import PageShell from '@/components/landing/PageShell';
 import TeamMemberCard from '@/components/landing/TeamMemberCard';
-import { BOARD_SLUGS, TEAM_SLUGS, boardPhotos, teamPhotoPositions, teamPhotos } from '@/lib/team';
+import { BOARD_SLUGS, TEAM_SLUGS, boardPhotos, teamPhotoPositions, teamPhotoScales, teamPhotos } from '@/lib/team';
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -50,6 +50,7 @@ export default async function AboutPage({ params }: Props) {
               signal={team(`members.${slug}.signal`)}
               photo={teamPhotos[slug]}
               objectPosition={teamPhotoPositions[slug]}
+              imageScale={teamPhotoScales[slug]}
             />
           ))}
         </div>
@@ -66,6 +67,7 @@ export default async function AboutPage({ params }: Props) {
               bio={team(`advisors.${slug}.bio`)}
               photo={boardPhotos[slug]}
               objectPosition={teamPhotoPositions[slug]}
+              imageScale={teamPhotoScales[slug]}
             />
           ))}
         </div>
