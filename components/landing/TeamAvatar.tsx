@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, type CSSProperties } from 'react';
 import { cn } from '@/lib/utils';
 
 type TeamAvatarProps = {
@@ -9,6 +9,8 @@ type TeamAvatarProps = {
   src?: string;
   size?: 'md' | 'sm' | 'xs' | 'square' | 'founder';
   objectPosition?: string;
+  /** Zooms object-cover framing for headshot-style crops (1 = default). */
+  imageScale?: number;
   className?: string;
 };
 
@@ -58,12 +60,14 @@ export default function TeamAvatar({
   src,
   size = 'md',
   objectPosition = 'center',
+  imageScale = 1,
   className,
 }: TeamAvatarProps) {
   const [errored, setErrored] = useState(false);
   const initials = getInitials(name);
   const dimension = sizePixels[size];
   const showImage = Boolean(src) && !errored;
+  const photoScale = Number.isFinite(imageScale) && imageScale > 0 ? imageScale : 1;
 
   return (
     <div
@@ -81,8 +85,13 @@ export default function TeamAvatar({
           height={dimension}
           sizes={sizeSrcSet[size]}
           onError={() => setErrored(true)}
-          style={{ objectPosition }}
-          className="h-full w-full object-cover transition-[filter,transform] duration-500 ease-out group-hover/card:scale-[1.04]"
+          style={
+            {
+              objectPosition,
+              '--team-photo-scale': String(photoScale),
+            } as CSSProperties
+          }
+          className="h-full w-full origin-center object-cover transition-[filter,transform] duration-500 ease-out [transform:scale(var(--team-photo-scale,1))] group-hover/card:[transform:scale(calc(var(--team-photo-scale,1)*1.04))]"
         />
       ) : (
         <div
