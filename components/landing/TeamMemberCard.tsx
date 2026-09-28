@@ -10,6 +10,7 @@ type TeamMemberCardProps = {
   signal?: string;
   photo?: string;
   objectPosition?: string;
+  imageScale?: number;
   variant?: 'founder' | 'advisor';
 };
 
@@ -20,6 +21,7 @@ export default function TeamMemberCard({
   signal,
   photo,
   objectPosition,
+  imageScale,
   variant = 'founder',
 }: TeamMemberCardProps) {
   const isFounder = variant === 'founder';
@@ -38,6 +40,7 @@ export default function TeamMemberCard({
         src={photo}
         size={isFounder ? 'founder' : 'square'}
         objectPosition={objectPosition}
+        imageScale={imageScale}
       />
       <div
         className={cn(

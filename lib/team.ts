@@ -22,5 +22,11 @@ export const teamPhotoPositions: Record<string, string> = {
   ricardo: 'center 18%',
   joseLuis: 'center 12%',
   erick: 'center 18%',
-  mike: 'center 12%',
+  // Full-body source — bias up so the zoomed portrait keeps the face framed.
+  mike: 'center 18%',
+};
+
+/** Extra object-cover zoom for photos that need a tighter headshot crop. */
+export const teamPhotoScales: Record<string, number> = {
+  mike: 2.55,
 };

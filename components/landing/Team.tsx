@@ -3,7 +3,14 @@
 import { useTranslations } from 'next-intl';
 import SectionHeading from '@/components/landing/SectionHeading';
 import TeamMemberCard from '@/components/landing/TeamMemberCard';
-import { BOARD_SLUGS, TEAM_SLUGS, boardPhotos, teamPhotoPositions, teamPhotos } from '@/lib/team';
+import {
+  BOARD_SLUGS,
+  TEAM_SLUGS,
+  boardPhotos,
+  teamPhotoPositions,
+  teamPhotoScales,
+  teamPhotos,
+} from '@/lib/team';
 
 export default function Team() {
   const t = useTranslations('HomePage.Team');
@@ -41,6 +48,7 @@ export default function Team() {
               signal={t(`members.${slug}.signal`)}
               photo={teamPhotos[slug]}
               objectPosition={teamPhotoPositions[slug]}
+              imageScale={teamPhotoScales[slug]}
             />
           ))}
         </div>
@@ -59,6 +67,7 @@ export default function Team() {
               bio={t(`advisors.${slug}.bio`)}
               photo={boardPhotos[slug]}
               objectPosition={teamPhotoPositions[slug]}
+              imageScale={teamPhotoScales[slug]}
             />
           ))}
         </div>
